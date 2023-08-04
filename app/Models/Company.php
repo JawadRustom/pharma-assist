@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
@@ -18,10 +19,7 @@ class Company extends Model
      */
     protected $fillable = [
         'name',
-        'location',
-        'opening_date',
-        'details',
-        'image',
+        'language_id',
     ];
 
     /**
@@ -30,11 +28,15 @@ class Company extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'opening_date'=>'date',
+        'language_id'=>'integer',
     ];
 
     public function medicines(): HasMany
     {
         return $this->hasMany(Medicine::class,'company_id','id');
+    }
+    public function languages(): BelongsTo
+    {
+        return $this->BelongsTo(Language::class,'language_id','id');
     }
 }

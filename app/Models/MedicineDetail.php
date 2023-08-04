@@ -16,9 +16,10 @@ class MedicineDetail extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'medicine_type_id',
+        'content',
         'medicine_id',
-        'details_header',
-        'details',
+        'language_id',
     ];
 
     /**
@@ -27,11 +28,21 @@ class MedicineDetail extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'medicine_type_id'=>'integer',
         'medicine_id'=>'integer',
+        'language_id'=>'integer',
     ];
+    public function medicineTypes(): BelongsTo
+    {
+        return $this->BelongsTo(MedicineType::class,'medicine_type_id','id');
+    }
 
-    public function companies(): BelongsTo
+    public function medicines(): BelongsTo
     {
         return $this->BelongsTo(Medicine::class,'medicine_id','id');
+    }
+    public function languages(): BelongsTo
+    {
+        return $this->BelongsTo(Language::class,'language_id','id');
     }
 }

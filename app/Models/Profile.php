@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class Profile extends Model
 {
     use HasFactory;
 
@@ -17,8 +16,10 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'language_id',
+        'birth_date',
+        'specialty',
+        'gender',
+        'user_id',
     ];
 
     /**
@@ -27,16 +28,11 @@ class Category extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'language_id'=>'integer',
+        'birth_date'=>'date',
+        'user_id'=>'integer',
     ];
-
-    public function medicines(): HasMany
+    public function users(): BelongsTo
     {
-        return $this->hasMany(Medicine::class,'category_id','id');
+        return $this->BelongsTo(User::class,'user_id','id');
     }
-    public function languages(): BelongsTo
-    {
-        return $this->BelongsTo(Language::class,'language_id','id');
-    }
-
 }

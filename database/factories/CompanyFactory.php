@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,10 +19,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'location' => fake()->address(),
-            'opening_date' => $this->faker->date(),
-            'details' => $this->faker->text,
-            'image' => $this->faker->image(),
+            'language_id'=> Language::factory(),
         ];
     }
 }

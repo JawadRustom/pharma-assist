@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Medicine extends Model
+class MedicineType extends Model
 {
     use HasFactory;
 
@@ -17,9 +17,7 @@ class Medicine extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'company_id',
-        'category_id',
+        'type',
         'language_id',
     ];
 
@@ -29,27 +27,14 @@ class Medicine extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'company_id'=>'integer',
-        'category_id'=>'integer',
         'language_id'=>'integer',
     ];
-
-    public function companies(): BelongsTo
+    public function medicineDetails(): HasMany
     {
-        return $this->BelongsTo(Company::class,'company_id','id');
-    }
-
-    public function categories(): BelongsTo
-    {
-        return $this->BelongsTo(Category::class,'category_id','id');
+        return $this->HasMany(MedicineDetail::class,'medicine_type_id','id');
     }
     public function languages(): BelongsTo
     {
         return $this->BelongsTo(Language::class,'language_id','id');
     }
-    public function medicineDetails(): HasMany
-    {
-        return $this->HasMany(MedicineDetail::class,'medicine_id','id');
-    }
-
 }

@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->linestring('name');
-            $table->linestring('image');
-            $table->multiLineString('details');
+            $table->foreignId('language_id')->reference('id')->on('languages');
             $table->timestamps();
         });
     }

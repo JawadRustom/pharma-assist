@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->linestring('name');
-            $table->foreignId('language_id')->reference('id')->on('languages');
+            $table->date('birth_date');//add to profile table
+            $table->linestring('specialty');//add to profile table
+            $table->linestring('gender');//add to profile table
+            $table->foreignId('user_id')->reference('id')->on('users');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('profiles');
     }
 };

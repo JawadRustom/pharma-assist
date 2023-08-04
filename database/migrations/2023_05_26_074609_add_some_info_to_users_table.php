@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->linestring('first_name');
             $table->linestring('last_name');
-            $table->date('birth_date');
             $table->integer('phone_number');
-            $table->linestring('specialty');
-            $table->linestring('gender');
         });
     }
 

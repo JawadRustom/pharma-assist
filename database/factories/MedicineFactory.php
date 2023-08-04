@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class MedicineFactory extends Factory
             'name' => fake()->name(),
             'company_id' => Company::factory(),
             'category_id' => Category::factory(),
+            'language_id' => Language::factory(),
         ];
     }
 }

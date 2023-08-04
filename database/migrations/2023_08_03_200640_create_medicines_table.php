@@ -16,6 +16,7 @@ return new class extends Migration
             $table->linestring('name');
             $table->foreignId('company_id')->reference('id')->on('companies');
             $table->foreignId('category_id')->reference('id')->on('categories');
+            $table->foreignId('language_id')->reference('id')->on('languages');
             $table->timestamps();
         });
     }
