@@ -92,6 +92,26 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-websiteadminauthentication" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="websiteadminauthentication">
+                    <a href="#websiteadminauthentication">WebSiteAdminAuthentication</a>
+                </li>
+                                    <ul id="tocify-subheader-websiteadminauthentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="websiteadminauthentication-POSTapi-v1-login-admin">
+                                <a href="#websiteadminauthentication-POSTapi-v1-login-admin">Login</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-websitesubadminauthentication" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="websitesubadminauthentication">
+                    <a href="#websitesubadminauthentication">WebSiteSubAdminAuthentication</a>
+                </li>
+                                    <ul id="tocify-subheader-websitesubadminauthentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="websitesubadminauthentication-POSTapi-v1-login-subAdmin">
+                                <a href="#websitesubadminauthentication-POSTapi-v1-login-subAdmin">Login</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -101,7 +121,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 8, 2023</li>
+        <li>Last updated: August 9, 2023</li>
     </ul>
 </div>
 
@@ -387,8 +407,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"yschoen@example.org\",
-    \"password\": \"consequatur\"
+    \"email\": \"hank.hoeger@example.com\",
+    \"password\": \"ipsum\"
 }"
 </code></pre></div>
 
@@ -404,8 +424,8 @@ const headers = {
 };
 
 let body = {
-    "email": "yschoen@example.org",
-    "password": "consequatur"
+    "email": "hank.hoeger@example.com",
+    "password": "ipsum"
 };
 
 fetch(url, {
@@ -538,10 +558,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="yschoen@example.org"
+               value="hank.hoeger@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>yschoen@example.org</code></p>
+<p>Must be a valid email address. Example: <code>hank.hoeger@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -549,10 +569,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="consequatur"
+               value="ipsum"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>ipsum</code></p>
         </div>
         </form>
 
@@ -573,13 +593,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"maritza.erdman@example.com\",
-    \"password\": \"&lt;2.drk&gt;D.fgvwYPb\",
-    \"first_name\": \"toupkldhd\",
-    \"last_name\": \"w\",
-    \"phone_number\": \"acjczmbea\",
-    \"birth_date\": \"1998-03-21\",
-    \"specialty\": \"other\",
+    \"email\": \"pdoyle@example.org\",
+    \"password\": \"^vIn\'5PsM\",
+    \"first_name\": \"ry\",
+    \"last_name\": \"lzd\",
+    \"phone_number\": \"jiadooouy\",
+    \"birth_date\": \"2011-03-15\",
+    \"specialty\": \"doctor\",
     \"gender\": \"female\"
 }"
 </code></pre></div>
@@ -596,13 +616,13 @@ const headers = {
 };
 
 let body = {
-    "email": "maritza.erdman@example.com",
-    "password": "&lt;2.drk&gt;D.fgvwYPb",
-    "first_name": "toupkldhd",
-    "last_name": "w",
-    "phone_number": "acjczmbea",
-    "birth_date": "1998-03-21",
-    "specialty": "other",
+    "email": "pdoyle@example.org",
+    "password": "^vIn'5PsM",
+    "first_name": "ry",
+    "last_name": "lzd",
+    "phone_number": "jiadooouy",
+    "birth_date": "2011-03-15",
+    "specialty": "doctor",
     "gender": "female"
 };
 
@@ -745,10 +765,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="maritza.erdman@example.com"
+               value="pdoyle@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>maritza.erdman@example.com</code></p>
+<p>Must be a valid email address. Example: <code>pdoyle@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -756,10 +776,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="<2.drk>D.fgvwYPb"
+               value="^vIn'5PsM"
                data-component="body">
     <br>
-<p>Must be at least 8 characters. Must not be greater than 16 characters. Example: <code>&lt;2.drk&gt;D.fgvwYPb</code></p>
+<p>Must be at least 8 characters. Must not be greater than 16 characters. Example: <code>^vIn'5PsM</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
@@ -767,10 +787,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-v1-register"
-               value="toupkldhd"
+               value="ry"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Must not be greater than 10 characters. Example: <code>toupkldhd</code></p>
+<p>Must be at least 2 characters. Must not be greater than 10 characters. Example: <code>ry</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -778,10 +798,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-v1-register"
-               value="w"
+               value="lzd"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Must not be greater than 10 characters. Example: <code>w</code></p>
+<p>Must be at least 2 characters. Must not be greater than 10 characters. Example: <code>lzd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
@@ -789,10 +809,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_number"                data-endpoint="POSTapi-v1-register"
-               value="acjczmbea"
+               value="jiadooouy"
                data-component="body">
     <br>
-<p>Must be 9 characters. Example: <code>acjczmbea</code></p>
+<p>Must be 9 characters. Example: <code>jiadooouy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>birth_date</code></b>&nbsp;&nbsp;
@@ -800,10 +820,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-v1-register"
-               value="1998-03-21"
+               value="2011-03-15"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date before <code>2015-08-08</code>. Example: <code>1998-03-21</code></p>
+<p>Must be a valid date. Must be a date before <code>2015-08-09</code>. Example: <code>2011-03-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>specialty</code></b>&nbsp;&nbsp;
@@ -811,10 +831,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="specialty"                data-endpoint="POSTapi-v1-register"
-               value="other"
+               value="doctor"
                data-component="body">
     <br>
-<p>Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>. Example: <code>other</code></p>
+<p>Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>. Example: <code>doctor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -826,6 +846,386 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>Must be one of <code>male</code> or <code>female</code>. Example: <code>female</code></p>
+        </div>
+        </form>
+
+                <h1 id="websiteadminauthentication">WebSiteAdminAuthentication</h1>
+
+    <p>This Api For Admin Authentication in React</p>
+
+                                <h2 id="websiteadminauthentication-POSTapi-v1-login-admin">Login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-login-admin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/login/admin" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"kara50@example.net\",
+    \"password\": \"distinctio\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/login/admin"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "kara50@example.net",
+    "password": "distinctio"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-login-admin">
+            <blockquote>
+            <p>Example response (200, Register Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;token&quot;: &quot;2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, User send a valid token):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;You are already logged in&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Email or password is wrong or user type not user):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;email or password is wrong&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The email field is required. (and 1 more error)&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-login-admin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-login-admin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-login-admin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-login-admin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-login-admin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-login-admin" data-method="POST"
+      data-path="api/v1/login/admin"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-login-admin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-login-admin"
+                    onclick="tryItOut('POSTapi-v1-login-admin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-login-admin"
+                    onclick="cancelTryOut('POSTapi-v1-login-admin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-login-admin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/login/admin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-login-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-login-admin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-login-admin"
+               value="kara50@example.net"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>kara50@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v1-login-admin"
+               value="distinctio"
+               data-component="body">
+    <br>
+<p>Example: <code>distinctio</code></p>
+        </div>
+        </form>
+
+                <h1 id="websitesubadminauthentication">WebSiteSubAdminAuthentication</h1>
+
+    <p>This Api For SubAdmin Authentication in React</p>
+
+                                <h2 id="websitesubadminauthentication-POSTapi-v1-login-subAdmin">Login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-login-subAdmin">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/login/subAdmin" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"hdeckow@example.com\",
+    \"password\": \"architecto\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/login/subAdmin"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "hdeckow@example.com",
+    "password": "architecto"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-login-subAdmin">
+            <blockquote>
+            <p>Example response (200, Register Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;token&quot;: &quot;2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400, User send a valid token):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;You are already logged in&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Email or password is wrong or user type not user):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;email or password is wrong&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, Validation errors):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The email field is required. (and 1 more error)&quot;,
+    &quot;errors&quot;: {
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-login-subAdmin" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-login-subAdmin"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-login-subAdmin"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-login-subAdmin" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-login-subAdmin">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-login-subAdmin" data-method="POST"
+      data-path="api/v1/login/subAdmin"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-login-subAdmin', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-login-subAdmin"
+                    onclick="tryItOut('POSTapi-v1-login-subAdmin');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-login-subAdmin"
+                    onclick="cancelTryOut('POSTapi-v1-login-subAdmin');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-login-subAdmin"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/login/subAdmin</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-login-subAdmin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-login-subAdmin"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-login-subAdmin"
+               value="hdeckow@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>hdeckow@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v1-login-subAdmin"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
         </div>
         </form>
 

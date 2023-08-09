@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "2a11a837-a836-491c-80a8-536ff7b9658f",
+        "_postman_id": "ca032de0-e68f-469e-922e-a11c405605c5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -124,7 +124,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"yschoen@example.org\",\"password\":\"consequatur\"}"
+                            "raw": "{\"email\":\"hank.hoeger@example.com\",\"password\":\"ipsum\"}"
                         },
                         "description": "",
                         "auth": {
@@ -180,7 +180,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"maritza.erdman@example.com\",\"password\":\"<2.drk>D.fgvwYPb\",\"first_name\":\"toupkldhd\",\"last_name\":\"w\",\"phone_number\":\"acjczmbea\",\"birth_date\":\"1998-03-21\",\"specialty\":\"other\",\"gender\":\"female\"}"
+                            "raw": "{\"email\":\"pdoyle@example.org\",\"password\":\"^vIn'5PsM\",\"first_name\":\"ry\",\"last_name\":\"lzd\",\"phone_number\":\"jiadooouy\",\"birth_date\":\"2011-03-15\",\"specialty\":\"doctor\",\"gender\":\"female\"}"
                         },
                         "description": "",
                         "auth": {
@@ -204,6 +204,130 @@
                             "header": [],
                             "code": 422,
                             "body": "{\n\"message\": \"The email field is required. (and 7 more errors)\",\n\"errors\": {\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n],\n\"first_name\": [\n\"The first name field is required.\"\n],\n\"last_name\": [\n\"The last name field is required.\"\n],\n\"phone_number\": [\n\"The phone number field is required.\"\n],\n\"birth_date\": [\n\"The birth date field is required.\"\n],\n\"specialty\": [\n\"The specialty field is required.\"\n],\n\"gender\": [\n\"The gender field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "WebSiteAdminAuthentication",
+            "description": "\nThis Api For Admin Authentication in React",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login\/admin",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login\/admin"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kara50@example.net\",\"password\":\"distinctio\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"token\":\"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1\"\n}",
+                            "name": "Register Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n\"message\": \"You are already logged in\"\n}",
+                            "name": "User send a valid token"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"email or password is wrong\"\n}",
+                            "name": "Email or password is wrong or user type not user"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The email field is required. (and 1 more error)\",\n\"errors\": {\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n]\n}\n\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "WebSiteSubAdminAuthentication",
+            "description": "\nThis Api For SubAdmin Authentication in React",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login\/subAdmin",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login\/subAdmin"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"hdeckow@example.com\",\"password\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"token\":\"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1\"\n}",
+                            "name": "Register Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n\"message\": \"You are already logged in\"\n}",
+                            "name": "User send a valid token"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"email or password is wrong\"\n}",
+                            "name": "Email or password is wrong or user type not user"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n    \"message\": \"The email field is required. (and 1 more error)\",\n\"errors\": {\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n]\n}\n\n}",
                             "name": "Validation errors"
                         }
                     ]

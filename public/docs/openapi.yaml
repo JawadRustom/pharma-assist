@@ -137,11 +137,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: yschoen@example.org
+                  example: hank.hoeger@example.com
                 password:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: ipsum
               required:
                 - email
                 - password
@@ -269,31 +269,31 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: maritza.erdman@example.com
+                  example: pdoyle@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: '<2.drk>D.fgvwYPb'
+                  example: "^vIn'5PsM"
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: toupkldhd
+                  example: ry
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: w
+                  example: lzd
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: acjczmbea
+                  example: jiadooouy
                 birth_date:
                   type: string
-                  description: 'Must be a valid date. Must be a date before <code>2015-08-08</code>.'
-                  example: '1998-03-21'
+                  description: 'Must be a valid date. Must be a date before <code>2015-08-09</code>.'
+                  example: '2011-03-15'
                 specialty:
                   type: string
                   description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
-                  example: other
+                  example: doctor
                 gender:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
@@ -308,6 +308,198 @@ paths:
                 - specialty
                 - gender
       security: []
+  /api/v1/login/admin:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+                properties:
+                  token:
+                    type: string
+                    example: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+        400:
+          description: 'User send a valid token'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        401:
+          description: 'Email or password is wrong or user type not user'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'email or password is wrong'
+                properties:
+                  message:
+                    type: string
+                    example: 'email or password is wrong'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 1 more error)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - WebSiteAdminAuthentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: kara50@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: distinctio
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/login/subAdmin:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+                properties:
+                  token:
+                    type: string
+                    example: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+        400:
+          description: 'User send a valid token'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        401:
+          description: 'Email or password is wrong or user type not user'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'email or password is wrong'
+                properties:
+                  message:
+                    type: string
+                    example: 'email or password is wrong'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 1 more error)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - WebSiteSubAdminAuthentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hdeckow@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: architecto
+              required:
+                - email
+                - password
+      security: []
 tags:
   -
     name: Endpoints
@@ -315,3 +507,9 @@ tags:
   -
     name: MobileAuthentication
     description: "\nThis Api For Authentication in flutter"
+  -
+    name: WebSiteAdminAuthentication
+    description: "\nThis Api For Admin Authentication in React"
+  -
+    name: WebSiteSubAdminAuthentication
+    description: "\nThis Api For SubAdmin Authentication in React"
