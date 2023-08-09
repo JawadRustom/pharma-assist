@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('medicine_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('medicine_type_id')->reference('id')->on('medicine_types');
-            $table->multiLineString('content');
+            $table->string('content');
             $table->foreignId('medicine_id')->reference('id')->on('medicines');
             $table->foreignId('language_id')->reference('id')->on('languages');
             $table->timestamps();

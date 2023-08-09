@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medicine_types', function (Blueprint $table) {
             $table->id();
-            $table->lineString('type');
+            $table->string('type');
             $table->foreignId('language_id')->reference('id')->on('languages');
             $table->timestamps();
         });

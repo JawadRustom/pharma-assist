@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->linestring('first_name');
-            $table->linestring('last_name');
-            $table->integer('phone_number');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('phone_number');
         });
     }
 

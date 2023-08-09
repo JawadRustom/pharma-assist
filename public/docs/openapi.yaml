@@ -1,0 +1,317 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  '/api/v1/auth/{provider}':
+    post:
+      summary: ''
+      operationId: postApiV1AuthProvider
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: ''
+        example: google|facebook|local
+        required: true
+        schema:
+          type: string
+  /api/v1/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Logout Success'
+        401:
+          description: 'User Not Login Yet'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - MobileAuthentication
+      security: []
+  /api/v1/login:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+                properties:
+                  token:
+                    type: string
+                    example: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+        400:
+          description: 'User send a valid token'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        401:
+          description: 'Email or password is wrong or user type not user'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'email or password is wrong'
+                properties:
+                  message:
+                    type: string
+                    example: 'email or password is wrong'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 1 more error)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - MobileAuthentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: yschoen@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: consequatur
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/register:
+    post:
+      summary: Register
+      operationId: register
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
+                properties:
+                  token:
+                    type: string
+                    example: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
+        400:
+          description: 'User already login'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 7 more errors)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                    first_name:
+                      - 'The first name field is required.'
+                    last_name:
+                      - 'The last name field is required.'
+                    phone_number:
+                      - 'The phone number field is required.'
+                    birth_date:
+                      - 'The birth date field is required.'
+                    specialty:
+                      - 'The specialty field is required.'
+                    gender:
+                      - 'The gender field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 7 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+                      first_name:
+                        type: array
+                        example:
+                          - 'The first name field is required.'
+                        items:
+                          type: string
+                      last_name:
+                        type: array
+                        example:
+                          - 'The last name field is required.'
+                        items:
+                          type: string
+                      phone_number:
+                        type: array
+                        example:
+                          - 'The phone number field is required.'
+                        items:
+                          type: string
+                      birth_date:
+                        type: array
+                        example:
+                          - 'The birth date field is required.'
+                        items:
+                          type: string
+                      specialty:
+                        type: array
+                        example:
+                          - 'The specialty field is required.'
+                        items:
+                          type: string
+                      gender:
+                        type: array
+                        example:
+                          - 'The gender field is required.'
+                        items:
+                          type: string
+      tags:
+        - MobileAuthentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: maritza.erdman@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: '<2.drk>D.fgvwYPb'
+                first_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+                  example: toupkldhd
+                last_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+                  example: w
+                phone_number:
+                  type: string
+                  description: 'Must be 9 characters.'
+                  example: acjczmbea
+                birth_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a date before <code>2015-08-08</code>.'
+                  example: '1998-03-21'
+                specialty:
+                  type: string
+                  description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
+                  example: other
+                gender:
+                  type: string
+                  description: 'Must be one of <code>male</code> or <code>female</code>.'
+                  example: female
+              required:
+                - email
+                - password
+                - first_name
+                - last_name
+                - phone_number
+                - birth_date
+                - specialty
+                - gender
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: MobileAuthentication
+    description: "\nThis Api For Authentication in flutter"

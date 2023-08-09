@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->date('birth_date');//add to profile table
-            $table->linestring('specialty');//add to profile table
-            $table->linestring('gender');//add to profile table
+            $table->string('specialty');//add to profile table
+            $table->string('gender');//add to profile table
             $table->foreignId('user_id')->reference('id')->on('users');
             $table->timestamps();
         });

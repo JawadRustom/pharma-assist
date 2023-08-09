@@ -1,0 +1,294 @@
+name: MobileAuthentication
+description: |-
+
+  This Api For Authentication in flutter
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/logout
+    metadata:
+      groupName: MobileAuthentication
+      groupDescription: |-
+
+        This Api For Authentication in flutter
+      subgroup: ''
+      subgroupDescription: ''
+      title: Logout
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{}'
+        headers: []
+        description: 'Logout Success'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'User Not Login Yet'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      groupName: MobileAuthentication
+      groupDescription: |-
+
+        This Api For Authentication in flutter
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: yschoen@example.org
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: yschoen@example.org
+      password: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"
+          }
+        headers: []
+        description: 'Register Success'
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+          "message": "You are already logged in"
+          }
+        headers: []
+        description: 'User send a valid token'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "email or password is wrong"
+          }
+        headers: []
+        description: 'Email or password is wrong or user type not user'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "message": "The email field is required. (and 1 more error)",
+          "errors": {
+          "email": [
+          "The email field is required."
+          ],
+          "password": [
+          "The password field is required."
+          ]
+          }
+
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/register
+    metadata:
+      groupName: MobileAuthentication
+      groupDescription: |-
+
+        This Api For Authentication in flutter
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: maritza.erdman@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
+        required: true
+        example: '<2.drk>D.fgvwYPb'
+        type: string
+        custom: []
+      first_name:
+        name: first_name
+        description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+        required: true
+        example: toupkldhd
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+        required: true
+        example: w
+        type: string
+        custom: []
+      phone_number:
+        name: phone_number
+        description: 'Must be 9 characters.'
+        required: true
+        example: acjczmbea
+        type: string
+        custom: []
+      birth_date:
+        name: birth_date
+        description: 'Must be a valid date. Must be a date before <code>2015-08-08</code>.'
+        required: true
+        example: '1998-03-21'
+        type: string
+        custom: []
+      specialty:
+        name: specialty
+        description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
+        required: true
+        example: other
+        type: string
+        custom: []
+      gender:
+        name: gender
+        description: 'Must be one of <code>male</code> or <code>female</code>.'
+        required: true
+        example: female
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: maritza.erdman@example.com
+      password: '<2.drk>D.fgvwYPb'
+      first_name: toupkldhd
+      last_name: w
+      phone_number: acjczmbea
+      birth_date: '1998-03-21'
+      specialty: other
+      gender: female
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "token":"11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T"
+          }
+        headers: []
+        description: 'Register Success'
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+          "message": "You are already logged in"
+          }
+        headers: []
+        description: 'User already login'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The email field is required. (and 7 more errors)",
+          "errors": {
+          "email": [
+          "The email field is required."
+          ],
+          "password": [
+          "The password field is required."
+          ],
+          "first_name": [
+          "The first name field is required."
+          ],
+          "last_name": [
+          "The last name field is required."
+          ],
+          "phone_number": [
+          "The phone number field is required."
+          ],
+          "birth_date": [
+          "The birth date field is required."
+          ],
+          "specialty": [
+          "The specialty field is required."
+          ],
+          "gender": [
+          "The gender field is required."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

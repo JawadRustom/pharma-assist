@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
-            $table->linestring('name');
+            $table->string('name');
             $table->foreignId('company_id')->reference('id')->on('companies');
             $table->foreignId('category_id')->reference('id')->on('categories');
             $table->foreignId('language_id')->reference('id')->on('languages');

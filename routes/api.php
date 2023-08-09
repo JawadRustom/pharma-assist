@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Route\RouteHelper;
+use App\Http\Controllers\Api\V1\Application\Auth\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')->middleware('language')->group(function () {
+
+
+Route::prefix('v1')->/*middleware('language')->*/group(function () {
     RouteHelper::includeRouteFiles(__DIR__ . '/api/v1');
 });
 

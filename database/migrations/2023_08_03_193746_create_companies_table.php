@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->linestring('name');
+            $table->string('name');
             $table->foreignId('language_id')->reference('id')->on('languages');
             $table->timestamps();
         });
