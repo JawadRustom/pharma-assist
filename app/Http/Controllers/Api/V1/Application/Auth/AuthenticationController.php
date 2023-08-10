@@ -50,7 +50,7 @@ class AuthenticationController extends Controller
      */
     public function login(LoginRequest $Request)
     {
-        if (!Auth::attempt(['email' => $Request->email, 'password' => $Request->password, 'role_id' => 3])) {
+        if (!Auth::attempt(['email' => $Request->email,'password' => $Request->password, 'role_id' => 3])) {
             return response(['message' => 'email or password is wrong'], 401);
         }
         $token = auth()->user()->createToken("token")->plainTextToken;

@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\WebSite\Admin\Auth;
+namespace App\Http\Controllers\Api\V1\AdminDashboard\Auth\SubAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Application\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 /**
- * @group WebSiteAdminAuthentication
+ * @group WebSiteSubAdminAuthentication
  *
- * This Api For Admin Authentication in React
+ * This Api For SubAdmin Authentication in React
  */
 class AuthenticationController extends Controller
 {
@@ -42,9 +43,9 @@ class AuthenticationController extends Controller
      * "message": "You are already logged in"
      * }
      */
-    public function loginAdmin(LoginRequest $Request)
+    public function subAdmin(LoginRequest $Request)
     {
-        if (!Auth::attempt(['email' => $Request->email, 'password' => $Request->password, 'role_id' => 1])) {
+        if (!Auth::attempt(['email' => $Request->email, 'password' => $Request->password, 'role_id' => 2])) {
             return response(['message' => 'email or password is wrong'], 401);
         }
         $token = auth()->user()->createToken("token")->plainTextToken;
