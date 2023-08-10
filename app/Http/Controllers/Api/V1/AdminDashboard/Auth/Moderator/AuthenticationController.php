@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\AdminDashboard\Auth\SubAdmin;
+namespace App\Http\Controllers\Api\V1\AdminDashboard\Auth\Moderator;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\Application\Auth\LoginRequest;
@@ -43,7 +43,7 @@ class AuthenticationController extends Controller
      * "message": "You are already logged in"
      * }
      */
-    public function subAdmin(LoginRequest $Request)
+    public function loginModerator(LoginRequest $Request)
     {
         if (!Auth::attempt(['email' => $Request->email, 'password' => $Request->password, 'role_id' => 2])) {
             return response(['message' => 'email or password is wrong'], 401);

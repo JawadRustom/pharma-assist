@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             MedicineDetailSeeder::class,
             ProfileSeeder::class,
             AdminSeeder::class,
-            SubAdminSeeder::class,
+            ModeratorSeeder::class,
         ]);
 
         if (config('app.env') !== 'production') {

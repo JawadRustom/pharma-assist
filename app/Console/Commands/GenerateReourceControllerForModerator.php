@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-class GenerateReourceControllerForSubAdmin extends Command
+class GenerateReourceControllerForModerator extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:res-controller-subadmin {name}';
+    protected $signature = 'make:res-controller-moderator {name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generates a resource controller with Api reource and requests for SubAdmin in AdminDashboard';
+    protected $description = 'Generates a resource controller with Api reource and requests for Moderator in AdminDashboard';
 
     /**
      * Execute the console command.
@@ -29,18 +29,18 @@ class GenerateReourceControllerForSubAdmin extends Command
         $name = $this->argument('name');
         $controllerContents = '<?php
 
-    namespace App\Http\Controllers\Api\V1\AdminDashboard\SubAdmin;
+    namespace App\Http\Controllers\Api\V1\AdminDashboard\Moderator;
 
     use App\Http\Controllers\Controller;
     use App\Models\\' . $name . ';
-    use App\Http\Requests\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request\Store' . $name . 'Request;
-    use App\Http\Requests\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request\Update' . $name . 'Request;
-    use App\Http\Resources\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request\\' . $name . 'Resource;
+    use App\Http\Requests\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request\Store' . $name . 'Request;
+    use App\Http\Requests\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request\Update' . $name . 'Request;
+    use App\Http\Resources\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request\\' . $name . 'Resource;
     use Illuminate\Http\Request;
     /**
      * @group ' . $name . '
      *
-     * This Api For ' . $name . ' for SubAdmin in AdminDashboard
+     * This Api For ' . $name . ' for Moderator in AdminDashboard
      */
     class ' . $name . 'Controller extends Controller
     {
@@ -148,10 +148,10 @@ class GenerateReourceControllerForSubAdmin extends Command
       }
     }
     ';
-        $this->file_force_contents('app/Http/Controllers/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Controller.php', $controllerContents);
-        $this->info('Controller has been created: app/Http/Controllers/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Controller');
+        $this->file_force_contents('app/Http/Controllers/Api/V1/AdminDashboard/Moderator/' . $name . 'Controller.php', $controllerContents);
+        $this->info('Controller has been created: app/Http/Controllers/Api/V1/AdminDashboard/Moderator/' . $name . 'Controller');
         $stroeRequestContents = '<?php
-namespace App\Http\Requests\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request\;
+namespace App\Http\Requests\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request\;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -177,11 +177,11 @@ class Store' . $name . 'Request extends FormRequest
     }
     }
     ';
-        $this->file_force_contents('app/Http/Requests/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Request/Store' . $name . 'Request.php', $stroeRequestContents);
-        $this->info('Store Request has been created: app/Http/Requests/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Request/Store' . $name . 'Request.php');
+        $this->file_force_contents('app/Http/Requests/Api/V1/AdminDashboard/Moderator/' . $name . 'Request/Store' . $name . 'Request.php', $stroeRequestContents);
+        $this->info('Store Request has been created: app/Http/Requests/Api/V1/AdminDashboard/Moderator/' . $name . 'Request/Store' . $name . 'Request.php');
         $updateRequestContents = '<?php
 
-namespace App\Http\Requests\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request\;
+namespace App\Http\Requests\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request\;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -207,11 +207,11 @@ class Update' . $name . 'Request extends FormRequest
     }
     }
     ';
-        $this->file_force_contents('app/Http/Requests/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Request/Update' . $name . 'Request.php', $updateRequestContents);
-        $this->info('Update Request has been created: app/Http/Requests/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Request/Update' . $name . 'Request.php');
+        $this->file_force_contents('app/Http/Requests/Api/V1/AdminDashboard/Moderator/' . $name . 'Request/Update' . $name . 'Request.php', $updateRequestContents);
+        $this->info('Update Request has been created: app/Http/Requests/Api/V1/AdminDashboard/Moderator/' . $name . 'Request/Update' . $name . 'Request.php');
         $resourceContents = '<?php
 
-namespace App\Http\Resources\Api\V1\AdminDashboard\SubAdmin\\' . $name . 'Request;
+namespace App\Http\Resources\Api\V1\AdminDashboard\Moderator\\' . $name . 'Request;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -230,8 +230,8 @@ class ' . $name . 'Resource extends JsonResource
     }
 }
     ';
-        $this->file_force_contents('app/Http/Resources/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Resource/' . $name . 'Resource.php', $resourceContents);
-        $this->info('Resource has been created: app/Http/Resources/Api/V1/AdminDashboard/SubAdmin/' . $name . 'Resource/' . $name . 'Resource.php');
+        $this->file_force_contents('app/Http/Resources/Api/V1/AdminDashboard/Moderator/' . $name . 'Resource/' . $name . 'Resource.php', $resourceContents);
+        $this->info('Resource has been created: app/Http/Resources/Api/V1/AdminDashboard/Moderator/' . $name . 'Resource/' . $name . 'Resource.php');
     }
     private function file_force_contents($fullPath, $contents, $flags = 0)
     {
