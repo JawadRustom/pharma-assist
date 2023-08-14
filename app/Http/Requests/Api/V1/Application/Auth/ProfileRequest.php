@@ -27,7 +27,7 @@ class ProfileRequest extends FormRequest
             'birth_date' => ['required', 'date', 'before:' . Date::now()->subYears(8)->format('Y-m-d')],
             'specialty' =>['required','string',Rule::in(array_map('strtolower', ['Doctor', 'Student', 'Pharmacist', 'Other']))],
             'gender' => ['required','string',Rule::in(array_map('strtolower', ['Male', 'Female']))],
-            'user_id'=>['required','exists:users,id'],
+            'user_id'=>['required','exists:users,id','numeric'],
         ];
     }
 }

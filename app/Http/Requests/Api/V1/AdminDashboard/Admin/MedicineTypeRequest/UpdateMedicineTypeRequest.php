@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Application\Auth;
+namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class UpdateMedicineTypeRequest extends FormRequest
 {
-    /**
+  /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
@@ -21,9 +21,8 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'email' => ['required', 'email','exists:users,email','string'],
-            'password' =>['required','string'],
-        ];
+      return [
+        'type'=>['required','string'],
+      ];
     }
-}
+    }

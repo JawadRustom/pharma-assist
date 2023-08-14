@@ -19,7 +19,6 @@ class MedicineTypeFactory extends Factory
     {
         return [
             'type' => fake()->name(),
-            'language_id'=> Language::factory(),
         ];
     }
 }

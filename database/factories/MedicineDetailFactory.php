@@ -23,7 +23,6 @@ class MedicineDetailFactory extends Factory
             'medicine_type_id' => MedicineType::factory(),
             'content' => fake()->text(),
             'medicine_id' => Medicine::factory(),
-            'language_id' => Language::factory(),
         ];
     }
 }

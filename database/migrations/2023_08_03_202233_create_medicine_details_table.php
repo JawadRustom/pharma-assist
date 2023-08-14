@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('medicine_type_id')->reference('id')->on('medicine_types');
             $table->string('content');
             $table->foreignId('medicine_id')->reference('id')->on('medicines');
-            $table->foreignId('language_id')->reference('id')->on('languages');
+            $table->foreignId('language_id')->reference('id')->on('languages')->nullable();
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class MedicineDetail extends Model
         'medicine_type_id',
         'content',
         'medicine_id',
-        'language_id',
+        'language_id'
     ];
 
     /**

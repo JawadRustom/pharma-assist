@@ -19,7 +19,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'language_id'=> Language::factory(),
         ];
     }
 }

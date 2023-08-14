@@ -35,7 +35,7 @@ class GenerateReourceControllerForAdmin extends Command
     use App\Models\\' . $name . ';
     use App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request\Store' . $name . 'Request;
     use App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request\Update' . $name . 'Request;
-    use App\Http\Resources\Api\V1\AdminDashboard\Admin\\' . $name . 'Request\\' . $name . 'Resource;
+    use App\Http\Resources\Api\V1\AdminDashboard\Admin\\' . $name . 'Resource\\' . $name . 'Resource;
     use Illuminate\Http\Request;
     /**
      * @group ' . $name . '
@@ -151,7 +151,7 @@ class GenerateReourceControllerForAdmin extends Command
         $this->file_force_contents('app/Http/Controllers/Api/V1/AdminDashboard/Admin/' . $name . 'Controller.php', $controllerContents);
         $this->info('Controller has been created: app/Http/Controllers/Api/V1/AdminDashboard/Admin/' . $name . 'Controller');
         $stroeRequestContents = '<?php
-namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request\;
+namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -181,7 +181,7 @@ class Store' . $name . 'Request extends FormRequest
         $this->info('Store Request has been created: app/Http/Requests/Api/V1/AdminDashboard/Admin/' . $name . 'Request/Store' . $name . 'Request.php');
         $updateRequestContents = '<?php
 
-namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request\;
+namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\\' . $name . 'Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -211,7 +211,7 @@ class Update' . $name . 'Request extends FormRequest
         $this->info('Update Request has been created: app/Http/Requests/Api/V1/AdminDashboard/Admin/' . $name . 'Request/Update' . $name . 'Request.php');
         $resourceContents = '<?php
 
-namespace App\Http\Resources\Api\V1\AdminDashboard\Admin\\' . $name . 'Request;
+namespace App\Http\Resources\Api\V1\AdminDashboard\Admin\\' . $name . 'Resource;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
