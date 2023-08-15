@@ -10,11 +10,553 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "ca032de0-e68f-469e-922e-a11c405605c5",
+        "_postman_id": "48896b5e-0c95-43ee-aa0c-29a260b6a29b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Category",
+            "description": "\nThis Api For Category",
+            "item": [
+                {
+                    "name": "See all Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"Ms. Lilyan Langosh DDS\",\n},\n{\n\"id\": 2,\n\"name\": \"Lyla Johnson MD\",\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=9\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 9,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=6\",\n\"label\": \"6\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=7\",\n\"label\": \"7\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=8\",\n\"label\": \"8\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=9\",\n\"label\": \"9\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/category\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 17\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"at\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 19,\n\"name\": \"test\",\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 1 more error)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 2,\n\"name\": \"Lyla Johnson MD\",\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Category not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"vero\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 3,\n\"name\": \"testtest\",\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Category not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 1 more error)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Category not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Company",
+            "description": "\nThis Api For Company",
+            "item": [
+                {
+                    "name": "See all Company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"Mr. Olen Kreiger\",\n},\n{\n\"id\": 2,\n\"name\": \"Damien Heller\",\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=8\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 8,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=6\",\n\"label\": \"6\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=7\",\n\"label\": \"7\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=8\",\n\"label\": \"8\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/company\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 15\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"dolor\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 16,\n\"name\": \"test\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 1 more error)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One Company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 2,\n\"name\": \"Lyla Johnson MD\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Company not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"eveniet\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 12,\n\"name\": \"testtest\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Company not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 1 more error)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Company not found"
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Endpoints",
             "description": "",
@@ -54,6 +596,819 @@
                         }
                     },
                     "response": []
+                }
+            ]
+        },
+        {
+            "name": "Medicine",
+            "description": "\nThis Api For Medicine",
+            "item": [
+                {
+                    "name": "See all Medicine",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicines",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicines"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"Ayana Rohan\",\n\"category\": {\n\"id\": 6,\n\"name\": \"Dr. Tatum Wiegand\"\n},\n\"company\": {\n\"id\": 6,\n\"name\": \"Lillian Welch\"\n}\n},\n{\n\"id\": 2,\n\"name\": \"Horacio Kemmer\",\n\"category\": {\n\"id\": 7,\n\"name\": \"Leonie Harber\"\n},\n\"company\": {\n\"id\": 7,\n\"name\": \"Cielo Schiller\"\n}\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=5\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 5,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicine\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 10\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Medicine",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicines",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicines"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"ut\",\"company_id\":\"blanditiis\",\"category_id\":\"aut\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 11,\n\"name\": \"test\",\n\"category\": {\n\"id\": 1,\n\"name\": \"Alanna Wiza II\"\n},\n\"company\": {\n\"id\": 1,\n\"name\": \"Terence Barrows V\"\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 2 more errors)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n],\n\"company_id\": [\n\"The company id field is required.\"\n],\n\"category_id\": [\n\"The category id field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One Medicine",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicines\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicines\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicine."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 2,\n\"name\": \"Horacio Kemmer\",\n\"category\": {\n\"id\": 7,\n\"name\": \"Leonie Harber\"\n},\n\"company\": {\n\"id\": 7,\n\"name\": \"Cielo Schiller\"\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Medicine not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Medicine",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicines\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicines\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicine."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"eligendi\",\"company_id\":\"illum\",\"category_id\":\"quaerat\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Mrs. Ashtyn McKenzie\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"Millie Mayert\"\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Medicine not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The name field is required. (and 2 more errors)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n],\n\"company_id\": [\n\"The company id field is required.\"\n],\n\"category_id\": [\n\"The category id field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Medicine",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicines\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicines\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicine."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Medicine not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MedicineDetail",
+            "description": "\nThis Api For MedicineDetail",
+            "item": [
+                {
+                    "name": "See all MedicineDetail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineDetails",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineDetails"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 1,\n\"medicine_type\": {\n\"id\": 6,\n\"type\": \"Dee Anderson\"\n},\n\"content\": \"Consectetur nostrum nam voluptatem autem illo sit et. Voluptatem libero quisquam hic quae voluptas aperiam. Laborum minus cum sapiente molestias quia.\",\n\"medicine\": {\n\"id\": 6,\n\"name\": \"Dr. Daisha Deckow\",\n\"category\": {\n\"id\": 11,\n\"name\": \"Dr. Berta Lind DVM\"\n},\n\"company\": {\n\"id\": 11,\n\"name\": \"Moriah Beer\"\n}\n}\n},\n{\n\"id\": 2,\n\"medicine_type\": {\n\"id\": 7,\n\"type\": \"Prof. Elizabeth Gislason\"\n},\n\"content\": \"Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.\",\n\"medicine\": {\n\"id\": 7,\n\"name\": \"Dr. Eldora Johnston Sr.\",\n\"category\": {\n\"id\": 12,\n\"name\": \"Jarvis Rempel\"\n},\n\"company\": {\n\"id\": 12,\n\"name\": \"Dr. Rogelio Grimes\"\n}\n}\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=3\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 3,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineDetails\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 5\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create MedicineDetail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineDetails",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineDetails"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"medicine_type_id\":\"cum\",\"content\":\"enim\",\"medicine_id\":\"aliquid\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 6,\n\"medicine_type\": {\n\"id\": 1,\n\"type\": \"test\"\n},\n\"content\": \"test test\",\n\"medicine\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Mrs. Ashtyn McKenzie\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"Millie Mayert\"\n}\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One MedicineDetail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineDetails\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineDetails\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineDetail."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 2,\n\"medicine_type\": {\n\"id\": 7,\n\"type\": \"Prof. Elizabeth Gislason\"\n},\n\"content\": \"Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.\",\n\"medicine\": {\n\"id\": 7,\n\"name\": \"Dr. Eldora Johnston Sr.\",\n\"category\": {\n\"id\": 12,\n\"name\": \"Jarvis Rempel\"\n},\n\"company\": {\n\"id\": 12,\n\"name\": \"Dr. Rogelio Grimes\"\n}\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineDetail not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update MedicineDetail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineDetails\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineDetails\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineDetail."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"medicine_type_id\":\"molestiae\",\"content\":\"qui\",\"medicine_id\":\"et\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 1,\n\"medicine_type\": {\n\"id\": 4,\n\"type\": \"Baby Cormier\"\n},\n\"content\": \"sssssssssssss\",\n\"medicine\": {\n\"id\": 4,\n\"name\": \"Tony Lynch\",\n\"category\": {\n\"id\": 9,\n\"name\": \"Dr. Marilou Crooks\"\n},\n\"company\": {\n\"id\": 9,\n\"name\": \"Nash Hettinger Sr.\"\n}\n}\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineDetail not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete MedicineDetail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineDetails\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineDetails\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineDetail."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineDetail not found"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MedicineType",
+            "description": "\nThis Api For MedicineType",
+            "item": [
+                {
+                    "name": "See all MedicineType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineTypes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineTypes"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 1,\n\"type\": \"Mrs. Dawn Hoppe\"\n},\n{\n\"id\": 2,\n\"type\": \"Rollin O'Hara\"\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=7\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 7,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=6\",\n\"label\": \"6\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=7\",\n\"label\": \"7\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/medicineTypes\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 13\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create MedicineType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineTypes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineTypes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"type\":\"pariatur\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 12,\n\"type\": \"test\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The type field is required.\",\n\"errors\": {\n\"type\": [\n\"The type field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One MedicineType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineTypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineTypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineType."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 2,\n\"type\": \"Rollin O'Hara\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineType not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update MedicineType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineTypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineTypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineType."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"type\":\"nihil\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 1,\n\"type\": \"test\"\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineType not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The type field is required.\",\n\"errors\": {\n\"type\": [\n\"The type field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete MedicineType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/medicineTypes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/medicineTypes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the medicineType."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This MedicineType not found"
+                        }
+                    ]
                 }
             ]
         },
@@ -124,7 +1479,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"hank.hoeger@example.com\",\"password\":\"ipsum\"}"
+                            "raw": "{\"email\":\"lemke.antonette@example.com\",\"password\":\"hcWsG|B5S^B<\\\\\"}"
                         },
                         "description": "",
                         "auth": {
@@ -180,7 +1535,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"pdoyle@example.org\",\"password\":\"^vIn'5PsM\",\"first_name\":\"ry\",\"last_name\":\"lzd\",\"phone_number\":\"jiadooouy\",\"birth_date\":\"2011-03-15\",\"specialty\":\"doctor\",\"gender\":\"female\"}"
+                            "raw": "{\"email\":\"dkozey@example.net\",\"password\":\"6.\\\"7G`6K6(Coy)=<\",\"first_name\":\"s\",\"last_name\":\"njvvc\",\"phone_number\":\"jehitezme\",\"birth_date\":\"2005-07-24\",\"specialty\":\"student\",\"gender\":\"male\"}"
                         },
                         "description": "",
                         "auth": {
@@ -205,6 +1560,277 @@
                             "code": 422,
                             "body": "{\n\"message\": \"The email field is required. (and 7 more errors)\",\n\"errors\": {\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n],\n\"first_name\": [\n\"The first name field is required.\"\n],\n\"last_name\": [\n\"The last name field is required.\"\n],\n\"phone_number\": [\n\"The phone number field is required.\"\n],\n\"birth_date\": [\n\"The birth date field is required.\"\n],\n\"specialty\": [\n\"The specialty field is required.\"\n],\n\"gender\": [\n\"The gender field is required.\"\n]\n}\n}",
                             "name": "Validation errors"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Moderator",
+            "description": "\nThis Api For Moderator",
+            "item": [
+                {
+                    "name": "See all Moderator",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/moderator",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 12,\n\"first_name\": \"Moderator\",\n\"last_name\": \"Moderator\",\n\"email\": \"Moderator@Moderator.com\",\n\"role\": {\n\"id\": 2,\n\"name\": \"moderator\"\n},\n\"password\": \"$2y$10$FexoH9Vs9hDWn4A\/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa\",\n\"phone_number\": 987372763\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
+                            "name": "Account Not Admin"
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Moderator",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/moderator",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"aupdpgwahqrfa\",\"last_name\":\"mxajtrwut\",\"email\":\"wdibbert@example.com\",\"password\":\"f1XMpC4\\\/qoN.V`6\\\"\",\"phone_number\":\"vxtavqrlm\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 20,\n\"first_name\": \"moderator\",\n\"last_name\": \"moderator\",\n\"email\": \"moderator12@moderator1.com\",\n\"role\": {\n\"id\": 2,\n\"name\": \"moderator\"\n},\n\"password\": \"$2y$10$5jU0OIffSqEWOWh79NF9z.elMc\/6yGraAuwVXbMOBJNDv26yTCgU6\",\n\"phone_number\": 987372763\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The first name field is required. (and 4 more errors)\",\n\"errors\": {\n\"first_name\": [\n\"The first name field is required.\"\n],\n\"last_name\": [\n\"The last name field is required.\"\n],\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n],\n\"phone_number\": [\n\"The phone number field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "See One Moderator",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/moderator\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "eligendi",
+                                    "description": "The ID of the moderator."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 12,\n\"first_name\": \"Moderator\",\n\"last_name\": \"Moderator\",\n\"email\": \"Moderator@Moderator.com\",\n\"role\": {\n\"id\": 2,\n\"name\": \"moderator\"\n},\n\"password\": \"$2y$10$FexoH9Vs9hDWn4A\/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa\",\n\"phone_number\": 987372763\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Moderator not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Moderator",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/moderator\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ea",
+                                    "description": "The ID of the moderator."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"ct\",\"last_name\":\"wc\",\"email\":\"ehahn@example.net\",\"password\":\"j=tn$gIE=:RX|\",\"phone_number\":\"duudqmoiz\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 18,\n\"first_name\": \"moderatortest\",\n\"last_name\": \"moderatortest\",\n\"email\": \"Moderat2or@Moderator.com\",\n\"role\": {\n\"id\": 2,\n\"name\": \"moderator\"\n},\n\"password\": \"$2y$10$jIYo5cMTKNvbvQ5ClrLcZeeIBK\/AVBbTZZ4saTbSXwjv4SLDR7vKi\",\n\"phone_number\": 987372763\n}\n}",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Moderator not found"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"message\": \"The first name field is required. (and 4 more errors)\",\n\"errors\": {\n\"first_name\": [\n\"The first name field is required.\"\n],\n\"last_name\": [\n\"The last name field is required.\"\n],\n\"email\": [\n\"The email field is required.\"\n],\n\"password\": [\n\"The password field is required.\"\n],\n\"phone_number\": [\n\"The phone number field is required.\"\n]\n}\n}",
+                            "name": "Validation errors"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete Moderator",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/moderator\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "commodi",
+                                    "description": "The ID of the moderator."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "",
+                            "name": "Success Process"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
+                            "name": "Account Not Admin"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"message\": \"not found\"\n}",
+                            "name": "This Moderator not found"
                         }
                     ]
                 }
@@ -236,7 +1862,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"kara50@example.net\",\"password\":\"distinctio\"}"
+                            "raw": "{\"email\":\"raymond21@example.org\",\"password\":\"O[&VX#b?Mo4QGk{4$\"}"
                         },
                         "description": "",
                         "auth": {
@@ -281,9 +1907,9 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/login\/subAdmin",
+                            "path": "api\/v1\/login\/moderator",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/login\/subAdmin"
+                            "raw": "{{baseUrl}}\/api\/v1\/login\/moderator"
                         },
                         "method": "POST",
                         "header": [
@@ -298,7 +1924,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"hdeckow@example.com\",\"password\":\"architecto\"}"
+                            "raw": "{\"email\":\"ndamore@example.net\",\"password\":\"iKUA=*%6L1}\"}"
                         },
                         "description": "",
                         "auth": {

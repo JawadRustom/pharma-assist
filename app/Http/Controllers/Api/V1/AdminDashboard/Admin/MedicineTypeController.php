@@ -1,23 +1,24 @@
 <?php
 
-    namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
+namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
 
-    use App\Http\Controllers\Controller;
-    use App\Models\MedicineType;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest\StoreMedicineTypeRequest;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest\UpdateMedicineTypeRequest;
-    use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineTypeResource\MedicineTypeResource;
-    use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\MedicineType;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest\StoreMedicineTypeRequest;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest\UpdateMedicineTypeRequest;
+use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineTypeResource\MedicineTypeResource;
+use Illuminate\Http\Request;
+
+/**
+ * @group MedicineType
+ *
+ * This Api For MedicineType
+ */
+class MedicineTypeController extends Controller
+{
     /**
-     * @group MedicineType
-     *
-     * This Api For MedicineType
-     */
-    class MedicineTypeController extends Controller
-    {
-      /**
-       * See all MedicineType
-       * @response 200 scenario="Success Process"{
+     * See all MedicineType
+     * @response 200 scenario="Success Process"{
     "data": [
         {
             "id": 1,
@@ -91,58 +92,58 @@
         "total": 13
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       * * @queryparam perPage int
-       * To return limite data in single page.
-       * Defaults value for variable '15'.
-       *
-       */
-      public function index(Request $request)
-      {
-          $data = MedicineType::paginate($request->perPage ?? 15);
+     *
+     * * @queryparam perPage int
+     * To return limite data in single page.
+     * Defaults value for variable '15'.
+     *
+     */
+    public function index(Request $request)
+    {
+        $data = MedicineType::paginate($request->perPage ?? 15);
 
-          return MedicineTypeResource::collection($data);
-      }
+        return MedicineTypeResource::collection($data);
+    }
 
-      /**
-       * See One MedicineType
-       * @response 200 scenario="Success Process"{
+    /**
+     * See One MedicineType
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 2,
         "type": "Rollin O'Hara"
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       *
-       * @response 404 scenario="This MedicineType not found"{
+     *
+     *
+     * @response 404 scenario="This MedicineType not found"{
        "message": "not found"
        }
-       *
-       */
-      public function show(Request $request, MedicineType $medicineType)
-      {
-          return new MedicineTypeResource($medicineType);
-      }
+     *
+     */
+    public function show(Request $request, MedicineType $medicineType)
+    {
+        return new MedicineTypeResource($medicineType);
+    }
 
-      /**
-       * Create MedicineType
-       * @response 200 scenario="Success Process"{
+    /**
+     * Create MedicineType
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 12,
         "type": "test"
     }
 }
-       *
-       *
-       * @response 422 scenario="Validation errors"{
+     *
+     *
+     * @response 422 scenario="Validation errors"{
     "message": "The type field is required.",
     "errors": {
         "type": [
@@ -150,28 +151,28 @@
         ]
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function store(StoreMedicineTypeRequest $request)
-      {
-          $data = MedicineType::create($request->validated());
-          return new MedicineTypeResource($data);
-      }
+     *
+     */
+    public function store(StoreMedicineTypeRequest $request)
+    {
+        $data = MedicineType::create($request->validated());
+        return new MedicineTypeResource($data);
+    }
 
-      /**
-       * Update MedicineType
-       * @response 200 scenario="Success Process"{
+    /**
+     * Update MedicineType
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 1,
         "type": "test"
     }
 }
-       *
-       * @response 422 scenario="Validation errors"{
+     *
+     * @response 422 scenario="Validation errors"{
     "message": "The type field is required.",
     "errors": {
         "type": [
@@ -179,39 +180,39 @@
         ]
     }
 }
-       *
-       * @response 404 scenario="This MedicineType not found"{
+     *
+     * @response 404 scenario="This MedicineType not found"{
        "message": "not found"
        }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function update(UpdateMedicineTypeRequest $request, MedicineType $medicineType)
-      {
-          $medicineType->update($request->validated());
-          $medicineType->refresh();
-          return new MedicineTypeResource($medicineType);
-      }
-      /**
-       * Delete MedicineType
-       * @response 204 scenario="Success Process"
-       *
-       * @response 401 scenario="Account Not Admin"{
-       "message": "Unauthenticated."
-   }
-       *
-       *
-       * @response 404 scenario="This MedicineType not found"{
-       "message": "not found"
-       }
-       *
-       */
-      public function destroy(MedicineType $medicineType)
-      {
-          $medicineType->delete();
-          return response()->noContent();
-      }
+     *
+     */
+    public function update(UpdateMedicineTypeRequest $request, MedicineType $medicineType)
+    {
+        $medicineType->update($request->validated());
+        $medicineType->refresh();
+        return new MedicineTypeResource($medicineType);
     }
+    /**
+     * Delete MedicineType
+     * @response 204 scenario="Success Process"
+     *
+     * @response 401 scenario="Account Not Admin"{
+       "message": "Unauthenticated."
+   }
+     *
+     *
+     * @response 404 scenario="This MedicineType not found"{
+       "message": "not found"
+       }
+     *
+     */
+    public function destroy(MedicineType $medicineType)
+    {
+        $medicineType->delete();
+        return response()->noContent();
+    }
+}

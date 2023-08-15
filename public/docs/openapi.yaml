@@ -7,6 +7,547 @@ servers:
   -
     url: 'http://localhost'
 paths:
+  /api/v1/categories:
+    get:
+      summary: 'See all Category'
+      operationId: seeAllCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"Ms. Lilyan Langosh DDS\",\n},\n{\n\"id\": 2,\n\"name\": \"Lyla Johnson MD\",\n}\n],\n\"links\": {\n\"first\": \"http://127.0.0.1:8000/api/v1/category?page=1\",\n\"last\": \"http://127.0.0.1:8000/api/v1/category?page=9\",\n\"prev\": null,\n\"next\": \"http://127.0.0.1:8000/api/v1/category?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 9,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=6\",\n\"label\": \"6\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=7\",\n\"label\": \"7\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=8\",\n\"label\": \"8\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=9\",\n\"label\": \"9\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/category?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http://127.0.0.1:8000/api/v1/category\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 17\n}\n}"
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - Category
+      security: []
+    post:
+      summary: 'Create Category'
+      operationId: createCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": {\n\"id\": 19,\n\"name\": \"test\",\n}\n}"
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 1 more error)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: at
+              required:
+                - name
+      security: []
+  '/api/v1/categories/{id}':
+    get:
+      summary: 'See One Category'
+      operationId: seeOneCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": {\n\"id\": 2,\n\"name\": \"Lyla Johnson MD\",\n}\n}"
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Category not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Category
+      security: []
+    put:
+      summary: 'Update Category'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": {\n\"id\": 3,\n\"name\": \"testtest\",\n}\n}"
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Category not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 1 more error)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: vero
+              required:
+                - name
+      security: []
+    delete:
+      summary: 'Delete Category'
+      operationId: deleteCategory
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Category not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Category
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/companies:
+    get:
+      summary: 'See all Company'
+      operationId: seeAllCompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": [\n{\n\"id\": 1,\n\"name\": \"Mr. Olen Kreiger\",\n},\n{\n\"id\": 2,\n\"name\": \"Damien Heller\",\n}\n],\n\"links\": {\n\"first\": \"http://127.0.0.1:8000/api/v1/company?page=1\",\n\"last\": \"http://127.0.0.1:8000/api/v1/company?page=8\",\n\"prev\": null,\n\"next\": \"http://127.0.0.1:8000/api/v1/company?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 8,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=4\",\n\"label\": \"4\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=5\",\n\"label\": \"5\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=6\",\n\"label\": \"6\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=7\",\n\"label\": \"7\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=8\",\n\"label\": \"8\",\n\"active\": false\n},\n{\n\"url\": \"http://127.0.0.1:8000/api/v1/company?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http://127.0.0.1:8000/api/v1/company\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 15\n}\n}"
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - Company
+      security: []
+    post:
+      summary: 'Create Company'
+      operationId: createCompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 16
+                    name: test
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 16
+                      name:
+                        type: string
+                        example: test
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 1 more error)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+      tags:
+        - Company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: dolor
+              required:
+                - name
+      security: []
+  '/api/v1/companies/{id}':
+    get:
+      summary: 'See One Company'
+      operationId: seeOneCompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 2
+                    name: 'Lyla Johnson MD'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      name:
+                        type: string
+                        example: 'Lyla Johnson MD'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Company not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Company
+      security: []
+    put:
+      summary: 'Update Company'
+      operationId: updateCompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 12
+                    name: testtest
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 12
+                      name:
+                        type: string
+                        example: testtest
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Company not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 1 more error)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+      tags:
+        - Company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: eveniet
+              required:
+                - name
+      security: []
+    delete:
+      summary: 'Delete Company'
+      operationId: deleteCompany
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Company not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Company
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   '/api/v1/auth/{provider}':
     post:
       summary: ''
@@ -26,6 +567,1772 @@ paths:
         required: true
         schema:
           type: string
+  /api/v1/medicines:
+    get:
+      summary: 'See all Medicine'
+      operationId: seeAllMedicine
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'Ayana Rohan'
+                      category:
+                        id: 6
+                        name: 'Dr. Tatum Wiegand'
+                      company:
+                        id: 6
+                        name: 'Lillian Welch'
+                    -
+                      id: 2
+                      name: 'Horacio Kemmer'
+                      category:
+                        id: 7
+                        name: 'Leonie Harber'
+                      company:
+                        id: 7
+                        name: 'Cielo Schiller'
+                  links:
+                    first: 'http://127.0.0.1:8000/api/v1/medicine?page=1'
+                    last: 'http://127.0.0.1:8000/api/v1/medicine?page=5'
+                    prev: null
+                    next: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 5
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=5'
+                        label: '5'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://127.0.0.1:8000/api/v1/medicine'
+                    per_page: 2
+                    to: 2
+                    total: 10
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Ayana Rohan'
+                        category:
+                          id: 6
+                          name: 'Dr. Tatum Wiegand'
+                        company:
+                          id: 6
+                          name: 'Lillian Welch'
+                      -
+                        id: 2
+                        name: 'Horacio Kemmer'
+                        category:
+                          id: 7
+                          name: 'Leonie Harber'
+                        company:
+                          id: 7
+                          name: 'Cielo Schiller'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'Ayana Rohan'
+                        category:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 6
+                            name:
+                              type: string
+                              example: 'Dr. Tatum Wiegand'
+                        company:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 6
+                            name:
+                              type: string
+                              example: 'Lillian Welch'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicine?page=1'
+                      last:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicine?page=5'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 5
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=5'
+                            label: '5'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicine?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicine'
+                      per_page:
+                        type: integer
+                        example: 2
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 10
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - Medicine
+      security: []
+    post:
+      summary: 'Create Medicine'
+      operationId: createMedicine
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 11
+                    name: test
+                    category:
+                      id: 1
+                      name: 'Alanna Wiza II'
+                    company:
+                      id: 1
+                      name: 'Terence Barrows V'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 11
+                      name:
+                        type: string
+                        example: test
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Alanna Wiza II'
+                      company:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Terence Barrows V'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                    company_id:
+                      - 'The company id field is required.'
+                    category_id:
+                      - 'The category id field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      company_id:
+                        type: array
+                        example:
+                          - 'The company id field is required.'
+                        items:
+                          type: string
+                      category_id:
+                        type: array
+                        example:
+                          - 'The category id field is required.'
+                        items:
+                          type: string
+      tags:
+        - Medicine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: ut
+                company_id:
+                  type: string
+                  description: ''
+                  example: blanditiis
+                category_id:
+                  type: string
+                  description: ''
+                  example: aut
+              required:
+                - name
+                - company_id
+                - category_id
+      security: []
+  '/api/v1/medicines/{id}':
+    get:
+      summary: 'See One Medicine'
+      operationId: seeOneMedicine
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 2
+                    name: 'Horacio Kemmer'
+                    category:
+                      id: 7
+                      name: 'Leonie Harber'
+                    company:
+                      id: 7
+                      name: 'Cielo Schiller'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      name:
+                        type: string
+                        example: 'Horacio Kemmer'
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 7
+                          name:
+                            type: string
+                            example: 'Leonie Harber'
+                      company:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 7
+                          name:
+                            type: string
+                            example: 'Cielo Schiller'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Medicine not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Medicine
+      security: []
+    put:
+      summary: 'Update Medicine'
+      operationId: updateMedicine
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: test
+                    category:
+                      id: 2
+                      name: 'Mrs. Ashtyn McKenzie'
+                    company:
+                      id: 2
+                      name: 'Millie Mayert'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: test
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: 'Mrs. Ashtyn McKenzie'
+                      company:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: 'Millie Mayert'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Medicine not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                    company_id:
+                      - 'The company id field is required.'
+                    category_id:
+                      - 'The category id field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The name field is required. (and 2 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                        items:
+                          type: string
+                      company_id:
+                        type: array
+                        example:
+                          - 'The company id field is required.'
+                        items:
+                          type: string
+                      category_id:
+                        type: array
+                        example:
+                          - 'The category id field is required.'
+                        items:
+                          type: string
+      tags:
+        - Medicine
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: eligendi
+                company_id:
+                  type: string
+                  description: ''
+                  example: illum
+                category_id:
+                  type: string
+                  description: ''
+                  example: quaerat
+              required:
+                - name
+                - company_id
+                - category_id
+      security: []
+    delete:
+      summary: 'Delete Medicine'
+      operationId: deleteMedicine
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Medicine not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Medicine
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the medicine.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/medicineDetails:
+    get:
+      summary: 'See all MedicineDetail'
+      operationId: seeAllMedicineDetail
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      medicine_type:
+                        id: 6
+                        type: 'Dee Anderson'
+                      content: 'Consectetur nostrum nam voluptatem autem illo sit et. Voluptatem libero quisquam hic quae voluptas aperiam. Laborum minus cum sapiente molestias quia.'
+                      medicine:
+                        id: 6
+                        name: 'Dr. Daisha Deckow'
+                        category:
+                          id: 11
+                          name: 'Dr. Berta Lind DVM'
+                        company:
+                          id: 11
+                          name: 'Moriah Beer'
+                    -
+                      id: 2
+                      medicine_type:
+                        id: 7
+                        type: 'Prof. Elizabeth Gislason'
+                      content: 'Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.'
+                      medicine:
+                        id: 7
+                        name: 'Dr. Eldora Johnston Sr.'
+                        category:
+                          id: 12
+                          name: 'Jarvis Rempel'
+                        company:
+                          id: 12
+                          name: 'Dr. Rogelio Grimes'
+                  links:
+                    first: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=1'
+                    last: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=3'
+                    prev: null
+                    next: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 3
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://127.0.0.1:8000/api/v1/medicineDetails'
+                    per_page: 2
+                    to: 2
+                    total: 5
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        medicine_type:
+                          id: 6
+                          type: 'Dee Anderson'
+                        content: 'Consectetur nostrum nam voluptatem autem illo sit et. Voluptatem libero quisquam hic quae voluptas aperiam. Laborum minus cum sapiente molestias quia.'
+                        medicine:
+                          id: 6
+                          name: 'Dr. Daisha Deckow'
+                          category:
+                            id: 11
+                            name: 'Dr. Berta Lind DVM'
+                          company:
+                            id: 11
+                            name: 'Moriah Beer'
+                      -
+                        id: 2
+                        medicine_type:
+                          id: 7
+                          type: 'Prof. Elizabeth Gislason'
+                        content: 'Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.'
+                        medicine:
+                          id: 7
+                          name: 'Dr. Eldora Johnston Sr.'
+                          category:
+                            id: 12
+                            name: 'Jarvis Rempel'
+                          company:
+                            id: 12
+                            name: 'Dr. Rogelio Grimes'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        medicine_type:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 6
+                            type:
+                              type: string
+                              example: 'Dee Anderson'
+                        content:
+                          type: string
+                          example: 'Consectetur nostrum nam voluptatem autem illo sit et. Voluptatem libero quisquam hic quae voluptas aperiam. Laborum minus cum sapiente molestias quia.'
+                        medicine:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 6
+                            name:
+                              type: string
+                              example: 'Dr. Daisha Deckow'
+                            category:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 11
+                                name:
+                                  type: string
+                                  example: 'Dr. Berta Lind DVM'
+                            company:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 11
+                                name:
+                                  type: string
+                                  example: 'Moriah Beer'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=1'
+                      last:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=3'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 3
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineDetails?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineDetails'
+                      per_page:
+                        type: integer
+                        example: 2
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 5
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - MedicineDetail
+      security: []
+    post:
+      summary: 'Create MedicineDetail'
+      operationId: createMedicineDetail
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 6
+                    medicine_type:
+                      id: 1
+                      type: test
+                    content: 'test test'
+                    medicine:
+                      id: 1
+                      name: test
+                      category:
+                        id: 2
+                        name: 'Mrs. Ashtyn McKenzie'
+                      company:
+                        id: 2
+                        name: 'Millie Mayert'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 6
+                      medicine_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          type:
+                            type: string
+                            example: test
+                      content:
+                        type: string
+                        example: 'test test'
+                      medicine:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: test
+                          category:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 2
+                              name:
+                                type: string
+                                example: 'Mrs. Ashtyn McKenzie'
+                          company:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 2
+                              name:
+                                type: string
+                                example: 'Millie Mayert'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The medicine type id field is required. (and 2 more errors)'
+                  errors:
+                    medicine_type_id:
+                      - 'The medicine type id field is required.'
+                    content:
+                      - 'The content field is required.'
+                    medicine_id:
+                      - 'The medicine id field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The medicine type id field is required. (and 2 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      medicine_type_id:
+                        type: array
+                        example:
+                          - 'The medicine type id field is required.'
+                        items:
+                          type: string
+                      content:
+                        type: array
+                        example:
+                          - 'The content field is required.'
+                        items:
+                          type: string
+                      medicine_id:
+                        type: array
+                        example:
+                          - 'The medicine id field is required.'
+                        items:
+                          type: string
+      tags:
+        - MedicineDetail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                medicine_type_id:
+                  type: string
+                  description: ''
+                  example: cum
+                content:
+                  type: string
+                  description: ''
+                  example: enim
+                medicine_id:
+                  type: string
+                  description: ''
+                  example: aliquid
+              required:
+                - medicine_type_id
+                - content
+                - medicine_id
+      security: []
+  '/api/v1/medicineDetails/{id}':
+    get:
+      summary: 'See One MedicineDetail'
+      operationId: seeOneMedicineDetail
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 2
+                    medicine_type:
+                      id: 7
+                      type: 'Prof. Elizabeth Gislason'
+                    content: 'Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.'
+                    medicine:
+                      id: 7
+                      name: 'Dr. Eldora Johnston Sr.'
+                      category:
+                        id: 12
+                        name: 'Jarvis Rempel'
+                      company:
+                        id: 12
+                        name: 'Dr. Rogelio Grimes'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      medicine_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 7
+                          type:
+                            type: string
+                            example: 'Prof. Elizabeth Gislason'
+                      content:
+                        type: string
+                        example: 'Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.'
+                      medicine:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 7
+                          name:
+                            type: string
+                            example: 'Dr. Eldora Johnston Sr.'
+                          category:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 12
+                              name:
+                                type: string
+                                example: 'Jarvis Rempel'
+                          company:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 12
+                              name:
+                                type: string
+                                example: 'Dr. Rogelio Grimes'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineDetail not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - MedicineDetail
+      security: []
+    put:
+      summary: 'Update MedicineDetail'
+      operationId: updateMedicineDetail
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    medicine_type:
+                      id: 4
+                      type: 'Baby Cormier'
+                    content: sssssssssssss
+                    medicine:
+                      id: 4
+                      name: 'Tony Lynch'
+                      category:
+                        id: 9
+                        name: 'Dr. Marilou Crooks'
+                      company:
+                        id: 9
+                        name: 'Nash Hettinger Sr.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      medicine_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 4
+                          type:
+                            type: string
+                            example: 'Baby Cormier'
+                      content:
+                        type: string
+                        example: sssssssssssss
+                      medicine:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 4
+                          name:
+                            type: string
+                            example: 'Tony Lynch'
+                          category:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 9
+                              name:
+                                type: string
+                                example: 'Dr. Marilou Crooks'
+                          company:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 9
+                              name:
+                                type: string
+                                example: 'Nash Hettinger Sr.'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineDetail not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The medicine type id field is required. (and 2 more errors)'
+                  errors:
+                    medicine_type_id:
+                      - 'The medicine type id field is required.'
+                    content:
+                      - 'The content field is required.'
+                    medicine_id:
+                      - 'The medicine id field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The medicine type id field is required. (and 2 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      medicine_type_id:
+                        type: array
+                        example:
+                          - 'The medicine type id field is required.'
+                        items:
+                          type: string
+                      content:
+                        type: array
+                        example:
+                          - 'The content field is required.'
+                        items:
+                          type: string
+                      medicine_id:
+                        type: array
+                        example:
+                          - 'The medicine id field is required.'
+                        items:
+                          type: string
+      tags:
+        - MedicineDetail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                medicine_type_id:
+                  type: string
+                  description: ''
+                  example: molestiae
+                content:
+                  type: string
+                  description: ''
+                  example: qui
+                medicine_id:
+                  type: string
+                  description: ''
+                  example: et
+              required:
+                - medicine_type_id
+                - content
+                - medicine_id
+      security: []
+    delete:
+      summary: 'Delete MedicineDetail'
+      operationId: deleteMedicineDetail
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineDetail not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - MedicineDetail
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the medicineDetail.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/medicineTypes:
+    get:
+      summary: 'See all MedicineType'
+      operationId: seeAllMedicineType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      type: 'Mrs. Dawn Hoppe'
+                    -
+                      id: 2
+                      type: "Rollin O'Hara"
+                  links:
+                    first: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=1'
+                    last: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=7'
+                    prev: null
+                    next: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 7
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=5'
+                        label: '5'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=6'
+                        label: '6'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=7'
+                        label: '7'
+                        active: false
+                      -
+                        url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://127.0.0.1:8000/api/v1/medicineTypes'
+                    per_page: 2
+                    to: 2
+                    total: 13
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        type: 'Mrs. Dawn Hoppe'
+                      -
+                        id: 2
+                        type: "Rollin O'Hara"
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        type:
+                          type: string
+                          example: 'Mrs. Dawn Hoppe'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=1'
+                      last:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=7'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 7
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=5'
+                            label: '5'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=6'
+                            label: '6'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=7'
+                            label: '7'
+                            active: false
+                          -
+                            url: 'http://127.0.0.1:8000/api/v1/medicineTypes?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://127.0.0.1:8000/api/v1/medicineTypes'
+                      per_page:
+                        type: integer
+                        example: 2
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 13
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - MedicineType
+      security: []
+    post:
+      summary: 'Create MedicineType'
+      operationId: createMedicineType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 12
+                    type: test
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 12
+                      type:
+                        type: string
+                        example: test
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The type field is required.'
+                  errors:
+                    type:
+                      - 'The type field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The type field is required.'
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: array
+                        example:
+                          - 'The type field is required.'
+                        items:
+                          type: string
+      tags:
+        - MedicineType
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: ''
+                  example: pariatur
+              required:
+                - type
+      security: []
+  '/api/v1/medicineTypes/{id}':
+    get:
+      summary: 'See One MedicineType'
+      operationId: seeOneMedicineType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 2
+                    type: "Rollin O'Hara"
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 2
+                      type:
+                        type: string
+                        example: "Rollin O'Hara"
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineType not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - MedicineType
+      security: []
+    put:
+      summary: 'Update MedicineType'
+      operationId: updateMedicineType
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    type: test
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      type:
+                        type: string
+                        example: test
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineType not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The type field is required.'
+                  errors:
+                    type:
+                      - 'The type field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The type field is required.'
+                  errors:
+                    type: object
+                    properties:
+                      type:
+                        type: array
+                        example:
+                          - 'The type field is required.'
+                        items:
+                          type: string
+      tags:
+        - MedicineType
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: ''
+                  example: nihil
+              required:
+                - type
+      security: []
+    delete:
+      summary: 'Delete MedicineType'
+      operationId: deleteMedicineType
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This MedicineType not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - MedicineType
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the medicineType.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/v1/logout:
     post:
       summary: Logout
@@ -137,11 +2444,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hank.hoeger@example.com
+                  example: lemke.antonette@example.com
                 password:
                   type: string
                   description: ''
-                  example: ipsum
+                  example: hcWsG|B5S^B<\
               required:
                 - email
                 - password
@@ -269,35 +2576,35 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: pdoyle@example.org
+                  example: dkozey@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: "^vIn'5PsM"
+                  example: '6."7G`6K6(Coy)=<'
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: ry
+                  example: s
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: lzd
+                  example: njvvc
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: jiadooouy
+                  example: jehitezme
                 birth_date:
                   type: string
-                  description: 'Must be a valid date. Must be a date before <code>2015-08-09</code>.'
-                  example: '2011-03-15'
+                  description: 'Must be a valid date. Must be a date before <code>2015-08-15</code>.'
+                  example: '2005-07-24'
                 specialty:
                   type: string
                   description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
-                  example: doctor
+                  example: student
                 gender:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
-                  example: female
+                  example: male
               required:
                 - email
                 - password
@@ -308,6 +2615,525 @@ paths:
                 - specialty
                 - gender
       security: []
+  /api/v1/moderator:
+    get:
+      summary: 'See all Moderator'
+      operationId: seeAllModerator
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 12
+                    first_name: Moderator
+                    last_name: Moderator
+                    email: Moderator@Moderator.com
+                    role:
+                      id: 2
+                      name: moderator
+                    password: $2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa
+                    phone_number: 987372763
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 12
+                      first_name:
+                        type: string
+                        example: Moderator
+                      last_name:
+                        type: string
+                        example: Moderator
+                      email:
+                        type: string
+                        example: Moderator@Moderator.com
+                      role:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: moderator
+                      password:
+                        type: string
+                        example: $2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa
+                      phone_number:
+                        type: integer
+                        example: 987372763
+        401:
+          description: 'Account Not Admin'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
+      tags:
+        - Moderator
+      security: []
+    post:
+      summary: 'Create Moderator'
+      operationId: createModerator
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 20
+                    first_name: moderator
+                    last_name: moderator
+                    email: moderator12@moderator1.com
+                    role:
+                      id: 2
+                      name: moderator
+                    password: $2y$10$5jU0OIffSqEWOWh79NF9z.elMc/6yGraAuwVXbMOBJNDv26yTCgU6
+                    phone_number: 987372763
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 20
+                      first_name:
+                        type: string
+                        example: moderator
+                      last_name:
+                        type: string
+                        example: moderator
+                      email:
+                        type: string
+                        example: moderator12@moderator1.com
+                      role:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: moderator
+                      password:
+                        type: string
+                        example: $2y$10$5jU0OIffSqEWOWh79NF9z.elMc/6yGraAuwVXbMOBJNDv26yTCgU6
+                      phone_number:
+                        type: integer
+                        example: 987372763
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The first name field is required. (and 4 more errors)'
+                  errors:
+                    first_name:
+                      - 'The first name field is required.'
+                    last_name:
+                      - 'The last name field is required.'
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                    phone_number:
+                      - 'The phone number field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The first name field is required. (and 4 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      first_name:
+                        type: array
+                        example:
+                          - 'The first name field is required.'
+                        items:
+                          type: string
+                      last_name:
+                        type: array
+                        example:
+                          - 'The last name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+                      phone_number:
+                        type: array
+                        example:
+                          - 'The phone number field is required.'
+                        items:
+                          type: string
+      tags:
+        - Moderator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
+                  example: aupdpgwahqrfa
+                last_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
+                  example: mxajtrwut
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: wdibbert@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: 'f1XMpC4/qoN.V`6"'
+                phone_number:
+                  type: string
+                  description: 'Must be 9 characters.'
+                  example: vxtavqrlm
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - phone_number
+      security: []
+  '/api/v1/moderator/{id}':
+    get:
+      summary: 'See One Moderator'
+      operationId: seeOneModerator
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 12
+                    first_name: Moderator
+                    last_name: Moderator
+                    email: Moderator@Moderator.com
+                    role:
+                      id: 2
+                      name: moderator
+                    password: $2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa
+                    phone_number: 987372763
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 12
+                      first_name:
+                        type: string
+                        example: Moderator
+                      last_name:
+                        type: string
+                        example: Moderator
+                      email:
+                        type: string
+                        example: Moderator@Moderator.com
+                      role:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: moderator
+                      password:
+                        type: string
+                        example: $2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa
+                      phone_number:
+                        type: integer
+                        example: 987372763
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Moderator not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Moderator
+      security: []
+    put:
+      summary: 'Update Moderator'
+      operationId: updateModerator
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Success Process'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 18
+                    first_name: moderatortest
+                    last_name: moderatortest
+                    email: Moderat2or@Moderator.com
+                    role:
+                      id: 2
+                      name: moderator
+                    password: $2y$10$jIYo5cMTKNvbvQ5ClrLcZeeIBK/AVBbTZZ4saTbSXwjv4SLDR7vKi
+                    phone_number: 987372763
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 18
+                      first_name:
+                        type: string
+                        example: moderatortest
+                      last_name:
+                        type: string
+                        example: moderatortest
+                      email:
+                        type: string
+                        example: Moderat2or@Moderator.com
+                      role:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 2
+                          name:
+                            type: string
+                            example: moderator
+                      password:
+                        type: string
+                        example: $2y$10$jIYo5cMTKNvbvQ5ClrLcZeeIBK/AVBbTZZ4saTbSXwjv4SLDR7vKi
+                      phone_number:
+                        type: integer
+                        example: 987372763
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Moderator not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The first name field is required. (and 4 more errors)'
+                  errors:
+                    first_name:
+                      - 'The first name field is required.'
+                    last_name:
+                      - 'The last name field is required.'
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                    phone_number:
+                      - 'The phone number field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The first name field is required. (and 4 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      first_name:
+                        type: array
+                        example:
+                          - 'The first name field is required.'
+                        items:
+                          type: string
+                      last_name:
+                        type: array
+                        example:
+                          - 'The last name field is required.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+                      phone_number:
+                        type: array
+                        example:
+                          - 'The phone number field is required.'
+                        items:
+                          type: string
+      tags:
+        - Moderator
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
+                  example: ct
+                last_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
+                  example: wc
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ehahn@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: 'j=tn$gIE=:RX|'
+                phone_number:
+                  type: string
+                  description: 'Must be 9 characters.'
+                  example: duudqmoiz
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - phone_number
+      security: []
+    delete:
+      summary: 'Delete Moderator'
+      operationId: deleteModerator
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Moderator not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - Moderator
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the moderator.'
+        example: eligendi
+        required: true
+        schema:
+          type: string
   /api/v1/login/admin:
     post:
       summary: Login
@@ -395,16 +3221,16 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: kara50@example.net
+                  example: raymond21@example.org
                 password:
                   type: string
                   description: ''
-                  example: distinctio
+                  example: 'O[&VX#b?Mo4QGk{4$'
               required:
                 - email
                 - password
       security: []
-  /api/v1/login/subAdmin:
+  /api/v1/login/moderator:
     post:
       summary: Login
       operationId: login
@@ -491,22 +3317,40 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hdeckow@example.com
+                  example: ndamore@example.net
                 password:
                   type: string
                   description: ''
-                  example: architecto
+                  example: 'iKUA=*%6L1}'
               required:
                 - email
                 - password
       security: []
 tags:
   -
+    name: Category
+    description: "\nThis Api For Category"
+  -
+    name: Company
+    description: "\nThis Api For Company"
+  -
     name: Endpoints
     description: ''
   -
+    name: Medicine
+    description: "\nThis Api For Medicine"
+  -
+    name: MedicineDetail
+    description: "\nThis Api For MedicineDetail"
+  -
+    name: MedicineType
+    description: "\nThis Api For MedicineType"
+  -
     name: MobileAuthentication
     description: "\nThis Api For Authentication in flutter"
+  -
+    name: Moderator
+    description: "\nThis Api For Moderator"
   -
     name: WebSiteAdminAuthentication
     description: "\nThis Api For Admin Authentication in React"

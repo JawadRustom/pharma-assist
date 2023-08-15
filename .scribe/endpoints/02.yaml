@@ -1,20 +1,155 @@
-name: WebSiteAdminAuthentication
+name: Category
 description: |-
 
-  This Api For Admin Authentication in React
+  This Api For Category
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/v1/login/admin
+      - GET
+    uri: api/v1/categories
     metadata:
-      groupName: WebSiteAdminAuthentication
+      groupName: Category
       groupDescription: |-
 
-        This Api For Admin Authentication in React
+        This Api For Category
       subgroup: ''
       subgroupDescription: ''
-      title: Login
+      title: 'See all Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 1,
+          "name": "Ms. Lilyan Langosh DDS",
+          },
+          {
+          "id": 2,
+          "name": "Lyla Johnson MD",
+          }
+          ],
+          "links": {
+          "first": "http://127.0.0.1:8000/api/v1/category?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/category?page=9",
+          "prev": null,
+          "next": "http://127.0.0.1:8000/api/v1/category?page=2"
+          },
+          "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 9,
+          "links": [
+          {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=1",
+          "label": "1",
+          "active": true
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=2",
+          "label": "2",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=3",
+          "label": "3",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=4",
+          "label": "4",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=5",
+          "label": "5",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=6",
+          "label": "6",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=7",
+          "label": "7",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=8",
+          "label": "8",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=9",
+          "label": "9",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/category?page=2",
+          "label": "Next &raquo;",
+          "active": false
+          }
+          ],
+          "path": "http://127.0.0.1:8000/api/v1/category",
+          "per_page": 2,
+          "to": 2,
+          "total": 17
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+
+          * @queryparam perPage int
+          To return limite data in single page.
+          Defaults value for variable '15'.
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/categories
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        This Api For Category
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Category'
       description: ''
       authenticated: false
       custom: []
@@ -26,69 +161,278 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: kara50@example.net
-        type: string
-        custom: []
-      password:
-        name: password
+      name:
+        name: name
         description: ''
         required: true
-        example: distinctio
+        example: at
         type: string
         custom: []
     cleanBodyParameters:
-      email: kara50@example.net
-      password: distinctio
+      name: at
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-          "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"
+          "data": {
+          "id": 19,
+          "name": "test",
+          }
           }
         headers: []
-        description: 'Register Success'
-        custom: []
-      -
-        status: 400
-        content: |-
-          {
-          "message": "You are already logged in"
-          }
-        headers: []
-        description: 'User send a valid token'
+        description: 'Success Process'
         custom: []
       -
         status: 401
         content: |-
           {
-          "message": "email or password is wrong"
+          "message": "Unauthenticated."
           }
         headers: []
-        description: 'Email or password is wrong or user type not user'
+        description: 'Account Not Admin'
         custom: []
       -
         status: 422
         content: |-
           {
-              "message": "The email field is required. (and 1 more error)",
+          "message": "The name field is required. (and 1 more error)",
           "errors": {
-          "email": [
-          "The email field is required."
-          ],
-          "password": [
-          "The password field is required."
+          "name": [
+          "The name field is required."
           ]
           }
-
           }
         headers: []
         description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        This Api For Category
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See One Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 2,
+          "name": "Lyla Johnson MD",
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Category not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        This Api For Category
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: vero
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: vero
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 3,
+          "name": "testtest",
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Category not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The name field is required. (and 1 more error)",
+          "errors": {
+          "name": [
+          "The name field is required."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        This Api For Category
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Category not found'
         custom: []
     responseFields: []
     auth: []

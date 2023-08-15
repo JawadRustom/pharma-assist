@@ -14,8 +14,8 @@ class ModeratorSeeder extends Seeder
     public function run(): void
     {
         User::factory([
-            'first_name' => 'SubAdmin',
-            'last_name' => 'SubAdmin',
+            'first_name' => 'Moderator',
+            'last_name' => 'Moderator',
             'email' => 'Moderator@Moderator.com',
             'role_id' => 2,
             'password'=>'password',

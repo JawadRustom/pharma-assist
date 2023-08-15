@@ -1,16 +1,225 @@
-name: Endpoints
-description: ''
+name: Company
+description: |-
+
+  This Api For Company
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: 'api/v1/auth/{provider}'
+      - GET
+    uri: api/v1/companies
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Company
+      groupDescription: |-
+
+        This Api For Company
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'See all Company'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 1,
+          "name": "Mr. Olen Kreiger",
+          },
+          {
+          "id": 2,
+          "name": "Damien Heller",
+          }
+          ],
+          "links": {
+          "first": "http://127.0.0.1:8000/api/v1/company?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/company?page=8",
+          "prev": null,
+          "next": "http://127.0.0.1:8000/api/v1/company?page=2"
+          },
+          "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 8,
+          "links": [
+          {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=1",
+          "label": "1",
+          "active": true
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+          "label": "2",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=3",
+          "label": "3",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=4",
+          "label": "4",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=5",
+          "label": "5",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=6",
+          "label": "6",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=7",
+          "label": "7",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=8",
+          "label": "8",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+          "label": "Next &raquo;",
+          "active": false
+          }
+          ],
+          "path": "http://127.0.0.1:8000/api/v1/company",
+          "per_page": 2,
+          "to": 2,
+          "total": 15
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+
+          * @queryparam perPage int
+          To return limite data in single page.
+          Defaults value for variable '15'.
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/companies
+    metadata:
+      groupName: Company
+      groupDescription: |-
+
+        This Api For Company
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Company'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: dolor
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: dolor
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 16,
+          "name": "test"
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The name field is required. (and 1 more error)",
+          "errors": {
+          "name": [
+          "The name field is required."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Company
+      groupDescription: |-
+
+        This Api For Company
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See One Company'
       description: ''
       authenticated: false
       custom: []
@@ -18,21 +227,208 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      provider:
-        name: provider
-        description: ''
+      id:
+        name: id
+        description: 'The ID of the company.'
         required: true
-        example: google|facebook|local
-        type: string
+        example: 1
+        type: integer
         custom: []
     cleanUrlParameters:
-      provider: google|facebook|local
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 2,
+          "name": "Lyla Johnson MD"
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Company not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Company
+      groupDescription: |-
+
+        This Api For Company
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Company'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: eveniet
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: eveniet
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 12,
+          "name": "testtest"
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Company not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The name field is required. (and 1 more error)",
+          "errors": {
+          "name": [
+          "The name field is required."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      groupName: Company
+      groupDescription: |-
+
+        This Api For Company
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Company'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Company not found'
+        custom: []
     responseFields: []
     auth: []
     controller: null
