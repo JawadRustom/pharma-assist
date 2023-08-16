@@ -9,5 +9,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->post('/logout', [UserAuthenticationController::class, 'logout']);
 
 Route::middleware('checkUserLogin')->group(function(){
-    Route::post('/login/admin', [AdminAuthenticationController::class, 'loginAdmin']);
+    Route::post('/admin/login', [AdminAuthenticationController::class, 'loginAdmin']);
 });

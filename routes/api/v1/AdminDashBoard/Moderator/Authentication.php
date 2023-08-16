@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->post('/logout', [UserAuthenticationController::class, 'logout']);
 
-Route::middleware('check_user_login')->group(function(){
-    Route::post('/login/moderator', [ModeratorAuthAuthenticationController::class, 'loginModerator']);
+Route::middleware('checkUserLogin')->group(function(){
+    Route::post('/moderator/login', [ModeratorAuthAuthenticationController::class, 'loginModerator']);
 });

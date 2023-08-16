@@ -44,7 +44,7 @@ class ModeratorController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::whereHas('roles', fn ($query) => $query->where('name', 'moderator'))->paginate($request->perPage ?? 15);
+        $data = User::orderBy('id', 'desc')->whereHas('roles', fn ($query) => $query->where('name', 'moderator'))->paginate($request->perPage ?? 15);
         return ModeratorResource::collection($data);
     }
     /**

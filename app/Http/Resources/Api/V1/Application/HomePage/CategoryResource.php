@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Api\V1\AdminDashboard\Admin\CategoryResource;
+namespace App\Http\Resources\Api\V1\Application\HomePage;
 
 use App\Http\Resources\Api\V1\AdminDashboard\Admin\PhotoResource\PhotoResource;
 use Illuminate\Http\Request;
@@ -22,4 +22,3 @@ class CategoryResource extends JsonResource
         ];
     }
 }
-

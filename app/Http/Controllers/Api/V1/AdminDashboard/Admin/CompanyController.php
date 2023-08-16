@@ -109,7 +109,7 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Company::paginate($request->perPage ?? 15);
+        $data = Company::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
         return CompanyResource::collection($data);
     }
 

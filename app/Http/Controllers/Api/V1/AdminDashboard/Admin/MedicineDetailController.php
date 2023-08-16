@@ -115,7 +115,7 @@
        */
       public function index(Request $request)
       {
-          $data = MedicineDetail::paginate($request->perPage ?? 15);
+          $data = MedicineDetail::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
 
           return MedicineDetailResource::collection($data);
       }

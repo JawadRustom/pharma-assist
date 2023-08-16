@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ProfileSeeder::class,
             AdminSeeder::class,
             ModeratorSeeder::class,
+            UserTestSeeder::class,
         ]);
 
         if (config('app.env') !== 'production') {

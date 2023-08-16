@@ -104,7 +104,7 @@ class MedicineTypeController extends Controller
      */
     public function index(Request $request)
     {
-        $data = MedicineType::paginate($request->perPage ?? 15);
+        $data = MedicineType::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
 
         return MedicineTypeResource::collection($data);
     }

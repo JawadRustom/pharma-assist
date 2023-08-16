@@ -24,3 +24,4 @@ class MedicineResource extends JsonResource
         ];
     }
 }
+

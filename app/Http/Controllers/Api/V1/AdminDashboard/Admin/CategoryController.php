@@ -114,7 +114,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Category::paginate($request->perPage ?? 15);
+        $data = Category::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
         return CategoryResource::collection($data);
     }
 
