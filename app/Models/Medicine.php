@@ -51,5 +51,8 @@ class Medicine extends Model
     {
         return $this->HasMany(MedicineDetail::class,'medicine_id','id');
     }
-
+    public function photos()
+    {
+        return $this->morphOne(Photo::class, 'imageable');
+    }
 }

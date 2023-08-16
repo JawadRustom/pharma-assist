@@ -23,6 +23,7 @@ class StoreCompanyRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'file_name'=>['nullable','image'],
             //'language_id' => ['required','exists:languages,id','numeric'],
         ];
     }

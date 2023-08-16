@@ -164,6 +164,10 @@ class CompanyController extends Controller
     public function store(StoreCompanyRequest $request)
     {
         $data = Company::create($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Company', 'photos');
+            $data->photos()->create(['file_name' => $photoPath]);
+        }
         return new CompanyResource($data);
     }
 
@@ -196,6 +200,13 @@ class CompanyController extends Controller
     public function update(UpdateCompanyRequest $request, Company $company)
     {
         $company->update($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $company->photos()->updateOrCreate(
+                [],
+                ['file_name' => $photoPath]
+            );
+        }
         $company->refresh();
         return new CompanyResource($company);
     }

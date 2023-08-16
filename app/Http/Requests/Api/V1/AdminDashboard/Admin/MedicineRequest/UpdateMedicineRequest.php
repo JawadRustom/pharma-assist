@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateMedicineRequest extends FormRequest
 {
-  /**
+    /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
@@ -21,10 +21,11 @@ class UpdateMedicineRequest extends FormRequest
      */
     public function rules(): array
     {
-      return [
-        'name'=>['required','string'],
-        'company_id'=>['required','exists:companies,id'],
-        'category_id'=>['required','exists:categories,id'],
-      ];
+        return [
+            'name' => ['required', 'string'],
+            'company_id' => ['required', 'exists:companies,id'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'file_name' => ['nullable', 'image'],
+        ];
     }
-    }
+}

@@ -169,6 +169,10 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = Category::create($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $data->photos()->create(['file_name' => $photoPath]);
+        }
         return new CategoryResource($data);
     }
 
@@ -201,6 +205,13 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $category->photos()->updateOrCreate(
+                [],
+                ['file_name' => $photoPath]
+            );
+        }
         $category->refresh();
         return new CategoryResource($category);
     }

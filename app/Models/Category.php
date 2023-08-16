@@ -27,16 +27,19 @@ class Category extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'language_id'=>'integer',
+        'language_id' => 'integer',
     ];
 
     public function medicines(): HasMany
     {
-        return $this->hasMany(Medicine::class,'category_id','id');
+        return $this->hasMany(Medicine::class, 'category_id', 'id');
     }
     public function languages(): BelongsTo
     {
-        return $this->BelongsTo(Language::class,'language_id','id');
+        return $this->BelongsTo(Language::class, 'language_id', 'id');
     }
-
+    public function photos()
+    {
+        return $this->morphOne(Photo::class, 'imageable');
+    }
 }

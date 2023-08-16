@@ -39,4 +39,8 @@ class Company extends Model
     {
         return $this->BelongsTo(Language::class,'language_id','id');
     }
+    public function photos()
+    {
+        return $this->morphOne(Photo::class, 'imageable');
+    }
 }

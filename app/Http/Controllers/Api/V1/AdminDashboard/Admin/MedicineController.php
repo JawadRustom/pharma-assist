@@ -1,23 +1,24 @@
 <?php
 
-    namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
+namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
 
-    use App\Http\Controllers\Controller;
-    use App\Models\Medicine;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\StoreMedicineRequest;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\UpdateMedicineRequest;
-    use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineResource\MedicineResource;
-    use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Medicine;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\StoreMedicineRequest;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\UpdateMedicineRequest;
+use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineResource\MedicineResource;
+use Illuminate\Http\Request;
+
+/**
+ * @group Medicine
+ *
+ * This Api For Medicine
+ */
+class MedicineController extends Controller
+{
     /**
-     * @group Medicine
-     *
-     * This Api For Medicine
-     */
-    class MedicineController extends Controller
-    {
-      /**
-       * See all Medicine
-       * @response 200 scenario="Success Process"{
+     * See all Medicine
+     * @response 200 scenario="Success Process"{
     "data": [
         {
             "id": 1,
@@ -97,25 +98,25 @@
         "total": 10
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       * * @queryparam perPage int
-       * To return limite data in single page.
-       * Defaults value for variable '15'.
-       *
-       */
-      public function index(Request $request)
-      {
-          $data = Medicine::paginate($request->perPage ?? 15);
-          return MedicineResource::collection($data);
-      }
+     *
+     * * @queryparam perPage int
+     * To return limite data in single page.
+     * Defaults value for variable '15'.
+     *
+     */
+    public function index(Request $request)
+    {
+        $data = Medicine::paginate($request->perPage ?? 15);
+        return MedicineResource::collection($data);
+    }
 
-      /**
-       * See One Medicine
-       * @response 200 scenario="Success Process"{
+    /**
+     * See One Medicine
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 2,
         "name": "Horacio Kemmer",
@@ -129,25 +130,25 @@
         }
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       *
-       * @response 404 scenario="This Medicine not found"{
+     *
+     *
+     * @response 404 scenario="This Medicine not found"{
        "message": "not found"
        }
-       *
-       */
-      public function show(Request $request, Medicine $medicine)
-      {
-          return new MedicineResource($medicine);
-      }
+     *
+     */
+    public function show(Request $request, Medicine $medicine)
+    {
+        return new MedicineResource($medicine);
+    }
 
-      /**
-       * Create Medicine
-       * @response 200 scenario="Success Process"{
+    /**
+     * Create Medicine
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 11,
         "name": "test",
@@ -161,9 +162,9 @@
         }
     }
 }
-       *
-       *
-       * @response 422 scenario="Validation errors"{
+     *
+     *
+     * @response 422 scenario="Validation errors"{
     "message": "The name field is required. (and 2 more errors)",
     "errors": {
         "name": [
@@ -177,21 +178,25 @@
         ]
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function store(StoreMedicineRequest $request)
-      {
-          $data = Medicine::create($request->validated());
-          return new MedicineResource($data);
-      }
+     *
+     */
+    public function store(StoreMedicineRequest $request)
+    {
+        $data = Medicine::create($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Medicine', 'photos');
+            $data->photos()->create(['file_name' => $photoPath]);
+        }
+        return new MedicineResource($data);
+    }
 
-      /**
-       * Update Medicine
-       * @response 200 scenario="Success Process"{
+    /**
+     * Update Medicine
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 1,
         "name": "test",
@@ -205,8 +210,8 @@
         }
     }
 }
-       *
-       * @response 422 scenario="Validation errors"{
+     *
+     * @response 422 scenario="Validation errors"{
     "message": "The name field is required. (and 2 more errors)",
     "errors": {
         "name": [
@@ -220,39 +225,46 @@
         ]
     }
 }
-       *
-       * @response 404 scenario="This Medicine not found"{
+     *
+     * @response 404 scenario="This Medicine not found"{
        "message": "not found"
        }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function update(UpdateMedicineRequest $request, Medicine $medicine)
-      {
-          $medicine->update($request->validated());
-          $medicine->refresh();
-          return new MedicineResource($medicine);
-      }
-      /**
-       * Delete Medicine
-       * @response 204 scenario="Success Process"
-       *
-       * @response 401 scenario="Account Not Admin"{
-       "message": "Unauthenticated."
-   }
-       *
-       *
-       * @response 404 scenario="This Medicine not found"{
-       "message": "not found"
-       }
-       *
-       */
-      public function destroy(Medicine $medicine)
-      {
-          $medicine->delete();
-          return response()->noContent();
-      }
+     *
+     */
+    public function update(UpdateMedicineRequest $request, Medicine $medicine)
+    {
+        $medicine->update($request->validated());
+        if ($request->hasFile('file_name')) {
+            $photoPath = $request->file('file_name')->store('Medicine', 'photos');
+            $medicine->photos()->updateOrCreate(
+                [],
+                ['file_name' => $photoPath]
+            );
+        }
+        $medicine->refresh();
+        return new MedicineResource($medicine);
     }
+    /**
+     * Delete Medicine
+     * @response 204 scenario="Success Process"
+     *
+     * @response 401 scenario="Account Not Admin"{
+       "message": "Unauthenticated."
+   }
+     *
+     *
+     * @response 404 scenario="This Medicine not found"{
+       "message": "not found"
+       }
+     *
+     */
+    public function destroy(Medicine $medicine)
+    {
+        $medicine->delete();
+        return response()->noContent();
+    }
+}
