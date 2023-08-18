@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->date('birth_date');//add to profile table
             $table->string('specialty');//add to profile table
-            $table->string('gender');//add to profile table
             $table->foreignId('user_id')->reference('id')->on('users');
             $table->timestamps();
         });

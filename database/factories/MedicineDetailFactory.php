@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Language;
 use App\Models\Medicine;
 use App\Models\MedicineType;
 use Illuminate\Database\Eloquent\Factories\Factory;

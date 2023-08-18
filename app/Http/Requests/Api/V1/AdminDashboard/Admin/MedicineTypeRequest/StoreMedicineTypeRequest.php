@@ -21,7 +21,7 @@ class StoreMedicineTypeRequest extends FormRequest
     public function rules(): array
     {
       return [
-        'type'=>['required','string'],
+        'type'=>['required','string','unique:medicine_types'],
       ];
     }
     }

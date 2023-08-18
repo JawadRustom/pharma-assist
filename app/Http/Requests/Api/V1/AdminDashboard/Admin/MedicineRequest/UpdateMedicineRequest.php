@@ -22,7 +22,7 @@ class UpdateMedicineRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
+            'name'=>['required','string','unique:medicines'],
             'company_id' => ['required', 'exists:companies,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'file_name' => ['nullable', 'image'],

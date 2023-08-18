@@ -22,7 +22,6 @@ class ProfileFactory extends Factory
         return [
             'birth_date'=>fake()->date(),
             'specialty'=>$specialtyArray[rand(0, 3)],
-            'gender'=>$genderArray[rand(0, 1)],
             'user_id'=>User::factory(),
         ];
     }
