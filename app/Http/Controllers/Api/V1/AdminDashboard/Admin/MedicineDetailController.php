@@ -9,9 +9,9 @@
     use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineDetailResource\MedicineDetailResource;
     use Illuminate\Http\Request;
     /**
-     * @group MedicineDetail
+     * @group Admin MedicineDetail
      *
-     * This Api For MedicineDetail
+     * This Api For Admin MedicineDetail
      */
     class MedicineDetailController extends Controller
     {

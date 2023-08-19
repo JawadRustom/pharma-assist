@@ -61,7 +61,7 @@ endpoints:
         This Api For Authentication in flutter
       subgroup: ''
       subgroupDescription: ''
-      title: Login
+      title: 'Login User'
       description: ''
       authenticated: false
       custom: []
@@ -77,19 +77,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: lemke.antonette@example.com
+        example: dusty.gerhold@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: hcWsG|B5S^B<\
+        example: 't1rm9`}'
         type: string
         custom: []
     cleanBodyParameters:
-      email: lemke.antonette@example.com
-      password: hcWsG|B5S^B<\
+      email: dusty.gerhold@example.net
+      password: 't1rm9`}'
     fileParameters: []
     responses:
       -
@@ -154,7 +154,7 @@ endpoints:
         This Api For Authentication in flutter
       subgroup: ''
       subgroupDescription: ''
-      title: Register
+      title: 'Register User'
       description: ''
       authenticated: false
       custom: []
@@ -170,49 +170,49 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: dkozey@example.net
+        example: cronin.emmett@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
         required: true
-        example: '6."7G`6K6(Coy)=<'
+        example: '/Ju8>&V8hxS6;'
         type: string
         custom: []
       first_name:
         name: first_name
         description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
         required: true
-        example: s
+        example: jlcreh
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
         required: true
-        example: njvvc
+        example: opnnyuqnb
         type: string
         custom: []
       phone_number:
         name: phone_number
         description: 'Must be 9 characters.'
         required: true
-        example: jehitezme
+        example: snlegugkx
         type: string
         custom: []
       birth_date:
         name: birth_date
-        description: 'Must be a valid date. Must be a date before <code>2015-08-15</code>.'
+        description: 'Must be a valid date. Must be a date before <code>2015-08-19</code>.'
         required: true
-        example: '2005-07-24'
+        example: '1999-10-07'
         type: string
         custom: []
       specialty:
         name: specialty
         description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
         required: true
-        example: student
+        example: doctor
         type: string
         custom: []
       gender:
@@ -223,13 +223,13 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      email: dkozey@example.net
-      password: '6."7G`6K6(Coy)=<'
-      first_name: s
-      last_name: njvvc
-      phone_number: jehitezme
-      birth_date: '2005-07-24'
-      specialty: student
+      email: cronin.emmett@example.net
+      password: '/Ju8>&V8hxS6;'
+      first_name: jlcreh
+      last_name: opnnyuqnb
+      phone_number: snlegugkx
+      birth_date: '1999-10-07'
+      specialty: doctor
       gender: male
     fileParameters: []
     responses:

@@ -1,17 +1,17 @@
-name: MedicineType
+name: 'Admin MedicineType'
 description: |-
 
-  This Api For MedicineType
+  This Api For Admin MedicineType
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/medicineTypes
+    uri: api/v1/admin/medicineTypes
     metadata:
-      groupName: MedicineType
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For MedicineType
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
       title: 'See all MedicineType'
@@ -131,12 +131,12 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/medicineTypes
+    uri: api/v1/admin/medicineTypes
     metadata:
-      groupName: MedicineType
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For MedicineType
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
       title: 'Create MedicineType'
@@ -155,11 +155,11 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: pariatur
+        example: sunt
         type: string
         custom: []
     cleanBodyParameters:
-      type: pariatur
+      type: sunt
     fileParameters: []
     responses:
       -
@@ -206,12 +206,12 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/medicineTypes/{id}'
+    uri: 'api/v1/admin/medicineTypes/{id}'
     metadata:
-      groupName: MedicineType
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For MedicineType
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
       title: 'See One MedicineType'
@@ -277,12 +277,12 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/medicineTypes/{id}'
+    uri: 'api/v1/admin/medicineTypes/{id}'
     metadata:
-      groupName: MedicineType
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For MedicineType
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
       title: 'Update MedicineType'
@@ -309,11 +309,11 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: nihil
+        example: temporibus
         type: string
         custom: []
     cleanBodyParameters:
-      type: nihil
+      type: temporibus
     fileParameters: []
     responses:
       -
@@ -369,12 +369,12 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/medicineTypes/{id}'
+    uri: 'api/v1/admin/medicineTypes/{id}'
     metadata:
-      groupName: MedicineType
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For MedicineType
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete MedicineType'

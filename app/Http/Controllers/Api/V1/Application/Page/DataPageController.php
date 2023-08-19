@@ -18,7 +18,7 @@ class DataPageController extends Controller
         $allowedCategoryValues=['category', 'categories'];
         //dd($dataFrom);
         //$dataFrom='company';
-        //$name='test';
+        //$name='test' ;
         if (in_array(strtolower($dataFrom), $allowedCompanyValues))
         {
             $data = Medicine::orderBy('id', 'desc')->whereHas('companies', fn ($query) => $query->where('name',$name))->paginate($request->perPage ?? 15);

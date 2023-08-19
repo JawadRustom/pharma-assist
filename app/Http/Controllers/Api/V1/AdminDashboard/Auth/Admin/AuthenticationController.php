@@ -7,14 +7,14 @@ use App\Http\Requests\Api\V1\Application\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**
- * @group WebSiteAdminAuthentication
+ * @group Admin Authentication
  *
- * This Api For Admin Authentication in React
+ * This Api For Admin Authentication
  */
 class AuthenticationController extends Controller
 {
     /**
-     * Login
+     * Login Admin
      *
      * @response scenario="Register Success"{
      * "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"

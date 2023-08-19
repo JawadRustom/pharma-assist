@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
- * @group Moderator
+ * @group Admin Moderator
  *
  * This Api For Moderator
  */

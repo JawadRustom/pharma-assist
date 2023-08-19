@@ -1,20 +1,20 @@
-name: WebSiteSubAdminAuthentication
+name: 'Moderator Authentication'
 description: |-
 
-  This Api For SubAdmin Authentication in React
+  This Api For Moderator Authentication
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/login/moderator
+    uri: api/v1/moderator/login
     metadata:
-      groupName: WebSiteSubAdminAuthentication
+      groupName: 'Moderator Authentication'
       groupDescription: |-
 
-        This Api For SubAdmin Authentication in React
+        This Api For Moderator Authentication
       subgroup: ''
       subgroupDescription: ''
-      title: Login
+      title: 'Login Moderator'
       description: ''
       authenticated: false
       custom: []
@@ -30,19 +30,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ndamore@example.net
+        example: farrell.general@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'iKUA=*%6L1}'
+        example: '+s`w#uJI'
         type: string
         custom: []
     cleanBodyParameters:
-      email: ndamore@example.net
-      password: 'iKUA=*%6L1}'
+      email: farrell.general@example.com
+      password: '+s`w#uJI'
     fileParameters: []
     responses:
       -

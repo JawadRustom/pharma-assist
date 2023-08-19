@@ -7,7 +7,103 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/v1/categories:
+  /api/v1/admin/login:
+    post:
+      summary: 'Login Admin'
+      operationId: loginAdmin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+                properties:
+                  token:
+                    type: string
+                    example: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
+        400:
+          description: 'User send a valid token'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        401:
+          description: 'Email or password is wrong or user type not user'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'email or password is wrong'
+                properties:
+                  message:
+                    type: string
+                    example: 'email or password is wrong'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 1 more error)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 1 more error)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+      tags:
+        - 'Admin Authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ferry.arch@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: vSV9KU3
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/admin/categories:
     get:
       summary: 'See all Category'
       operationId: seeAllCategory
@@ -29,7 +125,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - Category
+        - 'Admin Category'
       security: []
     post:
       summary: 'Create Category'
@@ -81,22 +177,26 @@ paths:
                         items:
                           type: string
       tags:
-        - Category
+        - 'Admin Category'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: at
+                  example: cum
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
       security: []
-  '/api/v1/categories/{id}':
+  '/api/v1/admin/categories/{id}':
     get:
       summary: 'See One Category'
       operationId: seeOneCategory
@@ -135,9 +235,54 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - Category
+        - 'Admin Category'
       security: []
-    put:
+    delete:
+      summary: 'Delete Category'
+      operationId: deleteCategory
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Category not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - 'Admin Category'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/admin/categories/{category_id}':
+    post:
       summary: 'Update Category'
       operationId: updateCategory
       description: ''
@@ -199,66 +344,35 @@ paths:
                         items:
                           type: string
       tags:
-        - Category
+        - 'Admin Category'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: vero
+                  example: vel
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
-      security: []
-    delete:
-      summary: 'Delete Category'
-      operationId: deleteCategory
-      description: ''
-      parameters: []
-      responses:
-        204:
-          description: 'Success Process'
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This Category not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-      tags:
-        - Category
       security: []
     parameters:
       -
         in: path
-        name: id
+        name: category_id
         description: 'The ID of the category.'
         example: 1
         required: true
         schema:
           type: integer
-  /api/v1/companies:
+  /api/v1/admin/companies:
     get:
       summary: 'See all Company'
       operationId: seeAllCompany
@@ -280,7 +394,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - Company
+        - 'Admin Company'
       security: []
     post:
       summary: 'Create Company'
@@ -345,22 +459,26 @@ paths:
                         items:
                           type: string
       tags:
-        - Company
+        - 'Admin Company'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: dolor
+                  example: deleniti
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
       security: []
-  '/api/v1/companies/{id}':
+  '/api/v1/admin/companies/{id}':
     get:
       summary: 'See One Company'
       operationId: seeOneCompany
@@ -412,9 +530,54 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - Company
+        - 'Admin Company'
       security: []
-    put:
+    delete:
+      summary: 'Delete Company'
+      operationId: deleteCompany
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Company not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - 'Admin Company'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/admin/companies/{company_id}':
+    post:
       summary: 'Update Company'
       operationId: updateCompany
       description: ''
@@ -489,85 +652,35 @@ paths:
                         items:
                           type: string
       tags:
-        - Company
+        - 'Admin Company'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: eveniet
+                  example: ab
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
-      security: []
-    delete:
-      summary: 'Delete Company'
-      operationId: deleteCompany
-      description: ''
-      parameters: []
-      responses:
-        204:
-          description: 'Success Process'
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This Company not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-      tags:
-        - Company
       security: []
     parameters:
       -
         in: path
-        name: id
+        name: company_id
         description: 'The ID of the company.'
         example: 1
         required: true
         schema:
           type: integer
-  '/api/v1/auth/{provider}':
-    post:
-      summary: ''
-      operationId: postApiV1AuthProvider
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: provider
-        description: ''
-        example: google|facebook|local
-        required: true
-        schema:
-          type: string
-  /api/v1/medicines:
+  /api/v1/admin/medicines:
     get:
       summary: 'See all Medicine'
       operationId: seeAllMedicine
@@ -781,7 +894,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - Medicine
+        - 'Admin Medicine'
       security: []
     post:
       summary: 'Create Medicine'
@@ -886,32 +999,36 @@ paths:
                         items:
                           type: string
       tags:
-        - Medicine
+        - 'Admin Medicine'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: ut
+                  example: itaque
                 company_id:
                   type: string
                   description: ''
-                  example: blanditiis
+                  example: amet
                 category_id:
                   type: string
                   description: ''
-                  example: aut
+                  example: dolor
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
                 - company_id
                 - category_id
       security: []
-  '/api/v1/medicines/{id}':
+  '/api/v1/admin/medicines/{id}':
     get:
       summary: 'See One Medicine'
       operationId: seeOneMedicine
@@ -987,9 +1104,54 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - Medicine
+        - 'Admin Medicine'
       security: []
-    put:
+    delete:
+      summary: 'Delete Medicine'
+      operationId: deleteMedicine
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Success Process'
+        401:
+          description: 'Account Not Admin'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+        404:
+          description: 'This Medicine not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'not found'
+      tags:
+        - 'Admin Medicine'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the medicine.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/admin/medicines/{medicine_id}':
+    post:
       summary: 'Update Medicine'
       operationId: updateMedicine
       description: ''
@@ -1104,76 +1266,45 @@ paths:
                         items:
                           type: string
       tags:
-        - Medicine
+        - 'Admin Medicine'
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: eligendi
+                  example: rerum
                 company_id:
                   type: string
                   description: ''
-                  example: illum
+                  example: labore
                 category_id:
                   type: string
                   description: ''
-                  example: quaerat
+                  example: quos
+                file_name:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
               required:
                 - name
                 - company_id
                 - category_id
       security: []
-    delete:
-      summary: 'Delete Medicine'
-      operationId: deleteMedicine
-      description: ''
-      parameters: []
-      responses:
-        204:
-          description: 'Success Process'
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This Medicine not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-      tags:
-        - Medicine
-      security: []
     parameters:
       -
         in: path
-        name: id
+        name: medicine_id
         description: 'The ID of the medicine.'
         example: 1
         required: true
         schema:
           type: integer
-  /api/v1/medicineDetails:
+  /api/v1/admin/medicineDetails:
     get:
       summary: 'See all MedicineDetail'
       operationId: seeAllMedicineDetail
@@ -1413,7 +1544,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - MedicineDetail
+        - 'Admin MedicineDetail'
       security: []
     post:
       summary: 'Create MedicineDetail'
@@ -1542,7 +1673,7 @@ paths:
                         items:
                           type: string
       tags:
-        - MedicineDetail
+        - 'Admin MedicineDetail'
       requestBody:
         required: true
         content:
@@ -1553,21 +1684,21 @@ paths:
                 medicine_type_id:
                   type: string
                   description: ''
-                  example: cum
+                  example: suscipit
                 content:
                   type: string
                   description: ''
-                  example: enim
+                  example: quo
                 medicine_id:
                   type: string
                   description: ''
-                  example: aliquid
+                  example: temporibus
               required:
                 - medicine_type_id
                 - content
                 - medicine_id
       security: []
-  '/api/v1/medicineDetails/{id}':
+  '/api/v1/admin/medicineDetails/{id}':
     get:
       summary: 'See One MedicineDetail'
       operationId: seeOneMedicineDetail
@@ -1667,7 +1798,7 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - MedicineDetail
+        - 'Admin MedicineDetail'
       security: []
     put:
       summary: 'Update MedicineDetail'
@@ -1808,7 +1939,7 @@ paths:
                         items:
                           type: string
       tags:
-        - MedicineDetail
+        - 'Admin MedicineDetail'
       requestBody:
         required: true
         content:
@@ -1819,15 +1950,15 @@ paths:
                 medicine_type_id:
                   type: string
                   description: ''
-                  example: molestiae
+                  example: aut
                 content:
                   type: string
                   description: ''
-                  example: qui
+                  example: ducimus
                 medicine_id:
                   type: string
                   description: ''
-                  example: et
+                  example: exercitationem
               required:
                 - medicine_type_id
                 - content
@@ -1866,7 +1997,7 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - MedicineDetail
+        - 'Admin MedicineDetail'
       security: []
     parameters:
       -
@@ -1877,7 +2008,7 @@ paths:
         required: true
         schema:
           type: integer
-  /api/v1/medicineTypes:
+  /api/v1/admin/medicineTypes:
     get:
       summary: 'See all MedicineType'
       operationId: seeAllMedicineType
@@ -2065,7 +2196,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - MedicineType
+        - 'Admin MedicineType'
       security: []
     post:
       summary: 'Create MedicineType'
@@ -2130,7 +2261,7 @@ paths:
                         items:
                           type: string
       tags:
-        - MedicineType
+        - 'Admin MedicineType'
       requestBody:
         required: true
         content:
@@ -2141,11 +2272,11 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: pariatur
+                  example: sunt
               required:
                 - type
       security: []
-  '/api/v1/medicineTypes/{id}':
+  '/api/v1/admin/medicineTypes/{id}':
     get:
       summary: 'See One MedicineType'
       operationId: seeOneMedicineType
@@ -2197,7 +2328,7 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - MedicineType
+        - 'Admin MedicineType'
       security: []
     put:
       summary: 'Update MedicineType'
@@ -2274,7 +2405,7 @@ paths:
                         items:
                           type: string
       tags:
-        - MedicineType
+        - 'Admin MedicineType'
       requestBody:
         required: true
         content:
@@ -2285,7 +2416,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: nihil
+                  example: temporibus
               required:
                 - type
       security: []
@@ -2322,7 +2453,7 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - MedicineType
+        - 'Admin MedicineType'
       security: []
     parameters:
       -
@@ -2333,289 +2464,7 @@ paths:
         required: true
         schema:
           type: integer
-  /api/v1/logout:
-    post:
-      summary: Logout
-      operationId: logout
-      description: ''
-      parameters: []
-      responses:
-        204:
-          description: 'Logout Success'
-        401:
-          description: 'User Not Login Yet'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - MobileAuthentication
-      security: []
-  /api/v1/login:
-    post:
-      summary: Login
-      operationId: login
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Register Success'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  token: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
-                properties:
-                  token:
-                    type: string
-                    example: 2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1
-        400:
-          description: 'User send a valid token'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'You are already logged in'
-                properties:
-                  message:
-                    type: string
-                    example: 'You are already logged in'
-        401:
-          description: 'Email or password is wrong or user type not user'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'email or password is wrong'
-                properties:
-                  message:
-                    type: string
-                    example: 'email or password is wrong'
-        422:
-          description: 'Validation errors'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'The email field is required. (and 1 more error)'
-                  errors:
-                    email:
-                      - 'The email field is required.'
-                    password:
-                      - 'The password field is required.'
-                properties:
-                  message:
-                    type: string
-                    example: 'The email field is required. (and 1 more error)'
-                  errors:
-                    type: object
-                    properties:
-                      email:
-                        type: array
-                        example:
-                          - 'The email field is required.'
-                        items:
-                          type: string
-                      password:
-                        type: array
-                        example:
-                          - 'The password field is required.'
-                        items:
-                          type: string
-      tags:
-        - MobileAuthentication
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: lemke.antonette@example.com
-                password:
-                  type: string
-                  description: ''
-                  example: hcWsG|B5S^B<\
-              required:
-                - email
-                - password
-      security: []
-  /api/v1/register:
-    post:
-      summary: Register
-      operationId: register
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Register Success'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  token: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
-                properties:
-                  token:
-                    type: string
-                    example: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
-        400:
-          description: 'User already login'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'You are already logged in'
-                properties:
-                  message:
-                    type: string
-                    example: 'You are already logged in'
-        422:
-          description: 'Validation errors'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'The email field is required. (and 7 more errors)'
-                  errors:
-                    email:
-                      - 'The email field is required.'
-                    password:
-                      - 'The password field is required.'
-                    first_name:
-                      - 'The first name field is required.'
-                    last_name:
-                      - 'The last name field is required.'
-                    phone_number:
-                      - 'The phone number field is required.'
-                    birth_date:
-                      - 'The birth date field is required.'
-                    specialty:
-                      - 'The specialty field is required.'
-                    gender:
-                      - 'The gender field is required.'
-                properties:
-                  message:
-                    type: string
-                    example: 'The email field is required. (and 7 more errors)'
-                  errors:
-                    type: object
-                    properties:
-                      email:
-                        type: array
-                        example:
-                          - 'The email field is required.'
-                        items:
-                          type: string
-                      password:
-                        type: array
-                        example:
-                          - 'The password field is required.'
-                        items:
-                          type: string
-                      first_name:
-                        type: array
-                        example:
-                          - 'The first name field is required.'
-                        items:
-                          type: string
-                      last_name:
-                        type: array
-                        example:
-                          - 'The last name field is required.'
-                        items:
-                          type: string
-                      phone_number:
-                        type: array
-                        example:
-                          - 'The phone number field is required.'
-                        items:
-                          type: string
-                      birth_date:
-                        type: array
-                        example:
-                          - 'The birth date field is required.'
-                        items:
-                          type: string
-                      specialty:
-                        type: array
-                        example:
-                          - 'The specialty field is required.'
-                        items:
-                          type: string
-                      gender:
-                        type: array
-                        example:
-                          - 'The gender field is required.'
-                        items:
-                          type: string
-      tags:
-        - MobileAuthentication
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: dkozey@example.net
-                password:
-                  type: string
-                  description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: '6."7G`6K6(Coy)=<'
-                first_name:
-                  type: string
-                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: s
-                last_name:
-                  type: string
-                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: njvvc
-                phone_number:
-                  type: string
-                  description: 'Must be 9 characters.'
-                  example: jehitezme
-                birth_date:
-                  type: string
-                  description: 'Must be a valid date. Must be a date before <code>2015-08-15</code>.'
-                  example: '2005-07-24'
-                specialty:
-                  type: string
-                  description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
-                  example: student
-                gender:
-                  type: string
-                  description: 'Must be one of <code>male</code> or <code>female</code>.'
-                  example: male
-              required:
-                - email
-                - password
-                - first_name
-                - last_name
-                - phone_number
-                - birth_date
-                - specialty
-                - gender
-      security: []
-  /api/v1/moderator:
+  /api/v1/admin/moderator:
     get:
       summary: 'See all Moderator'
       operationId: seeAllModerator
@@ -2678,7 +2527,7 @@ paths:
                 type: string
                 example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
       tags:
-        - Moderator
+        - 'Admin Moderator'
       security: []
     post:
       summary: 'Create Moderator'
@@ -2803,7 +2652,7 @@ paths:
                         items:
                           type: string
       tags:
-        - Moderator
+        - 'Admin Moderator'
       requestBody:
         required: true
         content:
@@ -2814,23 +2663,23 @@ paths:
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: aupdpgwahqrfa
+                  example: dswjsqojmks
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: mxajtrwut
+                  example: fwbcqmgyqrkbw
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wdibbert@example.com
+                  example: emcdermott@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: 'f1XMpC4/qoN.V`6"'
+                  example: D4P/oFhgE
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: vxtavqrlm
+                  example: ubedlskef
               required:
                 - first_name
                 - last_name
@@ -2838,7 +2687,7 @@ paths:
                 - password
                 - phone_number
       security: []
-  '/api/v1/moderator/{id}':
+  '/api/v1/admin/moderator/{id}':
     get:
       summary: 'See One Moderator'
       operationId: seeOneModerator
@@ -2918,7 +2767,7 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - Moderator
+        - 'Admin Moderator'
       security: []
     put:
       summary: 'Update Moderator'
@@ -3055,7 +2904,7 @@ paths:
                         items:
                           type: string
       tags:
-        - Moderator
+        - 'Admin Moderator'
       requestBody:
         required: true
         content:
@@ -3066,23 +2915,23 @@ paths:
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: ct
+                  example: wwgskijzu
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: wc
+                  example: xsmazkocaauezhm
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ehahn@example.net
+                  example: florine75@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: 'j=tn$gIE=:RX|'
+                  example: 2H9N5ch\
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: duudqmoiz
+                  example: makeckuca
               required:
                 - first_name
                 - last_name
@@ -3123,21 +2972,213 @@ paths:
                     type: string
                     example: 'not found'
       tags:
-        - Moderator
+        - 'Admin Moderator'
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the moderator.'
-        example: eligendi
+        example: error
         required: true
         schema:
           type: string
-  /api/v1/login/admin:
+  /api/v1/categoryPage/categories:
+    get:
+      summary: ''
+      operationId: getApiV1CategoryPageCategories
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/companyPage/companies:
+    get:
+      summary: ''
+      operationId: getApiV1CompanyPageCompanies
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/dataPage/medicineData/{dataFrom}/{name}':
+    get:
+      summary: ''
+      operationId: getApiV1DataPageMedicineDataDataFromName
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: dataFrom
+        description: ''
+        example: quo
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: name
+        description: ''
+        example: est
+        required: true
+        schema:
+          type: string
+  /api/v1/homePage/medicines:
+    get:
+      summary: ''
+      operationId: getApiV1HomePageMedicines
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/homePage/companies:
+    get:
+      summary: ''
+      operationId: getApiV1HomePageCompanies
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/homePage/categories:
+    get:
+      summary: ''
+      operationId: getApiV1HomePageCategories
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/auth/{provider}':
     post:
-      summary: Login
-      operationId: login
+      summary: ''
+      operationId: postApiV1AuthProvider
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: provider
+        description: ''
+        example: google|facebook|local
+        required: true
+        schema:
+          type: string
+  /api/v1/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: 'Logout Success'
+        401:
+          description: 'User Not Login Yet'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - MobileAuthentication
+      security: []
+  /api/v1/login:
+    post:
+      summary: 'Login User'
+      operationId: loginUser
       description: ''
       parameters: []
       responses:
@@ -3210,7 +3251,7 @@ paths:
                         items:
                           type: string
       tags:
-        - WebSiteAdminAuthentication
+        - MobileAuthentication
       requestBody:
         required: true
         content:
@@ -3221,19 +3262,181 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: raymond21@example.org
+                  example: dusty.gerhold@example.net
                 password:
                   type: string
                   description: ''
-                  example: 'O[&VX#b?Mo4QGk{4$'
+                  example: 't1rm9`}'
               required:
                 - email
                 - password
       security: []
-  /api/v1/login/moderator:
+  /api/v1/register:
     post:
-      summary: Login
-      operationId: login
+      summary: 'Register User'
+      operationId: registerUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 'Register Success'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
+                properties:
+                  token:
+                    type: string
+                    example: 11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T
+        400:
+          description: 'User already login'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are already logged in'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are already logged in'
+        422:
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The email field is required. (and 7 more errors)'
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                    password:
+                      - 'The password field is required.'
+                    first_name:
+                      - 'The first name field is required.'
+                    last_name:
+                      - 'The last name field is required.'
+                    phone_number:
+                      - 'The phone number field is required.'
+                    birth_date:
+                      - 'The birth date field is required.'
+                    specialty:
+                      - 'The specialty field is required.'
+                    gender:
+                      - 'The gender field is required.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The email field is required. (and 7 more errors)'
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                        items:
+                          type: string
+                      first_name:
+                        type: array
+                        example:
+                          - 'The first name field is required.'
+                        items:
+                          type: string
+                      last_name:
+                        type: array
+                        example:
+                          - 'The last name field is required.'
+                        items:
+                          type: string
+                      phone_number:
+                        type: array
+                        example:
+                          - 'The phone number field is required.'
+                        items:
+                          type: string
+                      birth_date:
+                        type: array
+                        example:
+                          - 'The birth date field is required.'
+                        items:
+                          type: string
+                      specialty:
+                        type: array
+                        example:
+                          - 'The specialty field is required.'
+                        items:
+                          type: string
+                      gender:
+                        type: array
+                        example:
+                          - 'The gender field is required.'
+                        items:
+                          type: string
+      tags:
+        - MobileAuthentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: cronin.emmett@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
+                  example: '/Ju8>&V8hxS6;'
+                first_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+                  example: jlcreh
+                last_name:
+                  type: string
+                  description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
+                  example: opnnyuqnb
+                phone_number:
+                  type: string
+                  description: 'Must be 9 characters.'
+                  example: snlegugkx
+                birth_date:
+                  type: string
+                  description: 'Must be a valid date. Must be a date before <code>2015-08-19</code>.'
+                  example: '1999-10-07'
+                specialty:
+                  type: string
+                  description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
+                  example: doctor
+                gender:
+                  type: string
+                  description: 'Must be one of <code>male</code> or <code>female</code>.'
+                  example: male
+              required:
+                - email
+                - password
+                - first_name
+                - last_name
+                - phone_number
+                - birth_date
+                - specialty
+                - gender
+      security: []
+  /api/v1/moderator/login:
+    post:
+      summary: 'Login Moderator'
+      operationId: loginModerator
       description: ''
       parameters: []
       responses:
@@ -3306,7 +3509,7 @@ paths:
                         items:
                           type: string
       tags:
-        - WebSiteSubAdminAuthentication
+        - 'Moderator Authentication'
       requestBody:
         required: true
         content:
@@ -3317,43 +3520,43 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ndamore@example.net
+                  example: farrell.general@example.com
                 password:
                   type: string
                   description: ''
-                  example: 'iKUA=*%6L1}'
+                  example: '+s`w#uJI'
               required:
                 - email
                 - password
       security: []
 tags:
   -
-    name: Category
-    description: "\nThis Api For Category"
+    name: 'Admin Authentication'
+    description: "\nThis Api For Admin Authentication"
   -
-    name: Company
-    description: "\nThis Api For Company"
+    name: 'Admin Category'
+    description: "\nThis Api For Admin Category"
+  -
+    name: 'Admin Company'
+    description: "\nThis Api For Admin Company"
+  -
+    name: 'Admin Medicine'
+    description: "\nThis Api For Admin Medicine"
+  -
+    name: 'Admin MedicineDetail'
+    description: "\nThis Api For Admin MedicineDetail"
+  -
+    name: 'Admin MedicineType'
+    description: "\nThis Api For Admin MedicineType"
+  -
+    name: 'Admin Moderator'
+    description: "\nThis Api For Moderator"
   -
     name: Endpoints
     description: ''
   -
-    name: Medicine
-    description: "\nThis Api For Medicine"
-  -
-    name: MedicineDetail
-    description: "\nThis Api For MedicineDetail"
-  -
-    name: MedicineType
-    description: "\nThis Api For MedicineType"
-  -
     name: MobileAuthentication
     description: "\nThis Api For Authentication in flutter"
   -
-    name: Moderator
-    description: "\nThis Api For Moderator"
-  -
-    name: WebSiteAdminAuthentication
-    description: "\nThis Api For Admin Authentication in React"
-  -
-    name: WebSiteSubAdminAuthentication
-    description: "\nThis Api For SubAdmin Authentication in React"
+    name: 'Moderator Authentication'
+    description: "\nThis Api For Moderator Authentication"

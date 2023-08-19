@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
 class AuthenticationController extends Controller
 {
     /**
-     * Login
+     * Login User
      *
      * @response scenario="Register Success"{
      * "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"
@@ -57,7 +57,7 @@ class AuthenticationController extends Controller
         return response(['token' => $token]);
     }
     /**
-     * Register
+     * Register User
      *
      * @response scenario="Register Success"{
      * "token":"11|mrQIWhkKsOorLKuQC0scfJWiKvv7scLmuw2wz71T"

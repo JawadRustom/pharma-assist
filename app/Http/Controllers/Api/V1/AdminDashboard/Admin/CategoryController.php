@@ -10,9 +10,9 @@ use App\Http\Resources\Api\V1\AdminDashboard\Admin\CategoryResource\CategoryReso
 use Illuminate\Http\Request;
 
 /**
- * @group Category
+ * @group Admin Category
  *
- * This Api For Category
+ * This Api For Admin Category
  */
 class CategoryController extends Controller
 {

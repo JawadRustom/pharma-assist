@@ -1,17 +1,17 @@
-name: Category
+name: 'Admin Category'
 description: |-
 
-  This Api For Category
+  This Api For Admin Category
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/categories
+    uri: api/v1/admin/categories
     metadata:
-      groupName: Category
+      groupName: 'Admin Category'
       groupDescription: |-
 
-        This Api For Category
+        This Api For Admin Category
       subgroup: ''
       subgroupDescription: ''
       title: 'See all Category'
@@ -141,12 +141,12 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/categories
+    uri: api/v1/admin/categories
     metadata:
-      groupName: Category
+      groupName: 'Admin Category'
       groupDescription: |-
 
-        This Api For Category
+        This Api For Admin Category
       subgroup: ''
       subgroupDescription: ''
       title: 'Create Category'
@@ -154,7 +154,7 @@ endpoints:
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -165,12 +165,20 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: at
+        example: cum
         type: string
         custom: []
+      file_name:
+        name: file_name
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        custom: []
     cleanBodyParameters:
-      name: at
-    fileParameters: []
+      name: cum
+    fileParameters:
+      file_name: null
     responses:
       -
         status: 200
@@ -216,12 +224,12 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/categories/{id}'
+    uri: 'api/v1/admin/categories/{id}'
     metadata:
-      groupName: Category
+      groupName: 'Admin Category'
       groupDescription: |-
 
-        This Api For Category
+        This Api For Admin Category
       subgroup: ''
       subgroupDescription: ''
       title: 'See One Category'
@@ -285,106 +293,13 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/v1/categories/{id}'
-    metadata:
-      groupName: Category
-      groupDescription: |-
-
-        This Api For Category
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update Category'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the category.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: vero
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: vero
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-          "data": {
-          "id": 3,
-          "name": "testtest",
-          }
-          }
-        headers: []
-        description: 'Success Process'
-        custom: []
-      -
-        status: 401
-        content: |-
-          {
-          "message": "Unauthenticated."
-          }
-        headers: []
-        description: 'Account Not Admin'
-        custom: []
-      -
-        status: 404
-        content: |-
-          {
-          "message": "not found"
-          }
-        headers: []
-        description: 'This Category not found'
-        custom: []
-      -
-        status: 422
-        content: |-
-          {
-          "message": "The name field is required. (and 1 more error)",
-          "errors": {
-          "name": [
-          "The name field is required."
-          ]
-          }
-          }
-        headers: []
-        description: 'Validation errors'
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - DELETE
-    uri: 'api/v1/categories/{id}'
+    uri: 'api/v1/admin/categories/{id}'
     metadata:
-      groupName: Category
+      groupName: 'Admin Category'
       groupDescription: |-
 
-        This Api For Category
+        This Api For Admin Category
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete Category'
@@ -433,6 +348,106 @@ endpoints:
           }
         headers: []
         description: 'This Category not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/categories/{category_id}'
+    metadata:
+      groupName: 'Admin Category'
+      groupDescription: |-
+
+        This Api For Admin Category
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      category_id:
+        name: category_id
+        description: 'The ID of the category.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      category_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: vel
+        type: string
+        custom: []
+      file_name:
+        name: file_name
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        custom: []
+    cleanBodyParameters:
+      name: vel
+    fileParameters:
+      file_name: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 3,
+          "name": "testtest",
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This Category not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The name field is required. (and 1 more error)",
+          "errors": {
+          "name": [
+          "The name field is required."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
         custom: []
     responseFields: []
     auth: []

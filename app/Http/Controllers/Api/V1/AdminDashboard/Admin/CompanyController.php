@@ -10,9 +10,9 @@ use App\Http\Resources\Api\V1\AdminDashboard\Admin\CompanyResource\CompanyResour
 use Illuminate\Http\Request;
 
 /**
- * @group Company
+ * @group Admin Company
  *
- * This Api For Company
+ * This Api For Admin Company
  */
 class CompanyController extends Controller
 {

@@ -10,9 +10,9 @@ use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineTypeResource\Medicine
 use Illuminate\Http\Request;
 
 /**
- * @group MedicineType
+ * @group Admin MedicineType
  *
- * This Api For MedicineType
+ * This Api For Admin MedicineType
  */
 class MedicineTypeController extends Controller
 {

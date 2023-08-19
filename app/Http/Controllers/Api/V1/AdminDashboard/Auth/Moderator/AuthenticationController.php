@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * @group WebSiteSubAdminAuthentication
+ * @group Moderator Authentication
  *
- * This Api For SubAdmin Authentication in React
+ * This Api For Moderator Authentication
  */
 class AuthenticationController extends Controller
 {
     /**
-     * Login
+     * Login Moderator
      *
      * @response scenario="Register Success"{
      * "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"

@@ -1,17 +1,17 @@
-name: MedicineDetail
+name: 'Admin MedicineDetail'
 description: |-
 
-  This Api For MedicineDetail
+  This Api For Admin MedicineDetail
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/medicineDetails
+    uri: api/v1/admin/medicineDetails
     metadata:
-      groupName: MedicineDetail
+      groupName: 'Admin MedicineDetail'
       groupDescription: |-
 
-        This Api For MedicineDetail
+        This Api For Admin MedicineDetail
       subgroup: ''
       subgroupDescription: ''
       title: 'See all MedicineDetail'
@@ -143,12 +143,12 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/medicineDetails
+    uri: api/v1/admin/medicineDetails
     metadata:
-      groupName: MedicineDetail
+      groupName: 'Admin MedicineDetail'
       groupDescription: |-
 
-        This Api For MedicineDetail
+        This Api For Admin MedicineDetail
       subgroup: ''
       subgroupDescription: ''
       title: 'Create MedicineDetail'
@@ -167,27 +167,27 @@ endpoints:
         name: medicine_type_id
         description: ''
         required: true
-        example: cum
+        example: suscipit
         type: string
         custom: []
       content:
         name: content
         description: ''
         required: true
-        example: enim
+        example: quo
         type: string
         custom: []
       medicine_id:
         name: medicine_id
         description: ''
         required: true
-        example: aliquid
+        example: temporibus
         type: string
         custom: []
     cleanBodyParameters:
-      medicine_type_id: cum
-      content: enim
-      medicine_id: aliquid
+      medicine_type_id: suscipit
+      content: quo
+      medicine_id: temporibus
     fileParameters: []
     responses:
       -
@@ -256,12 +256,12 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/medicineDetails/{id}'
+    uri: 'api/v1/admin/medicineDetails/{id}'
     metadata:
-      groupName: MedicineDetail
+      groupName: 'Admin MedicineDetail'
       groupDescription: |-
 
-        This Api For MedicineDetail
+        This Api For Admin MedicineDetail
       subgroup: ''
       subgroupDescription: ''
       title: 'See One MedicineDetail'
@@ -343,12 +343,12 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/medicineDetails/{id}'
+    uri: 'api/v1/admin/medicineDetails/{id}'
     metadata:
-      groupName: MedicineDetail
+      groupName: 'Admin MedicineDetail'
       groupDescription: |-
 
-        This Api For MedicineDetail
+        This Api For Admin MedicineDetail
       subgroup: ''
       subgroupDescription: ''
       title: 'Update MedicineDetail'
@@ -375,27 +375,27 @@ endpoints:
         name: medicine_type_id
         description: ''
         required: true
-        example: molestiae
+        example: aut
         type: string
         custom: []
       content:
         name: content
         description: ''
         required: true
-        example: qui
+        example: ducimus
         type: string
         custom: []
       medicine_id:
         name: medicine_id
         description: ''
         required: true
-        example: et
+        example: exercitationem
         type: string
         custom: []
     cleanBodyParameters:
-      medicine_type_id: molestiae
-      content: qui
-      medicine_id: et
+      medicine_type_id: aut
+      content: ducimus
+      medicine_id: exercitationem
     fileParameters: []
     responses:
       -
@@ -473,12 +473,12 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/medicineDetails/{id}'
+    uri: 'api/v1/admin/medicineDetails/{id}'
     metadata:
-      groupName: MedicineDetail
+      groupName: 'Admin MedicineDetail'
       groupDescription: |-
 
-        This Api For MedicineDetail
+        This Api For Admin MedicineDetail
       subgroup: ''
       subgroupDescription: ''
       title: 'Delete MedicineDetail'
