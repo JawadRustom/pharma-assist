@@ -170,7 +170,7 @@ class CategoryController extends Controller
     {
         $data = Category::create($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Category');
             $data->photos()->create(['file_name' => $photoPath]);
         }
         return new CategoryResource($data);
@@ -206,7 +206,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Category');
             $category->photos()->updateOrCreate(
                 [],
                 ['file_name' => $photoPath]

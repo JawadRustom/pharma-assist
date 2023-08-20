@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateMedicineRequest extends FormRequest
 {
@@ -21,8 +22,9 @@ class UpdateMedicineRequest extends FormRequest
      */
     public function rules(): array
     {
+        $medicine = $this->route('medicine');
         return [
-            'name'=>['required','string','unique:medicines'],
+            'name'=>['required','string',Rule::unique('medicines', 'name')->ignore($medicine)],
             'company_id' => ['required', 'exists:companies,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'file_name' => ['nullable', 'image'],

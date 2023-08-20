@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\CategoryRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCategoryRequest extends FormRequest
 {
@@ -21,8 +22,9 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $category = $this->route('category');
         return [
-            'name' => ['required', 'string', 'unique:categories'],
+            'name' => ['required', 'string',Rule::unique('categories', 'name')->ignore($category)],
             'file_name' => ['nullable', 'image'],
             //'language_id' => ['required','exists:languages,id','numeric'],
         ];

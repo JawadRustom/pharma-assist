@@ -188,7 +188,7 @@ class MedicineController extends Controller
     {
         $data = Medicine::create($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Medicine', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Medicine');
             $data->photos()->create(['file_name' => $photoPath]);
         }
         return new MedicineResource($data);
@@ -239,7 +239,7 @@ class MedicineController extends Controller
     {
         $medicine->update($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Medicine', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Medicine');
             $medicine->photos()->updateOrCreate(
                 [],
                 ['file_name' => $photoPath]

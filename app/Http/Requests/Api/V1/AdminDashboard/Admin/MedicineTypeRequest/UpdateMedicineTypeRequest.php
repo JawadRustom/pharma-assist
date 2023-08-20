@@ -3,10 +3,11 @@
 namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineTypeRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateMedicineTypeRequest extends FormRequest
 {
-  /**
+    /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
@@ -21,8 +22,9 @@ class UpdateMedicineTypeRequest extends FormRequest
      */
     public function rules(): array
     {
-      return [
-        'type'=>['required','string','unique:medicine_types'],
-      ];
+        $medicineType = $this->route('medicineType');
+        return [
+            'type' => ['required', 'string', Rule::unique('medicine_types', 'name')->ignore($medicineType)],
+        ];
     }
-    }
+}

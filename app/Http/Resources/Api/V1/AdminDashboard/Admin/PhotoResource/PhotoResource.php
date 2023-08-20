@@ -14,7 +14,7 @@ class PhotoResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $imageUrl = url(asset('photos/') . '/' . $this->file_name); // Using the photos disk
+        $imageUrl = str_replace('public/','' , asset('storage/' . $this->file_name)); // Using the photos disk
         return [
             'id' => $this->id,
             'imageable_id' => $this->imageable_id,

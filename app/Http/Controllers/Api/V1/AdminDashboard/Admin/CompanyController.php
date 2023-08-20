@@ -165,7 +165,7 @@ class CompanyController extends Controller
     {
         $data = Company::create($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Company', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Company');
             $data->photos()->create(['file_name' => $photoPath]);
         }
         return new CompanyResource($data);
@@ -201,7 +201,7 @@ class CompanyController extends Controller
     {
         $company->update($request->validated());
         if ($request->hasFile('file_name')) {
-            $photoPath = $request->file('file_name')->store('Category', 'photos');
+            $photoPath = $request->file('file_name')->store('public/Company');
             $company->photos()->updateOrCreate(
                 [],
                 ['file_name' => $photoPath]

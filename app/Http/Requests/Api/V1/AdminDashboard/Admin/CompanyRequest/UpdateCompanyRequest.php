@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api\V1\AdminDashboard\Admin\CompanyRequest;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCompanyRequest extends FormRequest
 {
@@ -21,8 +22,9 @@ class UpdateCompanyRequest extends FormRequest
      */
     public function rules(): array
     {
+        $company = $this->route('company');
         return [
-            'name' => ['required','string','unique:companies'],
+            'name' => ['required','string',Rule::unique('companies', 'name')->ignore($company)],
             'file_name'=>['nullable','image'],
             //'language_id' => ['required', 'exists:languages,id', 'numeric'],
         ];
