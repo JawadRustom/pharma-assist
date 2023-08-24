@@ -1,0 +1,3072 @@
+{
+	"info": {
+		"_postman_id": "dde264cb-8dce-4e96-8b64-a308a15dc447",
+		"name": "parma-assist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26580400"
+	},
+	"item": [
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Authentication",
+							"item": [
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"user@user.com\",\r\n    \"password\": \"password\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/login",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"login"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "user1@user.com",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Register",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "Us3e2r1@user.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "first_name",
+													"value": "as",
+													"type": "text"
+												},
+												{
+													"key": "last_name",
+													"value": "as",
+													"type": "text"
+												},
+												{
+													"key": "phone_number",
+													"value": "987372763",
+													"type": "text"
+												},
+												{
+													"key": "birth_date",
+													"value": "2/2/2003",
+													"type": "text"
+												},
+												{
+													"key": "specialty",
+													"value": "doctor",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "male",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/register",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"register"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "user1@user.com",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Logout",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "3|4nZuODRpwT1hAEMibbzHJlJdncdFeQdtwtG8Ewdg",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "Us3e2r1@user.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "first_name",
+													"value": "as",
+													"type": "text"
+												},
+												{
+													"key": "last_name",
+													"value": "as",
+													"type": "text"
+												},
+												{
+													"key": "phone_number",
+													"value": "987372763",
+													"type": "text"
+												},
+												{
+													"key": "birth_date",
+													"value": "2/2/2003",
+													"type": "text"
+												},
+												{
+													"key": "specialty",
+													"value": "doctor",
+													"type": "text"
+												},
+												{
+													"key": "gender",
+													"value": "male",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/logout",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "HomePage",
+							"item": [
+								{
+									"name": "lastMedicines",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/homePage/medicines?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"homePage",
+												"medicines"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "lastCompanies",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/homePage/companies?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"homePage",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "lastCategories",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/homePage/categories?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"homePage",
+												"categories"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DataPage",
+							"item": [
+								{
+									"name": "seeDataForMedicine",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/dataPage/medicineData/Company/Company 1?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"dataPage",
+												"medicineData",
+												"Company",
+												"Company 1"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "CompanyPage",
+							"item": [
+								{
+									"name": "seeCompanies",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/companyPage/companies?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"companyPage",
+												"companies"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "CategoryPage",
+							"item": [
+								{
+									"name": "seeCategories",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/api/v1/categoryPage/categories?perPage=15",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"categoryPage",
+												"categories"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "15"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "3|fLoux6sK91qR9iZiOpe7RBPhUWOPjKjyBKp79usc",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "AdminDashboard",
+			"item": [
+				{
+					"name": "V1",
+					"item": [
+						{
+							"name": "Admin",
+							"item": [
+								{
+									"name": "Auth",
+									"item": [
+										{
+											"name": "LoginAdmin",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/login",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"login"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Logout",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "email",
+															"value": "Us3e2r1@user.com",
+															"type": "text"
+														},
+														{
+															"key": "password",
+															"value": "password",
+															"type": "text"
+														},
+														{
+															"key": "first_name",
+															"value": "as",
+															"type": "text"
+														},
+														{
+															"key": "last_name",
+															"value": "as",
+															"type": "text"
+														},
+														{
+															"key": "phone_number",
+															"value": "987372763",
+															"type": "text"
+														},
+														{
+															"key": "birth_date",
+															"value": "2/2/2003",
+															"type": "text"
+														},
+														{
+															"key": "specialty",
+															"value": "doctor",
+															"type": "text"
+														},
+														{
+															"key": "gender",
+															"value": "male",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/logout",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"logout"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Category",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/categories?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/735949e7eb154f0edce927f06aafd9f4.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/categories?name=test",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "test"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/categories/17",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"categories",
+														"17"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/735949e7eb154f0edce927f06aafd9f4.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/categories/12?name=asd",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"categories",
+														"12"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "asd"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/categories/16",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"categories",
+														"16"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Company",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies?perPage=2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/735949e7eb154f0edce927f06aafd9f4.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies?name=testsda",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "testsda"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies/17",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies",
+														"17"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Screenshots/Screenshot 2023-01-14 041604.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies/16?name=ds",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies",
+														"16"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "ds"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies/16",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies",
+														"16"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Medicine",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicines?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicines"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Sia Snow Man.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicines?name=inside Comp12&company_id=1&category_id=1",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicines"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "inside Comp12"
+														},
+														{
+															"key": "company_id",
+															"value": "1"
+														},
+														{
+															"key": "category_id",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicines/12",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicines",
+														"12"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Eminem&Sia.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicines/1?name=test&company_id=2&category_id=2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicines",
+														"1"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "test"
+														},
+														{
+															"key": "company_id",
+															"value": "2"
+														},
+														{
+															"key": "category_id",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicines/11",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicines",
+														"11"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineType",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineTypes?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineTypes"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineTypes?type=test",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineTypes"
+													],
+													"query": [
+														{
+															"key": "type",
+															"value": "test"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineTypes/12",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineTypes",
+														"12"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineTypes/11?type=test21111wqe",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineTypes",
+														"11"
+													],
+													"query": [
+														{
+															"key": "type",
+															"value": "test21111wqe"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineTypes/11",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineTypes",
+														"11"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineDetail",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineDetails?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineDetails"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineDetails?medicine_type_id=1&content=test test&medicine_id=1",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineDetails"
+													],
+													"query": [
+														{
+															"key": "medicine_type_id",
+															"value": "1"
+														},
+														{
+															"key": "content",
+															"value": "test test"
+														},
+														{
+															"key": "medicine_id",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineDetails/6",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineDetails",
+														"6"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineDetails/1?medicine_type_id=4&content=sssssssssssss&medicine_id=4",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineDetails",
+														"1"
+													],
+													"query": [
+														{
+															"key": "medicine_type_id",
+															"value": "4"
+														},
+														{
+															"key": "content",
+															"value": "sssssssssssss"
+														},
+														{
+															"key": "medicine_id",
+															"value": "4"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicineDetails/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicineDetails",
+														"2"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Moderator",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/moderators?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"moderators"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/moderators?first_name=moderator&last_name=moderator&email=moderator12@moderator1.com3&password=password&phone_number=987372763",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"moderators"
+													],
+													"query": [
+														{
+															"key": "first_name",
+															"value": "moderator"
+														},
+														{
+															"key": "last_name",
+															"value": "moderator"
+														},
+														{
+															"key": "email",
+															"value": "moderator12@moderator1.com3"
+														},
+														{
+															"key": "password",
+															"value": "password"
+														},
+														{
+															"key": "phone_number",
+															"value": "987372763"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/moderators/12",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"moderators",
+														"12"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/moderators/12?first_name=moderatortest&last_name=moderatortest&password=password&phone_number=987372761&email=Moderat2or@Moderator.com",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"moderators",
+														"12"
+													],
+													"query": [
+														{
+															"key": "first_name",
+															"value": "moderatortest"
+														},
+														{
+															"key": "last_name",
+															"value": "moderatortest"
+														},
+														{
+															"key": "password",
+															"value": "password"
+														},
+														{
+															"key": "phone_number",
+															"value": "987372761"
+														},
+														{
+															"key": "email",
+															"value": "Moderat2or@Moderator.com"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/moderators/12",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"moderators",
+														"12"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineOfCopmany",
+									"item": [
+										{
+											"name": "seeMedicineOfCompany",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicinesOfCompany/Hermina Corkery?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicinesOfCompany",
+														"Hermina Corkery"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineOfCategory",
+									"item": [
+										{
+											"name": "seeMedicineOfCategory",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/medicinesOfCategory/Dr. Cyrus Brakus IV?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"medicinesOfCategory",
+														"Dr. Cyrus Brakus IV"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "1|weX4FkYWCob8i2jUL0qvkTbV87cVExJAq2Bx7cf3",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Moderator",
+							"item": [
+								{
+									"name": "Auth",
+									"item": [
+										{
+											"name": "LoginModerator",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"moderator@moderator.com\",\r\n    \"password\": \"password\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/login",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"login"
+													],
+													"query": [
+														{
+															"key": "email",
+															"value": "user1@user.com",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Logout",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "email",
+															"value": "Us3e2r1@user.com",
+															"type": "text"
+														},
+														{
+															"key": "password",
+															"value": "password",
+															"type": "text"
+														},
+														{
+															"key": "first_name",
+															"value": "as",
+															"type": "text"
+														},
+														{
+															"key": "last_name",
+															"value": "as",
+															"type": "text"
+														},
+														{
+															"key": "phone_number",
+															"value": "987372763",
+															"type": "text"
+														},
+														{
+															"key": "birth_date",
+															"value": "2/2/2003",
+															"type": "text"
+														},
+														{
+															"key": "specialty",
+															"value": "doctor",
+															"type": "text"
+														},
+														{
+															"key": "gender",
+															"value": "male",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/logout",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"logout"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Category",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "categoriesOfModerator",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories/categoriesOfModerator?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories",
+														"categoriesOfModerator"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Untitled.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories?name=dsa1234sad",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "dsa1234sad"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Screenshots/Screenshot 2023-02-02 031300.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories/18?name=dsa1234",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories",
+														"18"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "dsa1234"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/categories/16",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"categories",
+														"16"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Company",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/companies?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"companies"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "companiesOfModerator",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/companies/companiesOfModerator?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"companies",
+														"companiesOfModerator"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/735949e7eb154f0edce927f06aafd9f4.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/companies?name=test1212331323",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"companies"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "test1212331323"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/companies/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"companies",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Screenshots/Screenshot 2023-01-14 041604.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/companies/18?name=test1212331323",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"companies",
+														"18"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "test1212331323"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/admin/companies/16",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"admin",
+														"companies",
+														"16"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Medicine",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/wallpaperflare.com_wallpaper (13).jpg"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines?name=inside Moderator both&company_id=16&category_id=16",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "inside Moderator both"
+														},
+														{
+															"key": "company_id",
+															"value": "16"
+														},
+														{
+															"key": "category_id",
+															"value": "16"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Eminem&Sia.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines/12?name=inside Compsad&company_id=2&category_id=2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines",
+														"12"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "inside Compsad"
+														},
+														{
+															"key": "company_id",
+															"value": "2"
+														},
+														{
+															"key": "category_id",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines/12",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines",
+														"12"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "medicinesOfModerator",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicines/medicinesOfModerator?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicines",
+														"medicinesOfModerator"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineDetail",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": []
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails?medicine_type_id=1&content=31ew&medicine_id=2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails"
+													],
+													"query": [
+														{
+															"key": "medicine_type_id",
+															"value": "1"
+														},
+														{
+															"key": "content",
+															"value": "31ew"
+														},
+														{
+															"key": "medicine_id",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Eminem&Sia.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails/11?medicine_type_id=3&content=dsa&medicine_id=1",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails",
+														"11"
+													],
+													"query": [
+														{
+															"key": "medicine_type_id",
+															"value": "3"
+														},
+														{
+															"key": "content",
+															"value": "dsa"
+														},
+														{
+															"key": "medicine_id",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails/10",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails",
+														"10"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "medicineDetailsOfModerator",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineDetails/medicineDetailsOfModerator?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineDetails",
+														"medicineDetailsOfModerator"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineType",
+									"item": [
+										{
+											"name": "index",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "store",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": []
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes?type=saddsa",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes"
+													],
+													"query": [
+														{
+															"key": "type",
+															"value": "saddsa"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes/2",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes",
+														"2"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "edit",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file_name",
+															"type": "file",
+															"src": "/C:/Users/LENOVO/OneDrive/Pictures/Eminem&Sia.png"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes/18?type=dsa",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes",
+														"18"
+													],
+													"query": [
+														{
+															"key": "type",
+															"value": "dsa"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "delete",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes/18",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes",
+														"18"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "medicineTypesOfModerator",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicineTypes/medicineTypesOfModerator",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicineTypes",
+														"medicineTypesOfModerator"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineOfCopmany",
+									"item": [
+										{
+											"name": "seeMedicineOfCompany",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicinesOfCompanyForModerator/Moderator Company?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicinesOfCompanyForModerator",
+														"Moderator Company"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "MedicineOfCategory",
+									"item": [
+										{
+											"name": "seeMedicineOfCategory",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/api/v1/moderator/medicinesOfCategoryForModeratorController/Moderator Category?perPage=15",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"moderator",
+														"medicinesOfCategoryForModeratorController",
+														"Moderator Category"
+													],
+													"query": [
+														{
+															"key": "perPage",
+															"value": "15"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "2|f0g1b5xxe36qvEnBE5j2i23EuFAEA6hf0wDcE35J",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
