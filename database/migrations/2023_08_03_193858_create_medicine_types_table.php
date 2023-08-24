@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('type')->unique();
             $table->foreignId('language_id')->reference('id')->on('languages')->nullable();
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

@@ -1,20 +1,154 @@
-name: 'Moderator Authentication'
+name: 'Admin MedicineType'
 description: |-
 
-  This Api For Moderator Authentication
+  This Api For Admin MedicineType
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/v1/moderator/login
+      - GET
+    uri: api/v1/admin/medicineTypes
     metadata:
-      groupName: 'Moderator Authentication'
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For Moderator Authentication
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
-      title: 'Login Moderator'
+      title: 'See all MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 12,
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          },
+          {
+          "id": 11,
+          "type": "test21111wqe",
+          "user": {
+          "id": 12,
+          "full_name": [
+          "Moderator",
+          "Moderator"
+          ]
+          }
+          }
+          ],
+          "links": {
+          "first": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
+          "prev": null,
+          "next": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2"
+          },
+          "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 6,
+          "links": [
+          {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
+          "label": "1",
+          "active": true
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
+          "label": "2",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=3",
+          "label": "3",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=4",
+          "label": "4",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=5",
+          "label": "5",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
+          "label": "6",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
+          "label": "Next &raquo;",
+          "active": false
+          }
+          ],
+          "path": "http://127.0.0.1:8000/api/v1/admin/medicineTypes",
+          "per_page": 2,
+          "to": 2,
+          "total": 12
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+
+          * @queryparam perPage int
+          To return limite data in single page.
+          Defaults value for variable '15'.
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/medicineTypes
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create MedicineType'
       description: ''
       authenticated: false
       custom: []
@@ -26,69 +160,301 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: farrell.general@example.com
-        type: string
-        custom: []
-      password:
-        name: password
+      type:
+        name: type
         description: ''
         required: true
-        example: '+s`w#uJI'
+        example: ut
         type: string
         custom: []
     cleanBodyParameters:
-      email: farrell.general@example.com
-      password: '+s`w#uJI'
+      type: ut
     fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-          "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"
+          "data": {
+          "id": 12,
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
           }
         headers: []
-        description: 'Register Success'
-        custom: []
-      -
-        status: 400
-        content: |-
-          {
-          "message": "You are already logged in"
-          }
-        headers: []
-        description: 'User send a valid token'
+        description: 'Success Process'
         custom: []
       -
         status: 401
         content: |-
           {
-          "message": "email or password is wrong"
+          "message": "Unauthenticated."
           }
         headers: []
-        description: 'Email or password is wrong or user type not user'
+        description: 'Account Not Admin'
         custom: []
       -
         status: 422
         content: |-
           {
-              "message": "The email field is required. (and 1 more error)",
+          "message": "The type field is required.",
           "errors": {
-          "email": [
-          "The email field is required."
-          ],
-          "password": [
-          "The password field is required."
+          "type": [
+          "The type field is required."
+          "The type has already been taken."
           ]
           }
-
           }
         headers: []
         description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See One MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 12,
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: dolore
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: dolore
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 11,
+          "type": "test21111wqe",
+          "user": {
+          "id": 12,
+          "full_name": [
+          "Moderator",
+          "Moderator"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The type field is required.",
+          "errors": {
+          "type": [
+          "The type field is required."
+          "The type has already been taken."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
         custom: []
     responseFields: []
     auth: []

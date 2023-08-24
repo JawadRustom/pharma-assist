@@ -21,24 +21,45 @@ class CompanyController extends Controller
      * @response 200 scenario="Success Process"{
     "data": [
         {
-            "id": 1,
-            "name": "Mr. Olen Kreiger",
+            "id": 17,
+            "name": "testsda",
+            "Image": {
+                "id": 3,
+                "imageable_id": 17,
+                "imageable_type": "App\\Models\\Company",
+                "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+            },
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
+            }
         },
         {
-            "id": 2,
-            "name": "Damien Heller",
+            "id": 16,
+            "name": "test",
+            "Image": null,
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
+            }
         }
     ],
     "links": {
-        "first": "http://127.0.0.1:8000/api/v1/company?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/company?page=8",
+        "first": "http://127.0.0.1:8000/api/v1/admin/companies?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/companies?page=9",
         "prev": null,
-        "next": "http://127.0.0.1:8000/api/v1/company?page=2"
+        "next": "http://127.0.0.1:8000/api/v1/admin/companies?page=2"
     },
     "meta": {
         "current_page": 1,
         "from": 1,
-        "last_page": 8,
+        "last_page": 9,
         "links": [
             {
                 "url": null,
@@ -46,55 +67,60 @@ class CompanyController extends Controller
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=1",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=3",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=4",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=5",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=6",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=6",
                 "label": "6",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=7",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=7",
                 "label": "7",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=8",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=8",
                 "label": "8",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=9",
+                "label": "9",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "path": "http://127.0.0.1:8000/api/v1/company",
+        "path": "http://127.0.0.1:8000/api/v1/admin/companies",
         "per_page": 2,
         "to": 2,
-        "total": 15
+        "total": 17
     }
 }
      *
@@ -114,11 +140,25 @@ class CompanyController extends Controller
     }
 
     /**
+     *
      * See One Company
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 2,
-        "name": "Lyla Johnson MD"
+        "id": 17,
+        "name": "testsda",
+        "Image": {
+            "id": 3,
+            "imageable_id": 17,
+            "imageable_type": "App\\Models\\Company",
+            "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -141,8 +181,21 @@ class CompanyController extends Controller
      * Create Company
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 16,
-        "name": "test"
+        "id": 17,
+        "name": "testsda",
+        "Image": {
+            "id": 3,
+            "imageable_id": 17,
+            "imageable_type": "App\\Models\\Company",
+            "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -152,6 +205,7 @@ class CompanyController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ]
     }
 }
@@ -160,10 +214,16 @@ class CompanyController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function store(StoreCompanyRequest $request)
     {
-        $data = Company::create($request->validated());
+        $user = auth()->user();
+        $data = Company::create([
+            'name' => $request->name,
+            'user_id' => $user->id
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Company');
             $data->photos()->create(['file_name' => $photoPath]);
@@ -175,8 +235,16 @@ class CompanyController extends Controller
      * Update Company
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 12,
-        "name": "testtest"
+        "id": 16,
+        "name": "ds",
+        "Image": null,
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -185,6 +253,7 @@ class CompanyController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ]
     }
 }
@@ -196,10 +265,15 @@ class CompanyController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        $company->update($request->validated());
+        $company->update([
+            'name' => $request->name,
+            'user_id' => $company->user_id
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Company');
             $company->photos()->updateOrCreate(

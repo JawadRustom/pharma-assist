@@ -21,24 +21,38 @@ class MedicineTypeController extends Controller
      * @response 200 scenario="Success Process"{
     "data": [
         {
-            "id": 1,
-            "type": "Mrs. Dawn Hoppe"
+            "id": 12,
+            "type": "test",
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
+            }
         },
         {
-            "id": 2,
-            "type": "Rollin O'Hara"
+            "id": 11,
+            "type": "test21111wqe",
+            "user": {
+                "id": 12,
+                "full_name": [
+                    "Moderator",
+                    "Moderator"
+                ]
+            }
         }
     ],
     "links": {
-        "first": "http://127.0.0.1:8000/api/v1/medicineTypes?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/medicineTypes?page=7",
+        "first": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
         "prev": null,
-        "next": "http://127.0.0.1:8000/api/v1/medicineTypes?page=2"
+        "next": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2"
     },
     "meta": {
         "current_page": 1,
         "from": 1,
-        "last_page": 7,
+        "last_page": 6,
         "links": [
             {
                 "url": null,
@@ -46,50 +60,45 @@ class MedicineTypeController extends Controller
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=1",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=3",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=4",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=5",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=6",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
                 "label": "6",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=7",
-                "label": "7",
-                "active": false
-            },
-            {
-                "url": "http://127.0.0.1:8000/api/v1/medicineTypes?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "path": "http://127.0.0.1:8000/api/v1/medicineTypes",
+        "path": "http://127.0.0.1:8000/api/v1/admin/medicineTypes",
         "per_page": 2,
         "to": 2,
-        "total": 13
+        "total": 12
     }
 }
      *
@@ -113,8 +122,15 @@ class MedicineTypeController extends Controller
      * See One MedicineType
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 2,
-        "type": "Rollin O'Hara"
+        "id": 12,
+        "type": "test",
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -138,7 +154,14 @@ class MedicineTypeController extends Controller
      * @response 200 scenario="Success Process"{
     "data": {
         "id": 12,
-        "type": "test"
+        "type": "test",
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -148,6 +171,7 @@ class MedicineTypeController extends Controller
     "errors": {
         "type": [
             "The type field is required."
+            "The type has already been taken."
         ]
     }
 }
@@ -159,7 +183,11 @@ class MedicineTypeController extends Controller
      */
     public function store(StoreMedicineTypeRequest $request)
     {
-        $data = MedicineType::create($request->validated());
+        $user = auth()->user();
+        $data = MedicineType::create([
+            'type' => $request->type,
+            'user_id' => $user->id,
+        ]);
         return new MedicineTypeResource($data);
     }
 
@@ -167,8 +195,15 @@ class MedicineTypeController extends Controller
      * Update MedicineType
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 1,
-        "type": "test"
+        "id": 11,
+        "type": "test21111wqe",
+        "user": {
+            "id": 12,
+            "full_name": [
+                "Moderator",
+                "Moderator"
+            ]
+        }
     }
 }
      *
@@ -177,6 +212,7 @@ class MedicineTypeController extends Controller
     "errors": {
         "type": [
             "The type field is required."
+            "The type has already been taken."
         ]
     }
 }
@@ -192,6 +228,7 @@ class MedicineTypeController extends Controller
      */
     public function update(UpdateMedicineTypeRequest $request, MedicineType $medicineType)
     {
+        $user = auth()->user();
         $medicineType->update($request->validated());
         $medicineType->refresh();
         return new MedicineTypeResource($medicineType);
@@ -207,7 +244,7 @@ class MedicineTypeController extends Controller
      *
      * @response 404 scenario="This MedicineType not found"{
        "message": "not found"
-       }
+}
      *
      */
     public function destroy(MedicineType $medicineType)

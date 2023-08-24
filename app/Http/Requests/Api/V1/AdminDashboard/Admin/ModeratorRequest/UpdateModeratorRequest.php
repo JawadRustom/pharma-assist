@@ -28,7 +28,7 @@ class UpdateModeratorRequest extends FormRequest
                 'last_name' => ['required','string','min:2','max:16'],
                 'email' => ['required', 'email',Rule::unique('users', 'email')->ignore($moderator)],
                 'password' => ['required','string','min:8','max:16'],
-                'phone_number' => ['required','size:9'],
+                'phone_number' => ['required','size:9',Rule::unique('users', 'phone_number')->ignore($moderator)],
             ];
         }
 }

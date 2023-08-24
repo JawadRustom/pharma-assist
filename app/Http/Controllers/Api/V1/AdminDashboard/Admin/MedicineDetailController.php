@@ -1,70 +1,79 @@
 <?php
 
-    namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
+namespace App\Http\Controllers\Api\V1\AdminDashboard\Admin;
 
-    use App\Http\Controllers\Controller;
-    use App\Models\MedicineDetail;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineDetailRequest\StoreMedicineDetailRequest;
-    use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineDetailRequest\UpdateMedicineDetailRequest;
-    use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineDetailResource\MedicineDetailResource;
-    use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\MedicineDetail;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineDetailRequest\StoreMedicineDetailRequest;
+use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineDetailRequest\UpdateMedicineDetailRequest;
+use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineDetailResource\MedicineDetailResource;
+use Illuminate\Http\Request;
+
+/**
+ * @group Admin MedicineDetail
+ *
+ * This Api For Admin MedicineDetail
+ */
+class MedicineDetailController extends Controller
+{
     /**
-     * @group Admin MedicineDetail
-     *
-     * This Api For Admin MedicineDetail
-     */
-    class MedicineDetailController extends Controller
-    {
-      /**
-       * See all MedicineDetail
-       * @response 200 scenario="Success Process"{
+     * See all MedicineDetail
+     * @response 200 scenario="Success Process"{
     "data": [
         {
-            "id": 1,
+            "id": 6,
             "medicine_type": {
-                "id": 6,
-                "type": "Dee Anderson"
+                "id": 1,
+                "type": "Lew Block"
             },
-            "content": "Consectetur nostrum nam voluptatem autem illo sit et. Voluptatem libero quisquam hic quae voluptas aperiam. Laborum minus cum sapiente molestias quia.",
+            "content": "test test",
             "medicine": {
-                "id": 6,
-                "name": "Dr. Daisha Deckow",
+                "id": 1,
+                "name": "test",
                 "category": {
-                    "id": 11,
-                    "name": "Dr. Berta Lind DVM"
+                    "id": 2,
+                    "name": "Bert Zieme"
                 },
                 "company": {
-                    "id": 11,
-                    "name": "Moriah Beer"
+                    "id": 2,
+                    "name": "testtest"
                 }
+            },
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
             }
         },
         {
-            "id": 2,
+            "id": 5,
             "medicine_type": {
-                "id": 7,
-                "type": "Prof. Elizabeth Gislason"
+                "id": 10,
+                "type": "Anabel Dare"
             },
-            "content": "Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.",
+            "content": "Quas blanditiis reprehenderit aliquid est. Amet est eos perspiciatis voluptatem distinctio quae provident. Adipisci aperiam accusantium et et sit rerum ipsum.",
             "medicine": {
-                "id": 7,
-                "name": "Dr. Eldora Johnston Sr.",
+                "id": 10,
+                "name": "Retha Lind",
                 "category": {
-                    "id": 12,
-                    "name": "Jarvis Rempel"
+                    "id": 15,
+                    "name": "Dixie Boyle"
                 },
                 "company": {
-                    "id": 12,
-                    "name": "Dr. Rogelio Grimes"
+                    "id": 15,
+                    "name": "Prof. Kameron Schumm Sr."
                 }
-            }
+            },
+            "user": null
         }
     ],
     "links": {
-        "first": "http://127.0.0.1:8000/api/v1/medicineDetails?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/medicineDetails?page=3",
+        "first": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3",
         "prev": null,
-        "next": "http://127.0.0.1:8000/api/v1/medicineDetails?page=2"
+        "next": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2"
     },
     "meta": {
         "current_page": 1,
@@ -77,97 +86,56 @@
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineDetails?page=1",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineDetails?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineDetails?page=3",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicineDetails?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "path": "http://127.0.0.1:8000/api/v1/medicineDetails",
+        "path": "http://127.0.0.1:8000/api/v1/admin/medicineDetails",
         "per_page": 2,
         "to": 2,
-        "total": 5
+        "total": 6
     }
 }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       * * @queryparam perPage int
-       * To return limite data in single page.
-       * Defaults value for variable '15'.
-       *
-       */
-      public function index(Request $request)
-      {
-          $data = MedicineDetail::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
-
-          return MedicineDetailResource::collection($data);
-      }
-
-      /**
-       * See One MedicineDetail
-       * @response 200 scenario="Success Process"{
-    "data": {
-        "id": 2,
-        "medicine_type": {
-            "id": 7,
-            "type": "Prof. Elizabeth Gislason"
-        },
-        "content": "Repellat enim est voluptate cupiditate. Commodi consequuntur id maiores et voluptates eligendi quia. Nobis et recusandae enim.",
-        "medicine": {
-            "id": 7,
-            "name": "Dr. Eldora Johnston Sr.",
-            "category": {
-                "id": 12,
-                "name": "Jarvis Rempel"
-            },
-            "company": {
-                "id": 12,
-                "name": "Dr. Rogelio Grimes"
-            }
-        }
+     *
+     * * @queryparam perPage int
+     * To return limite data in single page.
+     * Defaults value for variable '15'.
+     *
+     */
+    public function index(Request $request)
+    {
+        $data = MedicineDetail::orderBy('id', 'desc')->paginate($request->perPage ?? 15);
+        return MedicineDetailResource::collection($data);
     }
-}
-       *
-       * @response 401 scenario="Account Not Admin"{
-       "message": "Unauthenticated."
-   }
-       *
-       *
-       * @response 404 scenario="This MedicineDetail not found"{
-       "message": "not found"
-       }
-       *
-       */
-      public function show(Request $request, MedicineDetail $medicineDetail)
-      {
-          return new MedicineDetailResource($medicineDetail);
-      }
 
-      /**
-       * Create MedicineDetail
-       * @response 200 scenario="Success Process"{
+    /**
+     * See One MedicineDetail
+     * @response 200 scenario="Success Process"{
     "data": {
         "id": 6,
         "medicine_type": {
             "id": 1,
-            "type": "test"
+            "type": "Lew Block"
         },
         "content": "test test",
         "medicine": {
@@ -175,115 +143,191 @@
             "name": "test",
             "category": {
                 "id": 2,
-                "name": "Mrs. Ashtyn McKenzie"
+                "name": "Bert Zieme"
             },
             "company": {
                 "id": 2,
-                "name": "Millie Mayert"
+                "name": "testtest"
             }
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
         }
     }
 }
-       *
-       *
-       * @response 422 scenario="Validation errors"{
-    "message": "The medicine type id field is required. (and 2 more errors)",
-    "errors": {
-        "medicine_type_id": [
-            "The medicine type id field is required."
-        ],
-        "content": [
-            "The content field is required."
-        ],
-        "medicine_id": [
-            "The medicine id field is required."
-        ]
-    }
-}
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function store(StoreMedicineDetailRequest $request)
-      {
-          $data = MedicineDetail::create($request->validated());
-          return new MedicineDetailResource($data);
-      }
+     *
+     *
+     * @response 404 scenario="This MedicineDetail not found"{
+       "message": "not found"
+       }
+     *
+     */
+    public function show(Request $request, MedicineDetail $medicineDetail)
+    {
+        return new MedicineDetailResource($medicineDetail);
+    }
 
-      /**
-       * Update MedicineDetail
-       * @response 200 scenario="Success Process"{
+    /**
+     * Create MedicineDetail
+     * @response 200 scenario="Success Process"{
     "data": {
-        "id": 1,
+        "id": 6,
         "medicine_type": {
-            "id": 4,
-            "type": "Baby Cormier"
+            "id": 1,
+            "type": "Lew Block"
         },
-        "content": "sssssssssssss",
+        "content": "test test",
         "medicine": {
-            "id": 4,
-            "name": "Tony Lynch",
+            "id": 1,
+            "name": "test",
             "category": {
-                "id": 9,
-                "name": "Dr. Marilou Crooks"
+                "id": 2,
+                "name": "Bert Zieme"
             },
             "company": {
-                "id": 9,
-                "name": "Nash Hettinger Sr."
+                "id": 2,
+                "name": "testtest"
             }
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
         }
     }
 }
-       *
-       * @response 422 scenario="Validation errors"{
+     *
+     *
+     * @response 422 scenario="Validation errors"{
     "message": "The medicine type id field is required. (and 2 more errors)",
     "errors": {
         "medicine_type_id": [
             "The medicine type id field is required."
+            "The selected medicine type id is invalid."
         ],
         "content": [
             "The content field is required."
         ],
         "medicine_id": [
             "The medicine id field is required."
+            "The selected medicine id is invalid."
         ]
     }
 }
-       *
-       * @response 404 scenario="This MedicineDetail not found"{
-       "message": "not found"
-       }
-       *
-       * @response 401 scenario="Account Not Admin"{
+     *
+     * @response 401 scenario="Account Not Admin"{
        "message": "Unauthenticated."
    }
-       *
-       */
-      public function update(UpdateMedicineDetailRequest $request, MedicineDetail $medicineDetail)
-      {
-          $medicineDetail->update($request->validated());
-          $medicineDetail->refresh();
-          return new MedicineDetailResource($medicineDetail);
-      }
-      /**
-       * Delete MedicineDetail
-       * @response 204 scenario="Success Process"
-       *
-       * @response 401 scenario="Account Not Admin"{
-       "message": "Unauthenticated."
-   }
-       *
-       *
-       * @response 404 scenario="This MedicineDetail not found"{
-       "message": "not found"
-       }
-       *
-       */
-      public function destroy(MedicineDetail $medicineDetail)
-      {
-          $medicineDetail->delete();
-          return response()->noContent();
-      }
+     *
+     */
+    public function store(StoreMedicineDetailRequest $request)
+    {
+        $user = auth()->user();
+        $data = MedicineDetail::create([
+            'medicine_type_id' => $request->medicine_type_id,
+            'content' => $request->content,
+            'medicine_id' => $request->medicine_id,
+            'user_id' => $user->id,
+        ]);
+        return new MedicineDetailResource($data);
     }
+
+    /**
+     * Update MedicineDetail
+     * @response 200 scenario="Success Process"{
+    "data": {
+        "id": 6,
+        "medicine_type": {
+            "id": 1,
+            "type": "Lew Block"
+        },
+        "content": "test test",
+        "medicine": {
+            "id": 1,
+            "name": "test",
+            "category": {
+                "id": 2,
+                "name": "Bert Zieme"
+            },
+            "company": {
+                "id": 2,
+                "name": "testtest"
+            }
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
+    }
+}
+     *
+     * @response 422 scenario="Validation errors"{
+    "message": "The medicine type id field is required. (and 2 more errors)",
+    "errors": {
+        "medicine_type_id": [
+            "The medicine type id field is required."
+            "The selected medicine type id is invalid."
+        ],
+        "content": [
+            "The content field is required."
+        ],
+        "medicine_id": [
+            "The medicine id field is required."
+            "The selected medicine id is invalid."
+        ]
+    }
+}
+     *
+     * @response 404 scenario="This MedicineDetail not found"{
+       "message": "not found"
+       }
+     *
+     * @response 401 scenario="Account Not Admin"{
+       "message": "Unauthenticated."
+   }
+     *
+     */
+    public function update(UpdateMedicineDetailRequest $request, MedicineDetail $medicineDetail)
+    {
+        $medicineDetail->update([
+            'medicine_type_id' => $request->medicine_type_id,
+            'content' => $request->content,
+            'medicine_id' => $request->medicine_id,
+            'user_id' => $medicineDetail->user_id
+        ]);
+        $medicineDetail->refresh();
+        return new MedicineDetailResource($medicineDetail);
+    }
+    /**
+     * Delete MedicineDetail
+     * @response 204 scenario="Success Process"
+     *
+     * @response 401 scenario="Account Not Admin"{
+       "message": "Unauthenticated."
+   }
+     *
+     *
+     * @response 404 scenario="This MedicineDetail not found"{
+       "message": "not found"
+       }
+     *
+     */
+    public function destroy(MedicineDetail $medicineDetail)
+    {
+        $medicineDetail->delete();
+        return response()->noContent();
+    }
+}

@@ -19,6 +19,7 @@ class MedicineType extends Model
     protected $fillable = [
         'type',
         'language_id',
+        'user_id'
     ];
 
     /**
@@ -28,6 +29,7 @@ class MedicineType extends Model
      */
     protected $casts = [
         'language_id'=>'integer',
+        'user_id'=>'integer',
     ];
     public function medicineDetails(): HasMany
     {
@@ -36,5 +38,9 @@ class MedicineType extends Model
     public function languages(): BelongsTo
     {
         return $this->BelongsTo(Language::class,'language_id','id');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
 }

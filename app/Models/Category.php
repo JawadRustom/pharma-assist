@@ -19,6 +19,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'language_id',
+        'user_id',
     ];
 
     /**
@@ -28,6 +29,7 @@ class Category extends Model
      */
     protected $casts = [
         'language_id' => 'integer',
+        'user_id' => 'integer',
     ];
 
     public function medicines(): HasMany
@@ -37,6 +39,10 @@ class Category extends Model
     public function languages(): BelongsTo
     {
         return $this->BelongsTo(Language::class, 'language_id', 'id');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
     public function photos()
     {

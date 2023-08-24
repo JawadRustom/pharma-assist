@@ -19,7 +19,8 @@ class MedicineDetail extends Model
         'medicine_type_id',
         'content',
         'medicine_id',
-        'language_id'
+        'language_id',
+        'user_id'
     ];
 
     /**
@@ -31,6 +32,7 @@ class MedicineDetail extends Model
         'medicine_type_id'=>'integer',
         'medicine_id'=>'integer',
         'language_id'=>'integer',
+        'user_id'=>'integer',
     ];
     public function medicineTypes(): BelongsTo
     {
@@ -44,5 +46,9 @@ class MedicineDetail extends Model
     public function languages(): BelongsTo
     {
         return $this->BelongsTo(Language::class,'language_id','id');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
 }

@@ -69,4 +69,24 @@ class User extends Authenticatable
     {
         return $this->HasMany(Profile::class,'user_id','id');
     }
+    public function categories() : HasMany
+    {
+        return $this->HasMany(Category::class,'user_id','id');
+    }
+    public function companies() : HasMany
+    {
+        return $this->HasMany(Company::class,'user_id','id');
+    }
+    public function medicines() : HasMany
+    {
+        return $this->HasMany(Medicine::class,'user_id','id');
+    }
+    public function medicineDetails() : HasMany
+    {
+        return $this->HasMany(MedicineDetail::class,'user_id','id');
+    }
+    public function medicineTypes() : HasMany
+    {
+        return $this->HasMany(MedicineType::class,'user_id','id');
+    }
 }

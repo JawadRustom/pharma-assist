@@ -19,17 +19,51 @@ class ModeratorController extends Controller
     /**
      * See all Moderator
      * @response 200 scenario="Success Process"{
-    "data": {
-        "id": 12,
-        "first_name": "Moderator",
-        "last_name": "Moderator",
-        "email": "Moderator@Moderator.com",
-        "role": {
-            "id": 2,
-            "name": "moderator"
-        },
-        "password": "$2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa",
-        "phone_number": 987372763
+    "data": [
+        {
+            "id": 12,
+            "first_name": "Moderator",
+            "last_name": "Moderator",
+            "email": "Moderator@Moderator.com",
+            "role": {
+                "id": 2,
+                "name": "moderator"
+            },
+            "password": "$2y$10$k9sqwjx95UEdMhnVZMnQu.Dua.dwREtBOxBgOQ8T3pR7K9xfCcOeS",
+            "phone_number": 987372763
+        }
+    ],
+    "links": {
+        "first": "http://127.0.0.1:8000/api/v1/admin/moderators?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/moderators?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/v1/admin/moderators?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://127.0.0.1:8000/api/v1/admin/moderators",
+        "per_page": 15,
+        "to": 1,
+        "total": 1
     }
 }
      *
@@ -59,7 +93,7 @@ class ModeratorController extends Controller
             "id": 2,
             "name": "moderator"
         },
-        "password": "$2y$10$FexoH9Vs9hDWn4A/xpgtDO6RBsTzkGtkucxBJ54A9wmirLWDTgcJa",
+        "password": "$2y$10$k9sqwjx95UEdMhnVZMnQu.Dua.dwREtBOxBgOQ8T3pR7K9xfCcOeS",
         "phone_number": 987372763
     }
 }
@@ -89,12 +123,12 @@ class ModeratorController extends Controller
         "id": 20,
         "first_name": "moderator",
         "last_name": "moderator",
-        "email": "moderator12@moderator1.com",
+        "email": "moderator12@moderator1.com3",
         "role": {
             "id": 2,
             "name": "moderator"
         },
-        "password": "$2y$10$5jU0OIffSqEWOWh79NF9z.elMc/6yGraAuwVXbMOBJNDv26yTCgU6",
+        "password": "$2y$10$8/Fbyu2MFkOzEu6WviL5xOaBjTkvMNL5btLymYkWe2YhV9pHlAmQi",
         "phone_number": 987372763
     }
 }
@@ -105,18 +139,28 @@ class ModeratorController extends Controller
     "errors": {
         "first_name": [
             "The first name field is required."
+            "The first name field must be at least 2 characters."
+            "The first name field must not be greater than 16 characters."
         ],
         "last_name": [
             "The last name field is required."
+            "The last name field must be at least 2 characters."
+            "The last name field must not be greater than 16 characters."
         ],
         "email": [
             "The email field is required."
+            "The email field must be a valid email address."
+            "The email has already been taken."
         ],
         "password": [
             "The password field is required."
+            "The password field must be at least 2 characters."
+            "The password field must not be greater than 16 characters."
         ],
         "phone_number": [
             "The phone number field is required."
+            "The phone number field must be 9 characters."
+            "The phone number has already been taken."
         ]
     }
 }
@@ -142,7 +186,7 @@ class ModeratorController extends Controller
      * Update Moderator
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 18,
+        "id": 12,
         "first_name": "moderatortest",
         "last_name": "moderatortest",
         "email": "Moderat2or@Moderator.com",
@@ -150,8 +194,8 @@ class ModeratorController extends Controller
             "id": 2,
             "name": "moderator"
         },
-        "password": "$2y$10$jIYo5cMTKNvbvQ5ClrLcZeeIBK/AVBbTZZ4saTbSXwjv4SLDR7vKi",
-        "phone_number": 987372763
+        "password": "$2y$10$untXIS.aGtjCWRgay6JTZumzn.8RQgTppCnwoCpNAlH5yefofUeAu",
+        "phone_number": 987372761
     }
 }
      *
@@ -160,18 +204,28 @@ class ModeratorController extends Controller
     "errors": {
         "first_name": [
             "The first name field is required."
+            "The first name field must be at least 2 characters."
+            "The first name field must not be greater than 16 characters."
         ],
         "last_name": [
             "The last name field is required."
+            "The last name field must be at least 2 characters."
+            "The last name field must not be greater than 16 characters."
         ],
         "email": [
             "The email field is required."
+            "The email field must be a valid email address."
+            "The email has already been taken."
         ],
         "password": [
             "The password field is required."
+            "The password field must be at least 2 characters."
+            "The password field must not be greater than 16 characters."
         ],
         "phone_number": [
             "The phone number field is required."
+            "The phone number field must be 9 characters."
+            "The phone number has already been taken."
         ]
     }
 }

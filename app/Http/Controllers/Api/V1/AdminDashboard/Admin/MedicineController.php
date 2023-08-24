@@ -21,40 +21,61 @@ class MedicineController extends Controller
      * @response 200 scenario="Success Process"{
     "data": [
         {
-            "id": 1,
-            "name": "Ayana Rohan",
+            "id": 12,
+            "name": "inside Comp12",
             "category": {
-                "id": 6,
-                "name": "Dr. Tatum Wiegand"
+                "id": 1,
+                "name": "Dr. Cyrus Brakus IV"
             },
             "company": {
-                "id": 6,
-                "name": "Lillian Welch"
+                "id": 1,
+                "name": "Hermina Corkery"
+            },
+            "Image": {
+                "id": 4,
+                "imageable_id": 12,
+                "imageable_type": "App\\Models\\Medicine",
+                "file_name": "http://127.0.0.1:8000/storage/Medicine/HBjFZoBPZJ3ITkFBZSiKms5V23huxe8kyDjsZgKk.png"
+            },
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
             }
         },
         {
-            "id": 2,
-            "name": "Horacio Kemmer",
+            "id": 11,
+            "name": "inside Comp",
             "category": {
-                "id": 7,
-                "name": "Leonie Harber"
+                "id": 1,
+                "name": "Dr. Cyrus Brakus IV"
             },
             "company": {
-                "id": 7,
-                "name": "Cielo Schiller"
+                "id": 1,
+                "name": "Hermina Corkery"
+            },
+            "Image": null,
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
             }
         }
     ],
     "links": {
-        "first": "http://127.0.0.1:8000/api/v1/medicine?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/medicine?page=5",
+        "first": "http://127.0.0.1:8000/api/v1/admin/medicines?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/medicines?page=6",
         "prev": null,
-        "next": "http://127.0.0.1:8000/api/v1/medicine?page=2"
+        "next": "http://127.0.0.1:8000/api/v1/admin/medicines?page=2"
     },
     "meta": {
         "current_page": 1,
         "from": 1,
-        "last_page": 5,
+        "last_page": 6,
         "links": [
             {
                 "url": null,
@@ -62,40 +83,45 @@ class MedicineController extends Controller
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=1",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=3",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=4",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=5",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/medicine?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=6",
+                "label": "6",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/v1/admin/medicines?page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "path": "http://127.0.0.1:8000/api/v1/medicine",
+        "path": "http://127.0.0.1:8000/api/v1/admin/medicines",
         "per_page": 2,
         "to": 2,
-        "total": 10
+        "total": 12
     }
 }
      *
@@ -118,15 +144,28 @@ class MedicineController extends Controller
      * See One Medicine
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 2,
-        "name": "Horacio Kemmer",
+        "id": 12,
+        "name": "inside Comp12",
         "category": {
-            "id": 7,
-            "name": "Leonie Harber"
+            "id": 1,
+            "name": "Dr. Cyrus Brakus IV"
         },
         "company": {
-            "id": 7,
-            "name": "Cielo Schiller"
+            "id": 1,
+            "name": "Hermina Corkery"
+        },
+        "Image": {
+            "id": 4,
+            "imageable_id": 12,
+            "imageable_type": "App\\Models\\Medicine",
+            "file_name": "http://127.0.0.1:8000/storage/Medicine/HBjFZoBPZJ3ITkFBZSiKms5V23huxe8kyDjsZgKk.png"
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
         }
     }
 }
@@ -169,12 +208,15 @@ class MedicineController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ],
         "company_id": [
             "The company id field is required."
+            "The selected company id is invalid."
         ],
         "category_id": [
             "The category id field is required."
+            "The selected company id is invalid."
         ]
     }
 }
@@ -183,10 +225,18 @@ class MedicineController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function store(StoreMedicineRequest $request)
     {
-        $data = Medicine::create($request->validated());
+        $user = auth()->user();
+        $data = Medicine::create([
+            'name' => $request->name,
+            'company_id' => $request->company_id,
+            'category_id' => $request->category_id,
+            'user_id' => $user->id,
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Medicine');
             $data->photos()->create(['file_name' => $photoPath]);
@@ -202,12 +252,19 @@ class MedicineController extends Controller
         "name": "test",
         "category": {
             "id": 2,
-            "name": "Mrs. Ashtyn McKenzie"
+            "name": "Bert Zieme"
         },
         "company": {
             "id": 2,
-            "name": "Millie Mayert"
-        }
+            "name": "testtest"
+        },
+        "Image": {
+            "id": 5,
+            "imageable_id": 1,
+            "imageable_type": "App\\Models\\Medicine",
+            "file_name": "http://127.0.0.1:8000/storage/Medicine/39TrUtdW3eKFi3adgDMRNWgvoHOwVuokr3kq13LQ.jpg"
+        },
+        "user": null
     }
 }
      *
@@ -216,12 +273,15 @@ class MedicineController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ],
         "company_id": [
             "The company id field is required."
+            "The selected company id is invalid."
         ],
         "category_id": [
-            "The category id field is required."
+            "The company id field is required."
+            "The selected company id is invalid."
         ]
     }
 }
@@ -234,10 +294,17 @@ class MedicineController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function update(UpdateMedicineRequest $request, Medicine $medicine)
     {
-        $medicine->update($request->validated());
+        $medicine->update([
+            'name' => $request->name,
+            'company_id' => $request->company_id,
+            'category_id' => $request->category_id,
+            'user_id' => $medicine->user_id
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Medicine');
             $medicine->photos()->updateOrCreate(

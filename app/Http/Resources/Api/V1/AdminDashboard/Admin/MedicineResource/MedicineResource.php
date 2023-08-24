@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineResource;
 
+use App\Http\Resources\Api\V1\AdminDashboard\Admin\CategoryResource\UserResource;
 use App\Http\Resources\Api\V1\AdminDashboard\Admin\PhotoResource\PhotoResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -21,6 +22,7 @@ class MedicineResource extends JsonResource
             'category' => new MedicineCategoryResource($this->categories),
             'company' => new MedicineCompanyResource($this->companies),
             'Image'=>new PhotoResource($this->photos),
+            'user'=>new UserResource($this->users),
         ];
     }
 }

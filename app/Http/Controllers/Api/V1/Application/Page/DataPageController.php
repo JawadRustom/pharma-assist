@@ -12,8 +12,14 @@ use Illuminate\Support\Facades\Validator;
 
 class DataPageController extends Controller
 {
-    public function seeDataForMedicine(Request $request,$dataFrom,$name)
+    public function seeDataForMedicine(Request $request, $dataFrom ,$name)
     {
+        // $a = '-100';
+        // $b = '20';
+        // $c = 30;
+        // $d = true;
+        // $result = abs(intval($a)) * intval($b) *(is_numeric($c)) * intval($d);
+        // dd($result);
         $allowedCompanyValues=['company', 'companies'];
         $allowedCategoryValues=['category', 'categories'];
         //dd($dataFrom);

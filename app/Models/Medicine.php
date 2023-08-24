@@ -21,6 +21,7 @@ class Medicine extends Model
         'company_id',
         'category_id',
         'language_id',
+        'user_id'
     ];
 
     /**
@@ -32,6 +33,7 @@ class Medicine extends Model
         'company_id'=>'integer',
         'category_id'=>'integer',
         'language_id'=>'integer',
+        'user_id'=>'integer',
     ];
 
     public function companies(): BelongsTo
@@ -54,5 +56,9 @@ class Medicine extends Model
     public function photos()
     {
         return $this->morphOne(Photo::class, 'imageable');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
 }

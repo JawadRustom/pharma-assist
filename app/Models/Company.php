@@ -20,6 +20,7 @@ class Company extends Model
     protected $fillable = [
         'name',
         'language_id',
+        'user_id'
     ];
 
     /**
@@ -29,6 +30,7 @@ class Company extends Model
      */
     protected $casts = [
         'language_id'=>'integer',
+        'user_id'=>'integer',
     ];
 
     public function medicines(): HasMany
@@ -42,5 +44,9 @@ class Company extends Model
     public function photos()
     {
         return $this->morphOne(Photo::class, 'imageable');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
     }
 }

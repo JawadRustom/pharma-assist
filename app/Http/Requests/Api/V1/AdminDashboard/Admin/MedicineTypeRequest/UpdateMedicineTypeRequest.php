@@ -24,7 +24,7 @@ class UpdateMedicineTypeRequest extends FormRequest
     {
         $medicineType = $this->route('medicineType');
         return [
-            'type' => ['required', 'string', Rule::unique('medicine_types', 'name')->ignore($medicineType)],
+            'type' => ['required', 'string', Rule::unique('medicine_types', 'type')->ignore($medicineType)],
         ];
     }
 }

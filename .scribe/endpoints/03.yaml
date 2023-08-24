@@ -35,24 +35,45 @@ endpoints:
           {
           "data": [
           {
-          "id": 1,
-          "name": "Mr. Olen Kreiger",
+          "id": 17,
+          "name": "testsda",
+          "Image": {
+          "id": 3,
+          "imageable_id": 17,
+          "imageable_type": "App\\Models\\Company",
+          "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           },
           {
-          "id": 2,
-          "name": "Damien Heller",
+          "id": 16,
+          "name": "test",
+          "Image": null,
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/company?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/company?page=8",
+          "first": "http://127.0.0.1:8000/api/v1/admin/companies?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/admin/companies?page=9",
           "prev": null,
-          "next": "http://127.0.0.1:8000/api/v1/company?page=2"
+          "next": "http://127.0.0.1:8000/api/v1/admin/companies?page=2"
           },
           "meta": {
           "current_page": 1,
           "from": 1,
-          "last_page": 8,
+          "last_page": 9,
           "links": [
           {
           "url": null,
@@ -60,55 +81,60 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=1",
           "label": "1",
           "active": true
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=2",
           "label": "2",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=3",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=3",
           "label": "3",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=4",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=4",
           "label": "4",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=5",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=5",
           "label": "5",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=6",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=6",
           "label": "6",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=7",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=7",
           "label": "7",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=8",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=8",
           "label": "8",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/company?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=9",
+          "label": "9",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/companies?page=2",
           "label": "Next &raquo;",
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/company",
+          "path": "http://127.0.0.1:8000/api/v1/admin/companies",
           "per_page": 2,
           "to": 2,
-          "total": 15
+          "total": 17
           }
           }
         headers: []
@@ -153,14 +179,22 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      file_name:
+        name: file_name
+        description: 'image To upload image.'
+        required: false
+        example: sed
+        type: string
+        custom: []
+    cleanQueryParameters:
+      file_name: sed
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: deleniti
+        example: voluptates
         type: string
         custom: []
       file_name:
@@ -171,7 +205,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: deleniti
+      name: voluptates
     fileParameters:
       file_name: null
     responses:
@@ -180,8 +214,21 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 16,
-          "name": "test"
+          "id": 17,
+          "name": "testsda",
+          "Image": {
+          "id": 3,
+          "imageable_id": 17,
+          "imageable_type": "App\\Models\\Company",
+          "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           }
           }
         headers: []
@@ -204,6 +251,7 @@ endpoints:
           "errors": {
           "name": [
           "The name field is required."
+          "The name has already been taken."
           ]
           }
           }
@@ -255,8 +303,21 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 2,
-          "name": "Lyla Johnson MD"
+          "id": 17,
+          "name": "testsda",
+          "Image": {
+          "id": 3,
+          "imageable_id": 17,
+          "imageable_type": "App\\Models\\Company",
+          "file_name": "http://127.0.0.1:8000/storage/Company/Dza4DWLJcgjGwN0mh7e7Dpl3J7EaWFzDPOvRMyt7.png"
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           }
           }
         headers: []
@@ -378,14 +439,22 @@ endpoints:
         custom: []
     cleanUrlParameters:
       company_id: 1
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      file_name:
+        name: file_name
+        description: 'image To upload image.'
+        required: false
+        example: ipsa
+        type: string
+        custom: []
+    cleanQueryParameters:
+      file_name: ipsa
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: ab
+        example: non
         type: string
         custom: []
       file_name:
@@ -396,7 +465,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: ab
+      name: non
     fileParameters:
       file_name: null
     responses:
@@ -405,8 +474,16 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 12,
-          "name": "testtest"
+          "id": 16,
+          "name": "ds",
+          "Image": null,
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           }
           }
         headers: []
@@ -438,6 +515,7 @@ endpoints:
           "errors": {
           "name": [
           "The name field is required."
+          "The name has already been taken."
           ]
           }
           }

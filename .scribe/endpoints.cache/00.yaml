@@ -79,19 +79,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: dusty.gerhold@example.net
+        example: bayer.arlie@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 't1rm9`}'
+        example: '0uc$L]C^4^\nH\y/?'
         type: string
         custom: []
     cleanBodyParameters:
-      email: dusty.gerhold@example.net
-      password: 't1rm9`}'
+      email: bayer.arlie@example.net
+      password: '0uc$L]C^4^\nH\y/?'
     fileParameters: []
     responses:
       -
@@ -172,67 +172,67 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: cronin.emmett@example.net
+        example: kim45@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
         required: true
-        example: '/Ju8>&V8hxS6;'
+        example: '^;B7ZcC.nQen`?'
         type: string
         custom: []
       first_name:
         name: first_name
         description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
         required: true
-        example: jlcreh
+        example: fee
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
         required: true
-        example: opnnyuqnb
+        example: ptpghs
         type: string
         custom: []
       phone_number:
         name: phone_number
         description: 'Must be 9 characters.'
         required: true
-        example: snlegugkx
+        example: wnibpbgiy
         type: string
         custom: []
       birth_date:
         name: birth_date
-        description: 'Must be a valid date. Must be a date before <code>2015-08-19</code>.'
+        description: 'Must be a valid date. Must be a date before <code>2015-08-24</code>.'
         required: true
-        example: '1999-10-07'
+        example: '1994-08-27'
         type: string
         custom: []
       specialty:
         name: specialty
         description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
         required: true
-        example: doctor
+        example: other
         type: string
         custom: []
       gender:
         name: gender
         description: 'Must be one of <code>male</code> or <code>female</code>.'
         required: true
-        example: male
+        example: female
         type: string
         custom: []
     cleanBodyParameters:
-      email: cronin.emmett@example.net
-      password: '/Ju8>&V8hxS6;'
-      first_name: jlcreh
-      last_name: opnnyuqnb
-      phone_number: snlegugkx
-      birth_date: '1999-10-07'
-      specialty: doctor
-      gender: male
+      email: kim45@example.com
+      password: '^;B7ZcC.nQen`?'
+      first_name: fee
+      last_name: ptpghs
+      phone_number: wnibpbgiy
+      birth_date: '1994-08-27'
+      specialty: other
+      gender: female
     fileParameters: []
     responses:
       -

@@ -26,7 +26,7 @@ class StoreModeratorRequest extends FormRequest
             'last_name' => ['required','string','min:2','max:16'],
             'email' => ['required', 'email','unique:users,email'],
             'password' => ['required','string','min:8','max:16'],
-            'phone_number' => ['required','size:9'],
+            'phone_number' => ['required','size:9','unique:users,phone_number'],
         ];
     }
 }

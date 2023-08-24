@@ -21,19 +21,40 @@ class CategoryController extends Controller
      * @response 200 scenario="Success Process"{
     "data": [
         {
-            "id": 1,
-            "name": "Ms. Lilyan Langosh DDS",
+            "id": 17,
+            "name": "test",
+            "Image": {
+                "id": 1,
+                "imageable_id": 17,
+                "imageable_type": "App\\Models\\Category",
+                "file_name": "http://127.0.0.1:8000/storage/Category/7BOV5PVPvB7c4hA3pVFX8GO3AbE75wW6Gec66jiP.png"
+            },
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
+            }
         },
         {
-            "id": 2,
-            "name": "Lyla Johnson MD",
+            "id": 16,
+            "name": "testdaads",
+            "Image": null,
+            "user": {
+                "id": 11,
+                "full_name": [
+                    "Admin",
+                    "Admin"
+                ]
+            }
         }
     ],
     "links": {
-        "first": "http://127.0.0.1:8000/api/v1/category?page=1",
-        "last": "http://127.0.0.1:8000/api/v1/category?page=9",
+        "first": "http://127.0.0.1:8000/api/v1/admin/categories?page=1",
+        "last": "http://127.0.0.1:8000/api/v1/admin/categories?page=9",
         "prev": null,
-        "next": "http://127.0.0.1:8000/api/v1/category?page=2"
+        "next": "http://127.0.0.1:8000/api/v1/admin/categories?page=2"
     },
     "meta": {
         "current_page": 1,
@@ -46,57 +67,57 @@ class CategoryController extends Controller
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=1",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=1",
                 "label": "1",
                 "active": true
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=2",
                 "label": "2",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=3",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=3",
                 "label": "3",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=4",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=4",
                 "label": "4",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=5",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=5",
                 "label": "5",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=6",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=6",
                 "label": "6",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=7",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=7",
                 "label": "7",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=8",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=8",
                 "label": "8",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=9",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=9",
                 "label": "9",
                 "active": false
             },
             {
-                "url": "http://127.0.0.1:8000/api/v1/category?page=2",
+                "url": "http://127.0.0.1:8000/api/v1/admin/categories?page=2",
                 "label": "Next &raquo;",
                 "active": false
             }
         ],
-        "path": "http://127.0.0.1:8000/api/v1/category",
+        "path": "http://127.0.0.1:8000/api/v1/admin/categories",
         "per_page": 2,
         "to": 2,
         "total": 17
@@ -122,8 +143,21 @@ class CategoryController extends Controller
      * See One Category
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 2,
-        "name": "Lyla Johnson MD",
+        "id": 17,
+        "name": "test",
+        "Image": {
+            "id": 1,
+            "imageable_id": 17,
+            "imageable_type": "App\\Models\\Category",
+            "file_name": "http://127.0.0.1:8000/storage/Category/7BOV5PVPvB7c4hA3pVFX8GO3AbE75wW6Gec66jiP.png"
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
 }
      *
@@ -146,9 +180,23 @@ class CategoryController extends Controller
      * Create Category
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 19,
+        "id": 17,
         "name": "test",
+        "Image": {
+            "id": 1,
+            "imageable_id": 17,
+            "imageable_type": "App\\Models\\Category",
+            "file_name": "http://127.0.0.1:8000/storage/Category/7BOV5PVPvB7c4hA3pVFX8GO3AbE75wW6Gec66jiP.png"
+        },
+        "user": {
+            "id": 11,
+            "full_name": [
+                "Admin",
+                "Admin"
+            ]
+        }
     }
+}
 }
      *
      *
@@ -157,6 +205,7 @@ class CategoryController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ]
     }
 }
@@ -165,10 +214,25 @@ class CategoryController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function store(StoreCategoryRequest $request)
     {
-        $data = Category::create($request->validated());
+        // $data = User::create([
+        //     'first_name' => $request->first_name,
+        //     'last_name' => $request->last_name,
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        //     'phone_number' => $request->phone_number,
+        //     'role_id' => 2,
+        // ]);
+        // return new ModeratorResource($data);
+        $user = auth()->user();
+        $data = Category::create([
+            'name' => $request->name,
+            'user_id' => $user->id,
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Category');
             $data->photos()->create(['file_name' => $photoPath]);
@@ -180,8 +244,15 @@ class CategoryController extends Controller
      * Update Category
      * @response 200 scenario="Success Process"{
     "data": {
-        "id": 3,
-        "name": "testtest",
+        "id": 12,
+        "name": "asd",
+        "Image": {
+            "id": 2,
+            "imageable_id": 12,
+            "imageable_type": "App\\Models\\Category",
+            "file_name": "http://127.0.0.1:8000/storage/Category/xyFaV1KL3o6Hhj8OKm8hLES1Etvu9q2L5Ey122eD.png"
+        },
+        "user": null
     }
 }
      *
@@ -190,6 +261,7 @@ class CategoryController extends Controller
     "errors": {
         "name": [
             "The name field is required."
+            "The name has already been taken."
         ]
     }
 }
@@ -201,10 +273,15 @@ class CategoryController extends Controller
        "message": "Unauthenticated."
    }
      *
+     * @queryparam file_name image
+     * To upload image.
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->update($request->validated());
+        $category->update([
+            'name' => $request->name,
+            'user_id' => $category->user_id
+        ]);
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Category');
             $category->photos()->updateOrCreate(
