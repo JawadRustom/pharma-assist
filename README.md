@@ -33,5 +33,3 @@ Links:
     -   php artisan migrate --seed
     -   php artisan serve
 
-
-ERD link : 

@@ -5,5 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth:sanctum', 'userType:user'])->group(function () {
-    Route::get('/dataPage/medicineData/{dataFrom}/{name}', [DataPageController::class, 'seeDataForMedicine']);
+    Route::get('/medicine/{medicine}', [DataPageController::class, 'seeDataForMedicine']);
 });
