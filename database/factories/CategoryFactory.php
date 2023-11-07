@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Language;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'image' => fake()->image(),
-            'details' => $this->faker->text,
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Medicine;
+use App\Models\MedicineType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,9 +19,9 @@ class MedicineDetailFactory extends Factory
     public function definition(): array
     {
         return [
+            'medicine_type_id' => MedicineType::factory(),
+            'content' => fake()->text(),
             'medicine_id' => Medicine::factory(),
-            'details_header' => fake()->title(),
-            'details' => fake()->text(),
         ];
     }
 }

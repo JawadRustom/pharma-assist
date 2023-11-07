@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Medicine extends Model
 {
@@ -19,6 +21,8 @@ class Medicine extends Model
         'name',
         'company_id',
         'category_id',
+        'language_id',
+        'user_id'
     ];
 
     /**
@@ -29,6 +33,8 @@ class Medicine extends Model
     protected $casts = [
         'company_id'=>'integer',
         'category_id'=>'integer',
+        'language_id'=>'integer',
+        'user_id'=>'integer',
     ];
 
     public function companies(): BelongsTo
@@ -40,5 +46,30 @@ class Medicine extends Model
     {
         return $this->BelongsTo(Category::class,'category_id','id');
     }
+    public function languages(): BelongsTo
+    {
+        return $this->BelongsTo(Language::class,'language_id','id');
+    }
+    public function medicineDetails(): HasMany
+    {
+        return $this->HasMany(MedicineDetail::class,'medicine_id','id');
+    }
+    public function photos()
+    {
+        return $this->morphOne(Photo::class, 'imageable');
+    }
+    public function users(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'user_id', 'id');
+    }
 
+    /**
+     * The medicines that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

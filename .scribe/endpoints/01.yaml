@@ -1,0 +1,98 @@
+name: 'Admin Authentication'
+description: |-
+
+  This Api For Admin Authentication
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/login
+    metadata:
+      groupName: 'Admin Authentication'
+      groupDescription: |-
+
+        This Api For Admin Authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Login Admin'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hickle.carey@example.org
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: 'GiRp\ypr=\1dS&N_fFuf'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: hickle.carey@example.org
+      password: 'GiRp\ypr=\1dS&N_fFuf'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "token":"2|MPvbf6j8OVfoPKuF5bBMUXiE6JrymdQFFHVTHuK1"
+          }
+        headers: []
+        description: 'Register Success'
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+          "message": "You are already logged in"
+          }
+        headers: []
+        description: 'User send a valid token'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "email or password is wrong"
+          }
+        headers: []
+        description: 'Email or password is wrong or user type not user'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+              "message": "The email field is required. (and 1 more error)",
+          "errors": {
+          "email": [
+          "The email field is required."
+          ],
+          "password": [
+          "The password field is required."
+          ]
+          }
+
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

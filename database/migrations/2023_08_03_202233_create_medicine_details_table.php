@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('medicine_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('medicine_type_id')->reference('id')->on('medicine_types');
+            $table->string('content');
             $table->foreignId('medicine_id')->reference('id')->on('medicines');
-            $table->linestring('details_header');
-            $table->multiLineString('details');
+            $table->foreignId('language_id')->reference('id')->on('languages')->nullable();
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

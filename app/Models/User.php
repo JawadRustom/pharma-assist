@@ -6,6 +6,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
@@ -26,10 +28,7 @@ class User extends Authenticatable
         'password',
         'first_name',
         'last_name',
-        'birth_date',
         'phone_number',
-        'specialty',
-        'gender',
     ];
 
     /**
@@ -51,7 +50,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'role_id'=>'integer',
-        'birth_date'=>'date',
         'phone_number'=>'integer',
     ];
 
@@ -63,8 +61,42 @@ class User extends Authenticatable
         );
     }
 
-    public function role()
+    public function roles()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class,'role_id','id');
+    }
+    public function profiles() : HasMany
+    {
+        return $this->HasMany(Profile::class,'user_id','id');
+    }
+    public function categories() : HasMany
+    {
+        return $this->HasMany(Category::class,'user_id','id');
+    }
+    public function companies() : HasMany
+    {
+        return $this->HasMany(Company::class,'user_id','id');
+    }
+    public function medicines() : HasMany
+    {
+        return $this->HasMany(Medicine::class,'user_id','id');
+    }
+    public function medicineDetails() : HasMany
+    {
+        return $this->HasMany(MedicineDetail::class,'user_id','id');
+    }
+    public function medicineTypes() : HasMany
+    {
+        return $this->HasMany(MedicineType::class,'user_id','id');
+    }
+
+    /**
+     * The medicines that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(Medicine::class);
     }
 }

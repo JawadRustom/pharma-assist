@@ -43,6 +43,12 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        // 'photos' => [
+        //     'driver' => 'local',
+        //     'root' => public_path('photos'),
+        //     'url' => env('APP_URL') . '/photos',
+        //     'visibility' => 'public',
+        // ],
 
         's3' => [
             'driver' => 's3',

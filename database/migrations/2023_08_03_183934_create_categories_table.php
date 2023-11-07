@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->linestring('name');
-            $table->linestring('image');
-            $table->multiLineString('details');
+            $table->string('name')->unique();
+            $table->foreignId('language_id')->reference('id')->on('languages')->nullable();
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

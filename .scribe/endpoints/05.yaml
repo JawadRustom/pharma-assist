@@ -1,0 +1,569 @@
+name: 'Admin MedicineDetail'
+description: |-
+
+  This Api For Admin MedicineDetail
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/admin/medicineDetails
+    metadata:
+      groupName: 'Admin MedicineDetail'
+      groupDescription: |-
+
+        This Api For Admin MedicineDetail
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See all MedicineDetail'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 6,
+          "medicine_type": {
+          "id": 1,
+          "type": "Lew Block"
+          },
+          "content": "test test",
+          "medicine": {
+          "id": 1,
+          "name": "test",
+          "category": {
+          "id": 2,
+          "name": "Bert Zieme"
+          },
+          "company": {
+          "id": 2,
+          "name": "testtest"
+          }
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          },
+          {
+          "id": 5,
+          "medicine_type": {
+          "id": 10,
+          "type": "Anabel Dare"
+          },
+          "content": "Quas blanditiis reprehenderit aliquid est. Amet est eos perspiciatis voluptatem distinctio quae provident. Adipisci aperiam accusantium et et sit rerum ipsum.",
+          "medicine": {
+          "id": 10,
+          "name": "Retha Lind",
+          "category": {
+          "id": 15,
+          "name": "Dixie Boyle"
+          },
+          "company": {
+          "id": 15,
+          "name": "Prof. Kameron Schumm Sr."
+          }
+          },
+          "user": null
+          }
+          ],
+          "links": {
+          "first": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3",
+          "prev": null,
+          "next": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2"
+          },
+          "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 3,
+          "links": [
+          {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1",
+          "label": "1",
+          "active": true
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2",
+          "label": "2",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3",
+          "label": "3",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2",
+          "label": "Next &raquo;",
+          "active": false
+          }
+          ],
+          "path": "http://127.0.0.1:8000/api/v1/admin/medicineDetails",
+          "per_page": 2,
+          "to": 2,
+          "total": 6
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+
+          * @queryparam perPage int
+          To return limite data in single page.
+          Defaults value for variable '15'.
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/medicineDetails
+    metadata:
+      groupName: 'Admin MedicineDetail'
+      groupDescription: |-
+
+        This Api For Admin MedicineDetail
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create MedicineDetail'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      medicine_type_id:
+        name: medicine_type_id
+        description: ''
+        required: true
+        example: accusamus
+        type: string
+        custom: []
+      content:
+        name: content
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      medicine_id:
+        name: medicine_id
+        description: ''
+        required: true
+        example: doloribus
+        type: string
+        custom: []
+    cleanBodyParameters:
+      medicine_type_id: accusamus
+      content: consequatur
+      medicine_id: doloribus
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 6,
+          "medicine_type": {
+          "id": 1,
+          "type": "Lew Block"
+          },
+          "content": "test test",
+          "medicine": {
+          "id": 1,
+          "name": "test",
+          "category": {
+          "id": 2,
+          "name": "Bert Zieme"
+          },
+          "company": {
+          "id": 2,
+          "name": "testtest"
+          }
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The medicine type id field is required. (and 2 more errors)",
+          "errors": {
+          "medicine_type_id": [
+          "The medicine type id field is required."
+          "The selected medicine type id is invalid."
+          ],
+          "content": [
+          "The content field is required."
+          ],
+          "medicine_id": [
+          "The medicine id field is required."
+          "The selected medicine id is invalid."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/medicineDetails/{id}'
+    metadata:
+      groupName: 'Admin MedicineDetail'
+      groupDescription: |-
+
+        This Api For Admin MedicineDetail
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See One MedicineDetail'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineDetail.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 6,
+          "medicine_type": {
+          "id": 1,
+          "type": "Lew Block"
+          },
+          "content": "test test",
+          "medicine": {
+          "id": 1,
+          "name": "test",
+          "category": {
+          "id": 2,
+          "name": "Bert Zieme"
+          },
+          "company": {
+          "id": 2,
+          "name": "testtest"
+          }
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineDetail not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/admin/medicineDetails/{id}'
+    metadata:
+      groupName: 'Admin MedicineDetail'
+      groupDescription: |-
+
+        This Api For Admin MedicineDetail
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update MedicineDetail'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineDetail.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      medicine_type_id:
+        name: medicine_type_id
+        description: ''
+        required: true
+        example: ipsum
+        type: string
+        custom: []
+      content:
+        name: content
+        description: ''
+        required: true
+        example: distinctio
+        type: string
+        custom: []
+      medicine_id:
+        name: medicine_id
+        description: ''
+        required: true
+        example: aperiam
+        type: string
+        custom: []
+    cleanBodyParameters:
+      medicine_type_id: ipsum
+      content: distinctio
+      medicine_id: aperiam
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 6,
+          "medicine_type": {
+          "id": 1,
+          "type": "Lew Block"
+          },
+          "content": "test test",
+          "medicine": {
+          "id": 1,
+          "name": "test",
+          "category": {
+          "id": 2,
+          "name": "Bert Zieme"
+          },
+          "company": {
+          "id": 2,
+          "name": "testtest"
+          }
+          },
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineDetail not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The medicine type id field is required. (and 2 more errors)",
+          "errors": {
+          "medicine_type_id": [
+          "The medicine type id field is required."
+          "The selected medicine type id is invalid."
+          ],
+          "content": [
+          "The content field is required."
+          ],
+          "medicine_id": [
+          "The medicine id field is required."
+          "The selected medicine id is invalid."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/medicineDetails/{id}'
+    metadata:
+      groupName: 'Admin MedicineDetail'
+      groupDescription: |-
+
+        This Api For Admin MedicineDetail
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete MedicineDetail'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineDetail.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineDetail not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->linestring('name');
-            $table->linestring('location');
-            $table->date('opening_date');
-            $table->multiLineString('details');
-            $table->linestring('image');
+            $table->string('name')->unique();
+            $table->foreignId('language_id')->reference('id')->on('languages')->nullable();
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable();
             $table->timestamps();
         });
     }

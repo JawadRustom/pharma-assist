@@ -16,6 +16,6 @@ class GoogleProvider implements RegisterationInterface
 
     public function register(array $attributes): string
     {
-        dd(GoogleProvider::PROVIDER);
+        return RegisterationHelper::register(GoogleProvider::PROVIDER, $attributes);
     }
 }

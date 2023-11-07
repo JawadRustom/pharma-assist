@@ -14,7 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
+            UserSeeder::class,
+            LanguageSeeder::class,
+            CategorySeeder::class,
+            CompanySeeder::class,
+            MedicineTypeSeeder::class,
+            MedicineSeeder::class,
+            MedicineDetailSeeder::class,
+            ProfileSeeder::class,
             AdminSeeder::class,
+            ModeratorSeeder::class,
+            UserTestSeeder::class,
         ]);
 
         if (config('app.env') !== 'production') {
@@ -22,5 +32,5 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
             ]);
         }
-    } 
+    }
 }

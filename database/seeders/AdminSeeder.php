@@ -16,9 +16,10 @@ class AdminSeeder extends Seeder
         User::factory([
             'first_name' => 'Admin',
             'last_name' => 'Admin',
-            'name' => 'Admin',
             'email' => 'admin@admin.com',
             'role_id' => 1,
+            'password'=>'password',
+            'phone_number'=>987372763,
         ])->create();
     }
 }
