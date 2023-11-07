@@ -35,3 +35,4 @@ class Profile extends Model
         return $this->BelongsTo(User::class,'user_id','id');
     }
 }
+

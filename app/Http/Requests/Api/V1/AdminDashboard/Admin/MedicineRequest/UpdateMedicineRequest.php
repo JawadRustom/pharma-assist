@@ -24,10 +24,11 @@ class UpdateMedicineRequest extends FormRequest
     {
         $medicine = $this->route('medicine');
         return [
-            'name'=>['required','string',Rule::unique('medicines', 'name')->ignore($medicine)],
-            'company_id' => ['required', 'exists:companies,id'],
-            'category_id' => ['required', 'exists:categories,id'],
-            'file_name' => ['nullable', 'image'],
+            // 'name'=>['required','string',Rule::unique('medicines', 'name')->ignore($medicine)],
+            // 'company_id' => ['required', 'exists:companies,id'],
+            // 'category_id' => ['required', 'exists:categories,id'],
+            // 'file_name' => ['nullable', 'image'],
+            // 'details'=>['required','array'],
         ];
     }
 }

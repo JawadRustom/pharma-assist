@@ -13,14 +13,14 @@ class RegisterationController extends Controller
     {
         $token = $registerationService->login($provider, $request->validated());
 
-        return response(['token' => $token]);
+        return response(['token' => $token, 'status' => 'The login process was completed successfully']);
     }
 
     public function register(string $provider, RegisterationService $registerationService, RegisterRequest $request)
     {
         $token = $registerationService->register($provider, $request->validated());
 
-        return response(['token' => $token]);
+        return response(['token' => $token, 'status' => 'Registration completed successfully']);
     }
 
     public function logout()
