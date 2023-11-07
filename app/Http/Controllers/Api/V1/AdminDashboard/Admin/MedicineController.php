@@ -7,6 +7,7 @@ use App\Models\Medicine;
 use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\StoreMedicineRequest;
 use App\Http\Requests\Api\V1\AdminDashboard\Admin\MedicineRequest\UpdateMedicineRequest;
 use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineResource\MedicineResource;
+use App\Models\MedicineDetail;
 use Illuminate\Http\Request;
 
 /**
@@ -180,10 +181,10 @@ class MedicineController extends Controller
        }
      *
      */
-    public function show(Request $request, Medicine $medicine)
-    {
-        return new MedicineResource($medicine);
-    }
+        public function show(Request $request, Medicine $medicine)
+        {
+            return new MedicineResource($medicine);
+        }
 
     /**
      * Create Medicine
@@ -225,8 +226,9 @@ class MedicineController extends Controller
        "message": "Unauthenticated."
    }
      *
-     * @queryparam file_name image
+     * @bodyParam file_name image
      * To upload image.
+     * @bodyParam details array required array of medicine details .Example:[{"medicine_type_id" : 1,"content" : "Your medicine details content"}]
      */
     public function store(StoreMedicineRequest $request)
     {
@@ -240,6 +242,14 @@ class MedicineController extends Controller
         if ($request->hasFile('file_name')) {
             $photoPath = $request->file('file_name')->store('public/Medicine');
             $data->photos()->create(['file_name' => $photoPath]);
+        }
+        foreach ($request->details as $medicineDetail) {
+            MedicineDetail::create([
+                'medicine_type_id'=>$medicineDetail->medicine_type_id,
+                'content'=>$medicineDetail->content,
+                'medicine_id'=>$data->id,
+                'user_id'=>$data->user_id,
+            ]);
         }
         return new MedicineResource($data);
     }

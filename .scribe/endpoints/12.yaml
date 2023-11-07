@@ -1,20 +1,20 @@
-name: Company
+name: Medicine
 description: |-
 
-  This Api For Company for Moderator in AdminDashboard
+  This Api For Medicine for Moderator in AdminDashboard
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/moderator/companies/companiesOfModerator
+    uri: api/v1/moderator/medicines/medicinesOfModerator
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See companies belong to moderator'
+      title: 'See medicines belong to moderator'
       description: ''
       authenticated: false
       custom: []
@@ -35,31 +35,34 @@ endpoints:
           {
           "data": [
           {
-          "id": 19,
-          "name": "test1212331323sdasadZ",
-          "Image": {
-          "id": 3,
-          "imageable_id": 19,
-          "imageable_type": "App\\Models\\Company",
-          "file_name": "http://127.0.0.1:8000/storage/Company/vBhSsOido5gX28DJ9ye8l2NDar0YHL921jBFnduM.png"
-          }
+          "id": 11,
+          "name": "inside Moderator both",
+          "category": {
+          "id": 16,
+          "name": "dsa1234sad"
           },
-          {
-          "id": 18,
-          "name": "test1212331323sda",
-          "Image": null
+          "company": {
+          "id": 16,
+          "name": "test1212331323"
+          },
+          "Image": {
+          "id": 4,
+          "imageable_id": 11,
+          "imageable_type": "App\\Models\\Medicine",
+          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          }
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=2",
+          "first": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
           "prev": null,
-          "next": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=2"
+          "next": null
           },
           "meta": {
           "current_page": 1,
           "from": 1,
-          "last_page": 2,
+          "last_page": 1,
           "links": [
           {
           "url": null,
@@ -67,25 +70,20 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
           "label": "1",
           "active": true
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=2",
-          "label": "2",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator?page=2",
+          "url": null,
           "label": "Next &raquo;",
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/moderator/companies/companiesOfModerator",
-          "per_page": 2,
-          "to": 2,
-          "total": 4
+          "path": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator",
+          "per_page": 15,
+          "to": 1,
+          "total": 1
           }
           }
         headers: []
@@ -118,15 +116,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/moderator/companies
+    uri: api/v1/moderator/medicines
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See all Company'
+      title: 'See all Medicine'
       description: ''
       authenticated: false
       custom: []
@@ -147,31 +145,42 @@ endpoints:
           {
           "data": [
           {
-          "id": 17,
-          "name": "test1212331323dsa",
-          "Image": {
-          "id": 2,
-          "imageable_id": 17,
-          "imageable_type": "App\\Models\\Company",
-          "file_name": "http://127.0.0.1:8000/storage/Company/0UymNe6UvlDG4Ck3cTrsdYTuqmlTXSZchbJNrRcj.png"
-          }
+          "id": 10,
+          "name": "Newell Stark Sr.",
+          "category": {
+          "id": 15,
+          "name": "Mr. Erin Bashirian PhD"
+          },
+          "company": {
+          "id": 15,
+          "name": "Miss Rebecca Dibbert III"
+          },
+          "Image": null
           },
           {
-          "id": 16,
-          "name": "test1212331323",
+          "id": 9,
+          "name": "Ernestina Lehner",
+          "category": {
+          "id": 14,
+          "name": "Immanuel McKenzie"
+          },
+          "company": {
+          "id": 14,
+          "name": "Mr. Damon Johnson"
+          },
           "Image": null
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/moderator/companies?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/moderator/companies?page=9",
+          "first": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=5",
           "prev": null,
-          "next": "http://127.0.0.1:8000/api/v1/moderator/companies?page=2"
+          "next": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2"
           },
           "meta": {
           "current_page": 1,
           "from": 1,
-          "last_page": 9,
+          "last_page": 5,
           "links": [
           {
           "url": null,
@@ -179,60 +188,40 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=1",
           "label": "1",
           "active": true
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2",
           "label": "2",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=3",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=3",
           "label": "3",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=4",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=4",
           "label": "4",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=5",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=5",
           "label": "5",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=6",
-          "label": "6",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=7",
-          "label": "7",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=8",
-          "label": "8",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=9",
-          "label": "9",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/companies?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2",
           "label": "Next &raquo;",
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/moderator/companies",
+          "path": "http://127.0.0.1:8000/api/v1/moderator/medicines",
           "per_page": 2,
           "to": 2,
-          "total": 17
+          "total": 10
           }
           }
         headers: []
@@ -260,15 +249,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/moderator/companies
+    uri: api/v1/moderator/medicines
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create Company'
+      title: 'Create Medicine'
       description: ''
       authenticated: false
       custom: []
@@ -277,14 +266,36 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      file_name:
+        name: file_name
+        description: 'image To upload image.'
+        required: false
+        example: qui
+        type: string
+        custom: []
+    cleanQueryParameters:
+      file_name: qui
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: sed
+        example: totam
+        type: string
+        custom: []
+      company_id:
+        name: company_id
+        description: ''
+        required: true
+        example: qui
+        type: string
+        custom: []
+      category_id:
+        name: category_id
+        description: ''
+        required: true
+        example: quo
         type: string
         custom: []
       file_name:
@@ -295,7 +306,9 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: sed
+      name: totam
+      company_id: qui
+      category_id: quo
     fileParameters:
       file_name: null
     responses:
@@ -304,13 +317,21 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 19,
-          "name": "test1212331323sdasadZ",
+          "id": 11,
+          "name": "inside Moderator both",
+          "category": {
+          "id": 16,
+          "name": "dsa1234sad"
+          },
+          "company": {
+          "id": 16,
+          "name": "test1212331323"
+          },
           "Image": {
-          "id": 3,
-          "imageable_id": 19,
-          "imageable_type": "App\\Models\\Company",
-          "file_name": "http://127.0.0.1:8000/storage/Company/vBhSsOido5gX28DJ9ye8l2NDar0YHL921jBFnduM.png"
+          "id": 4,
+          "imageable_id": 11,
+          "imageable_type": "App\\Models\\Medicine",
+          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
           }
           }
           }
@@ -330,11 +351,19 @@ endpoints:
         status: 422
         content: |-
           {
-          "message": "The name field is required. (and 1 more error)",
+          "message": "The name field is required. (and 2 more errors)",
           "errors": {
           "name": [
           "The name field is required."
           "The name has already been taken."
+          ],
+          "company_id": [
+          "The company id field is required."
+          "The selected company id is invalid."
+          ],
+          "category_id": [
+          "The category id field is required."
+          "The selected company id is invalid."
           ]
           }
           }
@@ -350,15 +379,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/moderator/companies/{id}'
+    uri: 'api/v1/moderator/medicines/{id}'
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See One Company'
+      title: 'See One Medicine'
       description: ''
       authenticated: false
       custom: []
@@ -368,7 +397,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the company.'
+        description: 'The ID of the medicine.'
         required: true
         example: 1
         type: integer
@@ -386,9 +415,22 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 2,
-          "name": "Lucious Sauer MD",
-          "Image": null
+          "id": 11,
+          "name": "inside Moderator both",
+          "category": {
+          "id": 16,
+          "name": "dsa1234sad"
+          },
+          "company": {
+          "id": 16,
+          "name": "test1212331323"
+          },
+          "Image": {
+          "id": 4,
+          "imageable_id": 11,
+          "imageable_type": "App\\Models\\Medicine",
+          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          }
           }
           }
         headers: []
@@ -410,7 +452,7 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Company not found'
+        description: 'This Medicine not found'
         custom: []
     responseFields: []
     auth: []
@@ -421,15 +463,15 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/moderator/companies/{id}'
+    uri: 'api/v1/moderator/medicines/{id}'
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete Company'
+      title: 'Delete Medicine'
       description: ''
       authenticated: false
       custom: []
@@ -439,7 +481,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the company.'
+        description: 'The ID of the medicine.'
         required: true
         example: 1
         type: integer
@@ -474,7 +516,7 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Company not found'
+        description: 'This Medicine not found'
         custom: []
     responseFields: []
     auth: []
@@ -485,15 +527,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/moderator/companies/{company_id}'
+    uri: 'api/v1/moderator/medicines/{medicine_id}'
     metadata:
-      groupName: Company
+      groupName: Medicine
       groupDescription: |-
 
-        This Api For Company for Moderator in AdminDashboard
+        This Api For Medicine for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update Company'
+      title: 'Update Medicine'
       description: ''
       authenticated: false
       custom: []
@@ -501,31 +543,45 @@ endpoints:
       Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
-      company_id:
-        name: company_id
-        description: 'The ID of the company.'
+      medicine_id:
+        name: medicine_id
+        description: 'The ID of the medicine.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      company_id: 1
+      medicine_id: 1
     queryParameters:
       file_name:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: sed
+        example: quo
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: sed
+      file_name: quo
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: ullam
+        example: facilis
+        type: string
+        custom: []
+      company_id:
+        name: company_id
+        description: ''
+        required: true
+        example: voluptates
+        type: string
+        custom: []
+      category_id:
+        name: category_id
+        description: ''
+        required: true
+        example: exercitationem
         type: string
         custom: []
       file_name:
@@ -536,7 +592,9 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: ullam
+      name: facilis
+      company_id: voluptates
+      category_id: exercitationem
     fileParameters:
       file_name: null
     responses:
@@ -545,13 +603,21 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 17,
-          "name": "test1212331323dsa",
+          "id": 11,
+          "name": "inside Moderator both",
+          "category": {
+          "id": 16,
+          "name": "dsa1234sad"
+          },
+          "company": {
+          "id": 16,
+          "name": "test1212331323"
+          },
           "Image": {
-          "id": 2,
-          "imageable_id": 17,
-          "imageable_type": "App\\Models\\Company",
-          "file_name": "http://127.0.0.1:8000/storage/Company/0UymNe6UvlDG4Ck3cTrsdYTuqmlTXSZchbJNrRcj.png"
+          "id": 4,
+          "imageable_id": 11,
+          "imageable_type": "App\\Models\\Medicine",
+          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
           }
           }
           }
@@ -574,17 +640,25 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Company not found'
+        description: 'This Medicine not found'
         custom: []
       -
         status: 422
         content: |-
           {
-          "message": "The name field is required. (and 1 more error)",
+          "message": "The name field is required. (and 2 more errors)",
           "errors": {
           "name": [
           "The name field is required."
           "The name has already been taken."
+          ],
+          "company_id": [
+          "The company id field is required."
+          "The selected company id is invalid."
+          ],
+          "category_id": [
+          "The category id field is required."
+          "The selected company id is invalid."
           ]
           }
           }

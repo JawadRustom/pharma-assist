@@ -184,17 +184,17 @@ endpoints:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: sed
+        example: eum
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: sed
+      file_name: eum
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: voluptates
+        example: sed
         type: string
         custom: []
       file_name:
@@ -205,7 +205,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: voluptates
+      name: sed
     fileParameters:
       file_name: null
     responses:
@@ -444,17 +444,17 @@ endpoints:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: ipsa
+        example: dolores
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: ipsa
+      file_name: dolores
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: non
+        example: nihil
         type: string
         custom: []
       file_name:
@@ -465,7 +465,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: non
+      name: nihil
     fileParameters:
       file_name: null
     responses:

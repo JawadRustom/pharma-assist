@@ -26,6 +26,7 @@ class StoreMedicineRequest extends FormRequest
             'company_id'=>['required','exists:companies,id'],
             'category_id'=>['required','exists:categories,id'],
             'file_name'=>['nullable','image'],
+            'details'=>['required','array'],
         ];
     }
 }

@@ -94,11 +94,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hickle.carey@example.org
+                  example: nasir.mccullough@example.net
                 password:
                   type: string
                   description: ''
-                  example: 'GiRp\ypr=\1dS&N_fFuf'
+                  example: 'w%E-{fc$:r&(gPJ'
               required:
                 - email
                 - password
@@ -378,12 +378,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: libero
+          example: voluptas
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: libero
+            example: voluptas
       responses:
         200:
           description: 'Success Process'
@@ -423,7 +423,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quidem
+                  example: eaque
                 file_name:
                   type: string
                   format: binary
@@ -577,12 +577,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: ratione
+          example: repudiandae
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: ratione
+            example: repudiandae
       responses:
         200:
           description: 'Success Process'
@@ -671,7 +671,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: quidem
                 file_name:
                   type: string
                   format: binary
@@ -963,12 +963,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: sed
+          example: eum
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: sed
+            example: eum
       responses:
         200:
           description: 'Success Process'
@@ -1059,7 +1059,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: voluptates
+                  example: sed
                 file_name:
                   type: string
                   format: binary
@@ -1213,12 +1213,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: ipsa
+          example: dolores
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: ipsa
+            example: dolores
       responses:
         200:
           description: 'Success Process'
@@ -1305,7 +1305,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: non
+                  example: nihil
                 file_name:
                   type: string
                   format: binary
@@ -1610,17 +1610,7 @@ paths:
       summary: 'Create Medicine'
       operationId: createMedicine
       description: ''
-      parameters:
-        -
-          in: query
-          name: file_name
-          description: 'image To upload image.'
-          example: ut
-          required: false
-          schema:
-            type: string
-            description: 'image To upload image.'
-            example: ut
+      parameters: []
       responses:
         200:
           description: 'Success Process'
@@ -1690,30 +1680,40 @@ paths:
       requestBody:
         required: true
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
               properties:
                 name:
                   type: string
                   description: ''
-                  example: aut
+                  example: quia
                 company_id:
                   type: string
                   description: ''
-                  example: nisi
+                  example: tenetur
                 category_id:
                   type: string
                   description: ''
-                  example: neque
+                  example: culpa
                 file_name:
-                  type: string
-                  format: binary
-                  description: 'Must be an image.'
+                  type: image
+                  description: 'To upload image.'
+                  example: iste
+                details:
+                  type: array
+                  description: 'array of medicine details .'
+                  example:
+                    -
+                      medicine_type_id: 1
+                      content: 'Your medicine details content'
+                  items:
+                    type: string
               required:
                 - name
                 - company_id
                 - category_id
+                - details
       security: []
   '/api/v1/admin/medicines/{id}':
     get:
@@ -1885,12 +1885,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: atque
+          example: saepe
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: atque
+            example: saepe
       responses:
         200:
           description: 'Success Process'
@@ -2003,15 +2003,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: velit
+                  example: natus
                 company_id:
                   type: string
                   description: ''
-                  example: omnis
+                  example: eius
                 category_id:
                   type: string
                   description: ''
-                  example: vel
+                  example: dolores
                 file_name:
                   type: string
                   format: binary
@@ -2030,723 +2030,6 @@ paths:
         required: true
         schema:
           type: integer
-  /api/v1/admin/medicineDetails:
-    get:
-      summary: 'See all MedicineDetail'
-      operationId: seeAllMedicineDetail
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Success Process'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    -
-                      id: 6
-                      medicine_type:
-                        id: 1
-                        type: 'Lew Block'
-                      content: 'test test'
-                      medicine:
-                        id: 1
-                        name: test
-                        category:
-                          id: 2
-                          name: 'Bert Zieme'
-                        company:
-                          id: 2
-                          name: testtest
-                      user:
-                        id: 11
-                        full_name:
-                          - Admin
-                          - Admin
-                    -
-                      id: 5
-                      medicine_type:
-                        id: 10
-                        type: 'Anabel Dare'
-                      content: 'Quas blanditiis reprehenderit aliquid est. Amet est eos perspiciatis voluptatem distinctio quae provident. Adipisci aperiam accusantium et et sit rerum ipsum.'
-                      medicine:
-                        id: 10
-                        name: 'Retha Lind'
-                        category:
-                          id: 15
-                          name: 'Dixie Boyle'
-                        company:
-                          id: 15
-                          name: 'Prof. Kameron Schumm Sr.'
-                      user: null
-                  links:
-                    first: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1'
-                    last: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3'
-                    prev: null
-                    next: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                  meta:
-                    current_page: 1
-                    from: 1
-                    last_page: 3
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1'
-                        label: '1'
-                        active: true
-                      -
-                        url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                        label: '2'
-                        active: false
-                      -
-                        url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3'
-                        label: '3'
-                        active: false
-                      -
-                        url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                        label: 'Next &raquo;'
-                        active: false
-                    path: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails'
-                    per_page: 2
-                    to: 2
-                    total: 6
-                properties:
-                  data:
-                    type: array
-                    example:
-                      -
-                        id: 6
-                        medicine_type:
-                          id: 1
-                          type: 'Lew Block'
-                        content: 'test test'
-                        medicine:
-                          id: 1
-                          name: test
-                          category:
-                            id: 2
-                            name: 'Bert Zieme'
-                          company:
-                            id: 2
-                            name: testtest
-                        user:
-                          id: 11
-                          full_name:
-                            - Admin
-                            - Admin
-                      -
-                        id: 5
-                        medicine_type:
-                          id: 10
-                          type: 'Anabel Dare'
-                        content: 'Quas blanditiis reprehenderit aliquid est. Amet est eos perspiciatis voluptatem distinctio quae provident. Adipisci aperiam accusantium et et sit rerum ipsum.'
-                        medicine:
-                          id: 10
-                          name: 'Retha Lind'
-                          category:
-                            id: 15
-                            name: 'Dixie Boyle'
-                          company:
-                            id: 15
-                            name: 'Prof. Kameron Schumm Sr.'
-                        user: null
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                          example: 6
-                        medicine_type:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 1
-                            type:
-                              type: string
-                              example: 'Lew Block'
-                        content:
-                          type: string
-                          example: 'test test'
-                        medicine:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 1
-                            name:
-                              type: string
-                              example: test
-                            category:
-                              type: object
-                              properties:
-                                id:
-                                  type: integer
-                                  example: 2
-                                name:
-                                  type: string
-                                  example: 'Bert Zieme'
-                            company:
-                              type: object
-                              properties:
-                                id:
-                                  type: integer
-                                  example: 2
-                                name:
-                                  type: string
-                                  example: testtest
-                        user:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              example: 11
-                            full_name:
-                              type: array
-                              example:
-                                - Admin
-                                - Admin
-                              items:
-                                type: string
-                  links:
-                    type: object
-                    properties:
-                      first:
-                        type: string
-                        example: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1'
-                      last:
-                        type: string
-                        example: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3'
-                      prev:
-                        type: string
-                        example: null
-                      next:
-                        type: string
-                        example: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                  meta:
-                    type: object
-                    properties:
-                      current_page:
-                        type: integer
-                        example: 1
-                      from:
-                        type: integer
-                        example: 1
-                      last_page:
-                        type: integer
-                        example: 3
-                      links:
-                        type: array
-                        example:
-                          -
-                            url: null
-                            label: '&laquo; Previous'
-                            active: false
-                          -
-                            url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=1'
-                            label: '1'
-                            active: true
-                          -
-                            url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                            label: '2'
-                            active: false
-                          -
-                            url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=3'
-                            label: '3'
-                            active: false
-                          -
-                            url: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails?page=2'
-                            label: 'Next &raquo;'
-                            active: false
-                        items:
-                          type: object
-                          properties:
-                            url:
-                              type: string
-                              example: null
-                            label:
-                              type: string
-                              example: '&laquo; Previous'
-                            active:
-                              type: boolean
-                              example: false
-                      path:
-                        type: string
-                        example: 'http://127.0.0.1:8000/api/v1/admin/medicineDetails'
-                      per_page:
-                        type: integer
-                        example: 2
-                      to:
-                        type: integer
-                        example: 2
-                      total:
-                        type: integer
-                        example: 6
-        401:
-          description: 'Account Not Admin'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'."
-      tags:
-        - 'Admin MedicineDetail'
-      security: []
-    post:
-      summary: 'Create MedicineDetail'
-      operationId: createMedicineDetail
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Success Process'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: 6
-                    medicine_type:
-                      id: 1
-                      type: 'Lew Block'
-                    content: 'test test'
-                    medicine:
-                      id: 1
-                      name: test
-                      category:
-                        id: 2
-                        name: 'Bert Zieme'
-                      company:
-                        id: 2
-                        name: testtest
-                    user:
-                      id: 11
-                      full_name:
-                        - Admin
-                        - Admin
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 6
-                      medicine_type:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          type:
-                            type: string
-                            example: 'Lew Block'
-                      content:
-                        type: string
-                        example: 'test test'
-                      medicine:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          name:
-                            type: string
-                            example: test
-                          category:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: 'Bert Zieme'
-                          company:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: testtest
-                      user:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 11
-                          full_name:
-                            type: array
-                            example:
-                              - Admin
-                              - Admin
-                            items:
-                              type: string
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        422:
-          description: 'Validation errors'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n\"The selected medicine type id is invalid.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n\"The selected medicine id is invalid.\"\n]\n}\n}"
-      tags:
-        - 'Admin MedicineDetail'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                medicine_type_id:
-                  type: string
-                  description: ''
-                  example: accusamus
-                content:
-                  type: string
-                  description: ''
-                  example: consequatur
-                medicine_id:
-                  type: string
-                  description: ''
-                  example: doloribus
-              required:
-                - medicine_type_id
-                - content
-                - medicine_id
-      security: []
-  '/api/v1/admin/medicineDetails/{id}':
-    get:
-      summary: 'See One MedicineDetail'
-      operationId: seeOneMedicineDetail
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Success Process'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: 6
-                    medicine_type:
-                      id: 1
-                      type: 'Lew Block'
-                    content: 'test test'
-                    medicine:
-                      id: 1
-                      name: test
-                      category:
-                        id: 2
-                        name: 'Bert Zieme'
-                      company:
-                        id: 2
-                        name: testtest
-                    user:
-                      id: 11
-                      full_name:
-                        - Admin
-                        - Admin
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 6
-                      medicine_type:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          type:
-                            type: string
-                            example: 'Lew Block'
-                      content:
-                        type: string
-                        example: 'test test'
-                      medicine:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          name:
-                            type: string
-                            example: test
-                          category:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: 'Bert Zieme'
-                          company:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: testtest
-                      user:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 11
-                          full_name:
-                            type: array
-                            example:
-                              - Admin
-                              - Admin
-                            items:
-                              type: string
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This MedicineDetail not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-      tags:
-        - 'Admin MedicineDetail'
-      security: []
-    put:
-      summary: 'Update MedicineDetail'
-      operationId: updateMedicineDetail
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: 'Success Process'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  data:
-                    id: 6
-                    medicine_type:
-                      id: 1
-                      type: 'Lew Block'
-                    content: 'test test'
-                    medicine:
-                      id: 1
-                      name: test
-                      category:
-                        id: 2
-                        name: 'Bert Zieme'
-                      company:
-                        id: 2
-                        name: testtest
-                    user:
-                      id: 11
-                      full_name:
-                        - Admin
-                        - Admin
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 6
-                      medicine_type:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          type:
-                            type: string
-                            example: 'Lew Block'
-                      content:
-                        type: string
-                        example: 'test test'
-                      medicine:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 1
-                          name:
-                            type: string
-                            example: test
-                          category:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: 'Bert Zieme'
-                          company:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                example: 2
-                              name:
-                                type: string
-                                example: testtest
-                      user:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                            example: 11
-                          full_name:
-                            type: array
-                            example:
-                              - Admin
-                              - Admin
-                            items:
-                              type: string
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This MedicineDetail not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-        422:
-          description: 'Validation errors'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n\"The selected medicine type id is invalid.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n\"The selected medicine id is invalid.\"\n]\n}\n}"
-      tags:
-        - 'Admin MedicineDetail'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                medicine_type_id:
-                  type: string
-                  description: ''
-                  example: ipsum
-                content:
-                  type: string
-                  description: ''
-                  example: distinctio
-                medicine_id:
-                  type: string
-                  description: ''
-                  example: aperiam
-              required:
-                - medicine_type_id
-                - content
-                - medicine_id
-      security: []
-    delete:
-      summary: 'Delete MedicineDetail'
-      operationId: deleteMedicineDetail
-      description: ''
-      parameters: []
-      responses:
-        204:
-          description: 'Success Process'
-        401:
-          description: 'Account Not Admin'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-        404:
-          description: 'This MedicineDetail not found'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'not found'
-                properties:
-                  message:
-                    type: string
-                    example: 'not found'
-      tags:
-        - 'Admin MedicineDetail'
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the medicineDetail.'
-        example: 1
-        required: true
-        schema:
-          type: integer
   '/api/v1/admin/medicinesOfCategory/{name}':
     get:
       summary: 'See all Medicine inside one Category'
@@ -2757,22 +2040,22 @@ paths:
           in: query
           name: perPage
           description: "To return limite data in single page.\nDefaults value for variable '15'."
-          example: 12
+          example: 6
           required: false
           schema:
             type: integer
             description: "To return limite data in single page.\nDefaults value for variable '15'."
-            example: 12
+            example: 6
         -
           in: query
           name: name
           description: 'To return medicine from category name.'
-          example: qui
+          example: quia
           required: false
           schema:
             type: string
             description: 'To return medicine from category name.'
-            example: qui
+            example: quia
       responses:
         200:
           description: 'Success Process'
@@ -2938,7 +2221,7 @@ paths:
         in: path
         name: name
         description: ''
-        example: omnis
+        example: modi
         required: true
         schema:
           type: string
@@ -2952,22 +2235,22 @@ paths:
           in: query
           name: perPage
           description: "To return limite data in single page.\nDefaults value for variable '15'."
-          example: 10
+          example: 9
           required: false
           schema:
             type: integer
             description: "To return limite data in single page.\nDefaults value for variable '15'."
-            example: 10
+            example: 9
         -
           in: query
           name: name
           description: 'To return medicine from category name.'
-          example: sint
+          example: nihil
           required: false
           schema:
             type: string
             description: 'To return medicine from category name.'
-            example: sint
+            example: nihil
       responses:
         200:
           description: 'Success Process'
@@ -3133,7 +2416,7 @@ paths:
         in: path
         name: name
         description: ''
-        example: quam
+        example: voluptates
         required: true
         schema:
           type: string
@@ -3147,22 +2430,22 @@ paths:
           in: query
           name: perPage
           description: "To return limite data in single page.\nDefaults value for variable '15'."
-          example: 15
+          example: 11
           required: false
           schema:
             type: integer
             description: "To return limite data in single page.\nDefaults value for variable '15'."
-            example: 15
+            example: 11
         -
           in: query
           name: name
           description: 'To return medicine from category name.'
-          example: quaerat
+          example: blanditiis
           required: false
           schema:
             type: string
             description: 'To return medicine from category name.'
-            example: quaerat
+            example: blanditiis
       responses:
         200:
           description: 'Success Process'
@@ -3328,7 +2611,7 @@ paths:
         in: path
         name: name
         description: ''
-        example: fuga
+        example: possimus
         required: true
         schema:
           type: string
@@ -3622,7 +2905,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: ut
+                  example: nobis
               required:
                 - type
       security: []
@@ -3785,7 +3068,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: dolore
+                  example: repellendus
               required:
                 - type
       security: []
@@ -4089,23 +3372,23 @@ paths:
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: flzwieykq
+                  example: xvp
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: neaedskiz
+                  example: tjdqanokokrr
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: mayer.tre@example.com
+                  example: norberto.mcdermott@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: '@_6erJGUH{CU&AR2n<w'
+                  example: 'UG*snqq(&F*Tah=\Z'
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: ynsoheaxq
+                  example: omdturiri
               required:
                 - first_name
                 - last_name
@@ -4292,23 +3575,23 @@ paths:
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: qsievumvdxvoxci
+                  example: wxfszqao
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 16 characters.'
-                  example: owlgxqrsjsesc
+                  example: uhkbqg
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wyman.frederik@example.net
+                  example: brice.bins@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: "cBe8i'/Mddos+Vx|"
+                  example: 'FH#8=H0V/Cw9#TuBG'
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: ydpwicgjm
+                  example: mdkdxxmuh
               required:
                 - first_name
                 - last_name
@@ -4356,7 +3639,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the moderator.'
-        example: voluptas
+        example: totam
         required: true
         schema:
           type: string
@@ -4772,12 +4055,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: nisi
+          example: inventore
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: nisi
+            example: inventore
       responses:
         200:
           description: 'Success Process'
@@ -4850,7 +4133,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: eum
                 file_name:
                   type: string
                   format: binary
@@ -4954,12 +4237,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: voluptatibus
+          example: dicta
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: voluptatibus
+            example: dicta
       responses:
         200:
           description: 'Success Process'
@@ -5044,7 +4327,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: qui
+                  example: quos
                 file_name:
                   type: string
                   format: binary
@@ -5565,7 +4848,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: sed
+                  example: eum
                 file_name:
                   type: string
                   format: binary
@@ -5685,12 +4968,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: sed
+          example: rerum
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: sed
+            example: rerum
       responses:
         200:
           description: 'Success Process'
@@ -5775,7 +5058,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ullam
+                  example: odio
                 file_name:
                   type: string
                   format: binary
@@ -5863,7 +5146,7 @@ paths:
         in: path
         name: dataFrom
         description: ''
-        example: dolore
+        example: ea
         required: true
         schema:
           type: string
@@ -5871,7 +5154,7 @@ paths:
         in: path
         name: name
         description: ''
-        example: est
+        example: ipsum
         required: true
         schema:
           type: string
@@ -6400,12 +5683,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: libero
+          example: qui
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: libero
+            example: qui
       responses:
         200:
           description: 'Success Process'
@@ -6502,15 +5785,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quia
+                  example: totam
                 company_id:
                   type: string
                   description: ''
-                  example: neque
+                  example: qui
                 category_id:
                   type: string
                   description: ''
-                  example: voluptatibus
+                  example: quo
                 file_name:
                   type: string
                   format: binary
@@ -6672,12 +5955,12 @@ paths:
           in: query
           name: file_name
           description: 'image To upload image.'
-          example: adipisci
+          example: quo
           required: false
           schema:
             type: string
             description: 'image To upload image.'
-            example: adipisci
+            example: quo
       responses:
         200:
           description: 'Success Process'
@@ -6786,15 +6069,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: dicta
+                  example: facilis
                 company_id:
                   type: string
                   description: ''
-                  example: natus
+                  example: voluptates
                 category_id:
                   type: string
                   description: ''
-                  example: sed
+                  example: exercitationem
                 file_name:
                   type: string
                   format: binary
@@ -7373,15 +6656,15 @@ paths:
                 medicine_type_id:
                   type: string
                   description: ''
-                  example: enim
+                  example: dolore
                 content:
                   type: string
                   description: ''
-                  example: asperiores
+                  example: quis
                 medicine_id:
                   type: string
                   description: ''
-                  example: aut
+                  example: est
               required:
                 - medicine_type_id
                 - content
@@ -7651,15 +6934,15 @@ paths:
                 medicine_type_id:
                   type: string
                   description: ''
-                  example: odio
+                  example: dolorum
                 content:
                   type: string
                   description: ''
-                  example: dolores
+                  example: sequi
                 medicine_id:
                   type: string
                   description: ''
-                  example: sint
+                  example: beatae
               required:
                 - medicine_type_id
                 - content
@@ -8058,7 +7341,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: rerum
+                  example: quia
               required:
                 - type
       security: []
@@ -8230,7 +7513,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: cum
+                  example: a
               required:
                 - type
       security: []
@@ -8354,11 +7637,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: bayer.arlie@example.net
+                  example: abbott.jayden@example.org
                 password:
                   type: string
                   description: ''
-                  example: '0uc$L]C^4^\nH\y/?'
+                  example: '&#%mz9%JLUP'
               required:
                 - email
                 - password
@@ -8486,31 +7769,31 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: kim45@example.com
+                  example: kgrant@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters. Must not be greater than 16 characters.'
-                  example: '^;B7ZcC.nQen`?'
+                  example: "pCvQf.nHmd_PB'su$*<z"
                 first_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: fee
+                  example: fph
                 last_name:
                   type: string
                   description: 'Must be at least 2 characters. Must not be greater than 10 characters.'
-                  example: ptpghs
+                  example: cqiulmgqg
                 phone_number:
                   type: string
                   description: 'Must be 9 characters.'
-                  example: wnibpbgiy
+                  example: gvhvspluc
                 birth_date:
                   type: string
-                  description: 'Must be a valid date. Must be a date before <code>2015-08-24</code>.'
-                  example: '1994-08-27'
+                  description: 'Must be a valid date. Must be a date before <code>2015-10-21</code>.'
+                  example: '2003-12-26'
                 specialty:
                   type: string
                   description: 'Must be one of <code>doctor</code>, <code>student</code>, <code>pharmacist</code>, or <code>other</code>.'
-                  example: other
+                  example: doctor
                 gender:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
@@ -8612,11 +7895,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: erica40@example.net
+                  example: hermina.spencer@example.net
                 password:
                   type: string
                   description: ''
-                  example: fv!008%xN
+                  example: "!:*!%y^_5x$^-'U_C?V"
               required:
                 - email
                 - password
@@ -8631,22 +7914,22 @@ paths:
           in: query
           name: perPage
           description: "To return limite data in single page.\nDefaults value for variable '15'."
-          example: 17
+          example: 8
           required: false
           schema:
             type: integer
             description: "To return limite data in single page.\nDefaults value for variable '15'."
-            example: 17
+            example: 8
         -
           in: query
           name: name
           description: 'To return medicine from category name.'
-          example: dicta
+          example: asperiores
           required: false
           schema:
             type: string
             description: 'To return medicine from category name.'
-            example: dicta
+            example: asperiores
       responses:
         200:
           description: 'Success Process'
@@ -8812,7 +8095,7 @@ paths:
         in: path
         name: name
         description: ''
-        example: quas
+        example: illum
         required: true
         schema:
           type: string
@@ -8829,9 +8112,6 @@ tags:
   -
     name: 'Admin Medicine'
     description: "\nThis Api For Admin Medicine"
-  -
-    name: 'Admin MedicineDetail'
-    description: "\nThis Api For Admin MedicineDetail"
   -
     name: 'Admin Medicine Of Category'
     description: "\nThis Api For Medicine Of Category"

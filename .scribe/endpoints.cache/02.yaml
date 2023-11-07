@@ -186,17 +186,17 @@ endpoints:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: libero
+        example: voluptas
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: libero
+      file_name: voluptas
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: quidem
+        example: eaque
         type: string
         custom: []
       file_name:
@@ -207,7 +207,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: quidem
+      name: eaque
     fileParameters:
       file_name: null
     responses:
@@ -447,17 +447,17 @@ endpoints:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: ratione
+        example: repudiandae
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: ratione
+      file_name: repudiandae
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: assumenda
+        example: quidem
         type: string
         custom: []
       file_name:
@@ -468,7 +468,7 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: assumenda
+      name: quidem
     fileParameters:
       file_name: null
     responses:

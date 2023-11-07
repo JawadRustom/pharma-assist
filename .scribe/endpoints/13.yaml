@@ -1,20 +1,20 @@
-name: Medicine
+name: MedicineDetail
 description: |-
 
-  This Api For Medicine for Moderator in AdminDashboard
+  This Api For MedicineDetail for Moderator in AdminDashboard
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/moderator/medicines/medicinesOfModerator
+    uri: api/v1/moderator/medicineDetails/medicineDetailsOfModerator
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See medicines belong to moderator'
+      title: 'See medicine details belong to moderator'
       description: ''
       authenticated: false
       custom: []
@@ -35,27 +35,29 @@ endpoints:
           {
           "data": [
           {
-          "id": 11,
-          "name": "inside Moderator both",
+          "id": 6,
+          "medicine_type": {
+          "id": 3,
+          "type": "Dr. Lisa Wisoky"
+          },
+          "content": "dsa",
+          "medicine": {
+          "id": 1,
+          "name": "Victor Lebsack",
           "category": {
-          "id": 16,
-          "name": "dsa1234sad"
+          "id": 6,
+          "name": "Mrs. Alexandrine Kirlin II"
           },
           "company": {
-          "id": 16,
-          "name": "test1212331323"
-          },
-          "Image": {
-          "id": 4,
-          "imageable_id": 11,
-          "imageable_type": "App\\Models\\Medicine",
-          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          "id": 6,
+          "name": "Delphine Cormier IV"
+          }
           }
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
+          "first": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails/medicineDetailsOfModerator?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails/medicineDetailsOfModerator?page=1",
           "prev": null,
           "next": null
           },
@@ -70,7 +72,7 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails/medicineDetailsOfModerator?page=1",
           "label": "1",
           "active": true
           },
@@ -80,7 +82,7 @@ endpoints:
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/moderator/medicines/medicinesOfModerator",
+          "path": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails/medicineDetailsOfModerator",
           "per_page": 15,
           "to": 1,
           "total": 1
@@ -116,15 +118,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/moderator/medicines
+    uri: api/v1/moderator/medicineDetails
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See all Medicine'
+      title: 'See all MedicineDetail'
       description: ''
       authenticated: false
       custom: []
@@ -145,6 +147,13 @@ endpoints:
           {
           "data": [
           {
+          "id": 5,
+          "medicine_type": {
+          "id": 10,
+          "type": "Prof. Jasmin Schumm"
+          },
+          "content": "Qui voluptatem omnis voluptatum velit nesciunt. Ut eum et numquam cum. Eius ab laboriosam veritatis sed. Ut deleniti non cumque eveniet quibusdam vero eius.",
+          "medicine": {
           "id": 10,
           "name": "Newell Stark Sr.",
           "category": {
@@ -154,10 +163,17 @@ endpoints:
           "company": {
           "id": 15,
           "name": "Miss Rebecca Dibbert III"
-          },
-          "Image": null
+          }
+          }
           },
           {
+          "id": 4,
+          "medicine_type": {
+          "id": 9,
+          "type": "Alia Bruen V"
+          },
+          "content": "Dolores corporis possimus repellendus mollitia consequatur eos. A voluptas excepturi dolores dolores adipisci cum error consequatur. Eveniet consequatur laudantium et quos.",
+          "medicine": {
           "id": 9,
           "name": "Ernestina Lehner",
           "category": {
@@ -167,20 +183,20 @@ endpoints:
           "company": {
           "id": 14,
           "name": "Mr. Damon Johnson"
-          },
-          "Image": null
+          }
+          }
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=5",
+          "first": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=3",
           "prev": null,
-          "next": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2"
+          "next": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=2"
           },
           "meta": {
           "current_page": 1,
           "from": 1,
-          "last_page": 5,
+          "last_page": 3,
           "links": [
           {
           "url": null,
@@ -188,40 +204,30 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=1",
           "label": "1",
           "active": true
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=2",
           "label": "2",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=3",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=3",
           "label": "3",
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=4",
-          "label": "4",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=5",
-          "label": "5",
-          "active": false
-          },
-          {
-          "url": "http://127.0.0.1:8000/api/v1/moderator/medicines?page=2",
+          "url": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails?page=2",
           "label": "Next &raquo;",
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/moderator/medicines",
+          "path": "http://127.0.0.1:8000/api/v1/moderator/medicineDetails",
           "per_page": 2,
           "to": 2,
-          "total": 10
+          "total": 5
           }
           }
         headers: []
@@ -249,89 +255,75 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/moderator/medicines
+    uri: api/v1/moderator/medicineDetails
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create Medicine'
+      title: 'Create MedicineDetail'
       description: ''
       authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters:
-      file_name:
-        name: file_name
-        description: 'image To upload image.'
-        required: false
-        example: libero
-        type: string
-        custom: []
-    cleanQueryParameters:
-      file_name: libero
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
+      medicine_type_id:
+        name: medicine_type_id
         description: ''
         required: true
-        example: quia
+        example: dolore
         type: string
         custom: []
-      company_id:
-        name: company_id
+      content:
+        name: content
         description: ''
         required: true
-        example: neque
+        example: quis
         type: string
         custom: []
-      category_id:
-        name: category_id
+      medicine_id:
+        name: medicine_id
         description: ''
         required: true
-        example: voluptatibus
+        example: est
         type: string
-        custom: []
-      file_name:
-        name: file_name
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
         custom: []
     cleanBodyParameters:
-      name: quia
-      company_id: neque
-      category_id: voluptatibus
-    fileParameters:
-      file_name: null
+      medicine_type_id: dolore
+      content: quis
+      medicine_id: est
+    fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
           "data": {
-          "id": 11,
-          "name": "inside Moderator both",
+          "id": 6,
+          "medicine_type": {
+          "id": 1,
+          "type": "Corbin Cassin"
+          },
+          "content": "31ew",
+          "medicine": {
+          "id": 2,
+          "name": "Eric Heller IV",
           "category": {
-          "id": 16,
-          "name": "dsa1234sad"
+          "id": 7,
+          "name": "Zella Armstrong"
           },
           "company": {
-          "id": 16,
-          "name": "test1212331323"
-          },
-          "Image": {
-          "id": 4,
-          "imageable_id": 11,
-          "imageable_type": "App\\Models\\Medicine",
-          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          "id": 7,
+          "name": "Ava Gislason"
+          }
           }
           }
           }
@@ -351,19 +343,18 @@ endpoints:
         status: 422
         content: |-
           {
-          "message": "The name field is required. (and 2 more errors)",
+          "message": "The medicine type id field is required. (and 2 more errors)",
           "errors": {
-          "name": [
-          "The name field is required."
-          "The name has already been taken."
+          "medicine_type_id": [
+          "The medicine type id field is required."
+          "The selected medicine type id is invalid."
           ],
-          "company_id": [
-          "The company id field is required."
-          "The selected company id is invalid."
+          "content": [
+          "The content field is required."
           ],
-          "category_id": [
-          "The category id field is required."
-          "The selected company id is invalid."
+          "medicine_id": [
+          "The medicine id field is required."
+          "The selected medicine id is invalid."
           ]
           }
           }
@@ -379,15 +370,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/moderator/medicines/{id}'
+    uri: 'api/v1/moderator/medicineDetails/{id}'
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'See One Medicine'
+      title: 'See One MedicineDetail'
       description: ''
       authenticated: false
       custom: []
@@ -397,7 +388,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the medicine.'
+        description: 'The ID of the medicineDetail.'
         required: true
         example: 1
         type: integer
@@ -415,21 +406,23 @@ endpoints:
         content: |-
           {
           "data": {
-          "id": 11,
-          "name": "inside Moderator both",
+          "id": 2,
+          "medicine_type": {
+          "id": 7,
+          "type": "Prof. Nathaniel Kunde"
+          },
+          "content": "Sunt dignissimos recusandae fugiat aut explicabo voluptatibus perferendis. Dolor dolorum animi quidem. Optio iste quo dolore aspernatur.",
+          "medicine": {
+          "id": 7,
+          "name": "Prof. Peyton Hermann",
           "category": {
-          "id": 16,
-          "name": "dsa1234sad"
+          "id": 12,
+          "name": "Shaun Stiedemann"
           },
           "company": {
-          "id": 16,
-          "name": "test1212331323"
-          },
-          "Image": {
-          "id": 4,
-          "imageable_id": 11,
-          "imageable_type": "App\\Models\\Medicine",
-          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          "id": 12,
+          "name": "Ephraim Hayes"
+          }
           }
           }
           }
@@ -452,7 +445,7 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Medicine not found'
+        description: 'This MedicineDetail not found'
         custom: []
     responseFields: []
     auth: []
@@ -463,15 +456,15 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/moderator/medicines/{id}'
+    uri: 'api/v1/moderator/medicineDetails/{id}'
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete Medicine'
+      title: 'Delete MedicineDetail'
       description: ''
       authenticated: false
       custom: []
@@ -481,7 +474,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the medicine.'
+        description: 'The ID of the medicineDetail.'
         required: true
         example: 1
         type: integer
@@ -516,7 +509,7 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Medicine not found'
+        description: 'This MedicineDetail not found'
         custom: []
     responseFields: []
     auth: []
@@ -527,97 +520,83 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/moderator/medicines/{medicine_id}'
+    uri: 'api/v1/moderator/medicineDetails/{medicineDetail_id}'
     metadata:
-      groupName: Medicine
+      groupName: MedicineDetail
       groupDescription: |-
 
-        This Api For Medicine for Moderator in AdminDashboard
+        This Api For MedicineDetail for Moderator in AdminDashboard
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update Medicine'
+      title: 'Update MedicineDetail'
       description: ''
       authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters:
-      medicine_id:
-        name: medicine_id
-        description: 'The ID of the medicine.'
+      medicineDetail_id:
+        name: medicineDetail_id
+        description: 'The ID of the medicineDetail.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      medicine_id: 1
-    queryParameters:
-      file_name:
-        name: file_name
-        description: 'image To upload image.'
-        required: false
-        example: adipisci
-        type: string
-        custom: []
-    cleanQueryParameters:
-      file_name: adipisci
+      medicineDetail_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
+      medicine_type_id:
+        name: medicine_type_id
         description: ''
         required: true
-        example: dicta
+        example: dolorum
         type: string
         custom: []
-      company_id:
-        name: company_id
+      content:
+        name: content
         description: ''
         required: true
-        example: natus
+        example: sequi
         type: string
         custom: []
-      category_id:
-        name: category_id
+      medicine_id:
+        name: medicine_id
         description: ''
         required: true
-        example: sed
+        example: beatae
         type: string
-        custom: []
-      file_name:
-        name: file_name
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
         custom: []
     cleanBodyParameters:
-      name: dicta
-      company_id: natus
-      category_id: sed
-    fileParameters:
-      file_name: null
+      medicine_type_id: dolorum
+      content: sequi
+      medicine_id: beatae
+    fileParameters: []
     responses:
       -
         status: 200
         content: |-
           {
           "data": {
-          "id": 11,
-          "name": "inside Moderator both",
+          "id": 6,
+          "medicine_type": {
+          "id": 3,
+          "type": "Dr. Lisa Wisoky"
+          },
+          "content": "dsa",
+          "medicine": {
+          "id": 1,
+          "name": "Victor Lebsack",
           "category": {
-          "id": 16,
-          "name": "dsa1234sad"
+          "id": 6,
+          "name": "Mrs. Alexandrine Kirlin II"
           },
           "company": {
-          "id": 16,
-          "name": "test1212331323"
-          },
-          "Image": {
-          "id": 4,
-          "imageable_id": 11,
-          "imageable_type": "App\\Models\\Medicine",
-          "file_name": "http://127.0.0.1:8000/storage/Medicine/qLqZgBjlQI1hLy28wKaP0QhOlLep5zyMDY18b9Lc.jpg"
+          "id": 6,
+          "name": "Delphine Cormier IV"
+          }
           }
           }
           }
@@ -640,25 +619,24 @@ endpoints:
           "message": "not found"
           }
         headers: []
-        description: 'This Medicine not found'
+        description: 'This MedicineDetail not found'
         custom: []
       -
         status: 422
         content: |-
           {
-          "message": "The name field is required. (and 2 more errors)",
+          "message": "The medicine type id field is required. (and 2 more errors)",
           "errors": {
-          "name": [
-          "The name field is required."
-          "The name has already been taken."
+          "medicine_type_id": [
+          "The medicine type id field is required."
+          "The selected medicine type id is invalid."
           ],
-          "company_id": [
-          "The company id field is required."
-          "The selected company id is invalid."
+          "content": [
+          "The content field is required."
           ],
-          "category_id": [
-          "The category id field is required."
-          "The selected company id is invalid."
+          "medicine_id": [
+          "The medicine id field is required."
+          "The selected medicine id is invalid."
           ]
           }
           }

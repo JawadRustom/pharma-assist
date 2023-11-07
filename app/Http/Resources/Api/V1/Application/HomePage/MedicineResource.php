@@ -18,7 +18,7 @@ class MedicineResource extends JsonResource
         return [
             'id'=>$this->id,
             'name'=>$this->name,
-            'Image'=>new PhotoResource($this->photos),
+            'image'=>new PhotoResource($this->photos),
         ];
     }
 }

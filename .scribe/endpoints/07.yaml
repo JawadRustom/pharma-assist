@@ -1,56 +1,30 @@
-name: 'Moderator Medicine Of Copmany'
+name: 'Admin MedicineType'
 description: |-
 
-  This Api For Medicine Of Copmany
+  This Api For Admin MedicineType
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/admin/medicinesOfCompany/{name}'
+    uri: api/v1/admin/medicineTypes
     metadata:
-      groupName: 'Moderator Medicine Of Copmany'
+      groupName: 'Admin MedicineType'
       groupDescription: |-
 
-        This Api For Medicine Of Copmany
+        This Api For Admin MedicineType
       subgroup: ''
       subgroupDescription: ''
-      title: 'See all Medicine inside one Copmany'
+      title: 'See all MedicineType'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: quas
-        type: string
-        custom: []
-    cleanUrlParameters:
-      name: quas
-    queryParameters:
-      perPage:
-        name: perPage
-        description: |-
-          To return limite data in single page.
-          Defaults value for variable '15'.
-        required: false
-        example: 17
-        type: integer
-        custom: []
-      name:
-        name: name
-        description: 'To return medicine from category name.'
-        required: false
-        example: dicta
-        type: string
-        custom: []
-    cleanQueryParameters:
-      perPage: 17
-      name: dicta
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -62,25 +36,37 @@ endpoints:
           "data": [
           {
           "id": 12,
-          "name": "inside Comp12",
-          "Image": {
-          "id": 4,
-          "imageable_id": 12,
-          "imageable_type": "App\\Models\\Medicine",
-          "file_name": "http://127.0.0.1:8000/storage/Medicine/HBjFZoBPZJ3ITkFBZSiKms5V23huxe8kyDjsZgKk.png"
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          },
+          {
+          "id": 11,
+          "type": "test21111wqe",
+          "user": {
+          "id": 12,
+          "full_name": [
+          "Moderator",
+          "Moderator"
+          ]
           }
           }
           ],
           "links": {
-          "first": "http://127.0.0.1:8000/api/v1/admin/medicinesOfCompany/Hermina%20Corkery?page=1",
-          "last": "http://127.0.0.1:8000/api/v1/admin/medicinesOfCompany/Hermina%20Corkery?page=1",
+          "first": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
+          "last": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
           "prev": null,
-          "next": null
+          "next": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2"
           },
           "meta": {
           "current_page": 1,
           "from": 1,
-          "last_page": 1,
+          "last_page": 6,
           "links": [
           {
           "url": null,
@@ -88,20 +74,117 @@ endpoints:
           "active": false
           },
           {
-          "url": "http://127.0.0.1:8000/api/v1/admin/medicinesOfCompany/Hermina%20Corkery?page=1",
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=1",
           "label": "1",
           "active": true
           },
           {
-          "url": null,
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
+          "label": "2",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=3",
+          "label": "3",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=4",
+          "label": "4",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=5",
+          "label": "5",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=6",
+          "label": "6",
+          "active": false
+          },
+          {
+          "url": "http://127.0.0.1:8000/api/v1/admin/medicineTypes?page=2",
           "label": "Next &raquo;",
           "active": false
           }
           ],
-          "path": "http://127.0.0.1:8000/api/v1/admin/medicinesOfCompany/Hermina%20Corkery",
-          "per_page": 15,
-          "to": 1,
-          "total": 1
+          "path": "http://127.0.0.1:8000/api/v1/admin/medicineTypes",
+          "per_page": 2,
+          "to": 2,
+          "total": 12
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+
+          * @queryparam perPage int
+          To return limite data in single page.
+          Defaults value for variable '15'.
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/medicineTypes
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: nobis
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: nobis
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 12,
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
           }
           }
         headers: []
@@ -115,6 +198,263 @@ endpoints:
           }
         headers: []
         description: 'Account Not Admin'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The type field is required.",
+          "errors": {
+          "type": [
+          "The type field is required."
+          "The type has already been taken."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'See One MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 12,
+          "type": "test",
+          "user": {
+          "id": 11,
+          "full_name": [
+          "Admin",
+          "Admin"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: repellendus
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: repellendus
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 11,
+          "type": "test21111wqe",
+          "user": {
+          "id": 12,
+          "full_name": [
+          "Moderator",
+          "Moderator"
+          ]
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The type field is required.",
+          "errors": {
+          "type": [
+          "The type field is required."
+          "The type has already been taken."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/admin/medicineTypes/{id}'
+    metadata:
+      groupName: 'Admin MedicineType'
+      groupDescription: |-
+
+        This Api For Admin MedicineType
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete MedicineType'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the medicineType.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: ''
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+          "message": "not found"
+          }
+        headers: []
+        description: 'This MedicineType not found'
         custom: []
     responseFields: []
     auth: []
