@@ -16,6 +16,6 @@ class FacebookProvider implements RegisterationInterface
 
     public function register(array $attributes): string
     {
-        dd(FacebookProvider::PROVIDER);
+        return RegisterationHelper::register(FacebookProvider::PROVIDER, $attributes);
     }
 }

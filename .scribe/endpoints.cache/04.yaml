@@ -164,130 +164,6 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/v1/admin/medicines
-    metadata:
-      groupName: 'Admin Medicine'
-      groupDescription: |-
-
-        This Api For Admin Medicine
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Create Medicine'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters:
-      file_name:
-        name: file_name
-        description: 'image To upload image.'
-        required: false
-        example: ut
-        type: string
-        custom: []
-    cleanQueryParameters:
-      file_name: ut
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: aut
-        type: string
-        custom: []
-      company_id:
-        name: company_id
-        description: ''
-        required: true
-        example: nisi
-        type: string
-        custom: []
-      category_id:
-        name: category_id
-        description: ''
-        required: true
-        example: neque
-        type: string
-        custom: []
-      file_name:
-        name: file_name
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        custom: []
-    cleanBodyParameters:
-      name: aut
-      company_id: nisi
-      category_id: neque
-    fileParameters:
-      file_name: null
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-          "data": {
-          "id": 11,
-          "name": "test",
-          "category": {
-          "id": 1,
-          "name": "Alanna Wiza II"
-          },
-          "company": {
-          "id": 1,
-          "name": "Terence Barrows V"
-          }
-          }
-          }
-        headers: []
-        description: 'Success Process'
-        custom: []
-      -
-        status: 401
-        content: |-
-          {
-          "message": "Unauthenticated."
-          }
-        headers: []
-        description: 'Account Not Admin'
-        custom: []
-      -
-        status: 422
-        content: |-
-          {
-          "message": "The name field is required. (and 2 more errors)",
-          "errors": {
-          "name": [
-          "The name field is required."
-          "The name has already been taken."
-          ],
-          "company_id": [
-          "The company id field is required."
-          "The selected company id is invalid."
-          ],
-          "category_id": [
-          "The category id field is required."
-          "The selected company id is invalid."
-          ]
-          }
-          }
-        headers: []
-        description: 'Validation errors'
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
     uri: 'api/v1/admin/medicines/{id}'
     metadata:
@@ -474,31 +350,31 @@ endpoints:
         name: file_name
         description: 'image To upload image.'
         required: false
-        example: atque
+        example: saepe
         type: string
         custom: []
     cleanQueryParameters:
-      file_name: atque
+      file_name: saepe
     bodyParameters:
       name:
         name: name
         description: ''
         required: true
-        example: velit
+        example: natus
         type: string
         custom: []
       company_id:
         name: company_id
         description: ''
         required: true
-        example: omnis
+        example: eius
         type: string
         custom: []
       category_id:
         name: category_id
         description: ''
         required: true
-        example: vel
+        example: dolores
         type: string
         custom: []
       file_name:
@@ -509,9 +385,9 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: velit
-      company_id: omnis
-      category_id: vel
+      name: natus
+      company_id: eius
+      category_id: dolores
     fileParameters:
       file_name: null
     responses:
@@ -576,6 +452,136 @@ endpoints:
           ],
           "category_id": [
           "The company id field is required."
+          "The selected company id is invalid."
+          ]
+          }
+          }
+        headers: []
+        description: 'Validation errors'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/medicines
+    metadata:
+      groupName: 'Admin Medicine'
+      groupDescription: |-
+
+        This Api For Admin Medicine
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Medicine'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: quia
+        type: string
+        custom: []
+      company_id:
+        name: company_id
+        description: ''
+        required: true
+        example: tenetur
+        type: string
+        custom: []
+      category_id:
+        name: category_id
+        description: ''
+        required: true
+        example: culpa
+        type: string
+        custom: []
+      file_name:
+        name: file_name
+        description: 'To upload image.'
+        required: false
+        example: iste
+        type: image
+        custom: []
+      details:
+        name: details
+        description: 'array of medicine details .'
+        required: true
+        example:
+          -
+            medicine_type_id: 1
+            content: 'Your medicine details content'
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      name: quia
+      company_id: tenetur
+      category_id: culpa
+      file_name: iste
+      details:
+        -
+          medicine_type_id: 1
+          content: 'Your medicine details content'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 11,
+          "name": "test",
+          "category": {
+          "id": 1,
+          "name": "Alanna Wiza II"
+          },
+          "company": {
+          "id": 1,
+          "name": "Terence Barrows V"
+          }
+          }
+          }
+        headers: []
+        description: 'Success Process'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated."
+          }
+        headers: []
+        description: 'Account Not Admin'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "message": "The name field is required. (and 2 more errors)",
+          "errors": {
+          "name": [
+          "The name field is required."
+          "The name has already been taken."
+          ],
+          "company_id": [
+          "The company id field is required."
+          "The selected company id is invalid."
+          ],
+          "category_id": [
+          "The category id field is required."
           "The selected company id is invalid."
           ]
           }

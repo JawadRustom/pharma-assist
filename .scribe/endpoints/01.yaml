@@ -30,19 +30,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: hickle.carey@example.org
+        example: nasir.mccullough@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'GiRp\ypr=\1dS&N_fFuf'
+        example: 'w%E-{fc$:r&(gPJ'
         type: string
         custom: []
     cleanBodyParameters:
-      email: hickle.carey@example.org
-      password: 'GiRp\ypr=\1dS&N_fFuf'
+      email: nasir.mccullough@example.net
+      password: 'w%E-{fc$:r&(gPJ'
     fileParameters: []
     responses:
       -

@@ -16,6 +16,6 @@ class LocalProvider implements RegisterationInterface
 
     public function register(array $attributes): string
     {
-        dd(LocalProvider::PROVIDER);
+        return RegisterationHelper::register(LocalProvider::PROVIDER, $attributes);
     }
 }

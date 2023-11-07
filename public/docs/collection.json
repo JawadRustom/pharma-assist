@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "3316731e-f9b4-4427-892e-110aacb54045",
+        "_postman_id": "be15ad35-d07f-46e5-9d3e-64bf6262d90f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"hickle.carey@example.org\",\"password\":\"GiRp\\\\ypr=\\\\1dS&N_fFuf\"}"
+                            "raw": "{\"email\":\"nasir.mccullough@example.net\",\"password\":\"w%E-{fc$:r&(gPJ\"}"
                         },
                         "description": "",
                         "auth": {
@@ -131,12 +131,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "libero",
+                                    "value": "voluptas",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/categories?file_name=libero"
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/categories?file_name=voluptas"
                         },
                         "method": "POST",
                         "header": [
@@ -154,7 +154,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "quidem",
+                                    "value": "eaque",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -310,12 +310,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "ratione",
+                                    "value": "repudiandae",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/categories\/:category_id?file_name=ratione",
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/categories\/:category_id?file_name=repudiandae",
                             "variable": [
                                 {
                                     "id": "category_id",
@@ -341,7 +341,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "assumenda",
+                                    "value": "quidem",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -440,12 +440,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "sed",
+                                    "value": "eum",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/companies?file_name=sed"
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/companies?file_name=eum"
                         },
                         "method": "POST",
                         "header": [
@@ -463,7 +463,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "voluptates",
+                                    "value": "sed",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -619,12 +619,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "ipsa",
+                                    "value": "dolores",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/companies\/:company_id?file_name=ipsa",
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/companies\/:company_id?file_name=dolores",
                             "variable": [
                                 {
                                     "id": "company_id",
@@ -650,7 +650,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "non",
+                                    "value": "nihil",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -737,87 +737,6 @@
                             "code": 401,
                             "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
                             "name": "Account Not Admin"
-                        }
-                    ]
-                },
-                {
-                    "name": "Create Medicine",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicines",
-                            "query": [
-                                {
-                                    "key": "file_name",
-                                    "value": "ut",
-                                    "description": "image To upload image.",
-                                    "disabled": false
-                                }
-                            ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicines?file_name=ut"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "multipart\/form-data"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "formdata",
-                            "formdata": [
-                                {
-                                    "key": "name",
-                                    "value": "aut",
-                                    "type": "text",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "company_id",
-                                    "value": "nisi",
-                                    "type": "text",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "category_id",
-                                    "value": "neque",
-                                    "type": "text",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "file_name",
-                                    "src": [],
-                                    "type": "file"
-                                }
-                            ]
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n\"data\": {\n\"id\": 11,\n\"name\": \"test\",\n\"category\": {\n\"id\": 1,\n\"name\": \"Alanna Wiza II\"\n},\n\"company\": {\n\"id\": 1,\n\"name\": \"Terence Barrows V\"\n}\n}\n}",
-                            "name": "Success Process"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
-                            "name": "Account Not Admin"
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n\"message\": \"The name field is required. (and 2 more errors)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n\"The name has already been taken.\"\n],\n\"company_id\": [\n\"The company id field is required.\"\n\"The selected company id is invalid.\"\n],\n\"category_id\": [\n\"The category id field is required.\"\n\"The selected company id is invalid.\"\n]\n}\n}",
-                            "name": "Validation errors"
                         }
                     ]
                 },
@@ -940,12 +859,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "atque",
+                                    "value": "saepe",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicines\/:medicine_id?file_name=atque",
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicines\/:medicine_id?file_name=saepe",
                             "variable": [
                                 {
                                     "id": "medicine_id",
@@ -971,19 +890,19 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "velit",
+                                    "value": "natus",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "company_id",
-                                    "value": "omnis",
+                                    "value": "eius",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "vel",
+                                    "value": "dolores",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -1025,62 +944,15 @@
                             "name": "Validation errors"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Admin MedicineDetail",
-            "description": "\nThis Api For Admin MedicineDetail",
-            "item": [
-                {
-                    "name": "See all MedicineDetail",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicineDetails",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicineDetails"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n\"data\": [\n{\n\"id\": 6,\n\"medicine_type\": {\n\"id\": 1,\n\"type\": \"Lew Block\"\n},\n\"content\": \"test test\",\n\"medicine\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Bert Zieme\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"testtest\"\n}\n},\n\"user\": {\n\"id\": 11,\n\"full_name\": [\n\"Admin\",\n\"Admin\"\n]\n}\n},\n{\n\"id\": 5,\n\"medicine_type\": {\n\"id\": 10,\n\"type\": \"Anabel Dare\"\n},\n\"content\": \"Quas blanditiis reprehenderit aliquid est. Amet est eos perspiciatis voluptatem distinctio quae provident. Adipisci aperiam accusantium et et sit rerum ipsum.\",\n\"medicine\": {\n\"id\": 10,\n\"name\": \"Retha Lind\",\n\"category\": {\n\"id\": 15,\n\"name\": \"Dixie Boyle\"\n},\n\"company\": {\n\"id\": 15,\n\"name\": \"Prof. Kameron Schumm Sr.\"\n}\n},\n\"user\": null\n}\n],\n\"links\": {\n\"first\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=1\",\n\"last\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=3\",\n\"prev\": null,\n\"next\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=2\"\n},\n\"meta\": {\n\"current_page\": 1,\n\"from\": 1,\n\"last_page\": 3,\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=1\",\n\"label\": \"1\",\n\"active\": true\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=2\",\n\"label\": \"2\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=3\",\n\"label\": \"3\",\n\"active\": false\n},\n{\n\"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/admin\/medicineDetails\",\n\"per_page\": 2,\n\"to\": 2,\n\"total\": 6\n}\n}",
-                            "name": "Success Process"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Unauthenticated.\"\n}\n\n* @queryparam perPage int\nTo return limite data in single page.\nDefaults value for variable '15'.",
-                            "name": "Account Not Admin"
-                        }
-                    ]
                 },
                 {
-                    "name": "Create MedicineDetail",
+                    "name": "Create Medicine",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicineDetails",
+                            "path": "api\/v1\/admin\/medicines",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicineDetails"
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicines"
                         },
                         "method": "POST",
                         "header": [
@@ -1095,7 +967,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"medicine_type_id\":\"accusamus\",\"content\":\"consequatur\",\"medicine_id\":\"doloribus\"}"
+                            "raw": "{\"name\":\"quia\",\"company_id\":\"tenetur\",\"category_id\":\"culpa\",\"file_name\":\"iste\",\"details\":[{\"medicine_type_id\":1,\"content\":\"Your medicine details content\"}]}"
                         },
                         "description": "",
                         "auth": {
@@ -1106,7 +978,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"data\": {\n\"id\": 6,\n\"medicine_type\": {\n\"id\": 1,\n\"type\": \"Lew Block\"\n},\n\"content\": \"test test\",\n\"medicine\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Bert Zieme\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"testtest\"\n}\n},\n\"user\": {\n\"id\": 11,\n\"full_name\": [\n\"Admin\",\n\"Admin\"\n]\n}\n}\n}",
+                            "body": "{\n\"data\": {\n\"id\": 11,\n\"name\": \"test\",\n\"category\": {\n\"id\": 1,\n\"name\": \"Alanna Wiza II\"\n},\n\"company\": {\n\"id\": 1,\n\"name\": \"Terence Barrows V\"\n}\n}\n}",
                             "name": "Success Process"
                         },
                         {
@@ -1118,182 +990,8 @@
                         {
                             "header": [],
                             "code": 422,
-                            "body": "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n\"The selected medicine type id is invalid.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n\"The selected medicine id is invalid.\"\n]\n}\n}",
+                            "body": "{\n\"message\": \"The name field is required. (and 2 more errors)\",\n\"errors\": {\n\"name\": [\n\"The name field is required.\"\n\"The name has already been taken.\"\n],\n\"company_id\": [\n\"The company id field is required.\"\n\"The selected company id is invalid.\"\n],\n\"category_id\": [\n\"The category id field is required.\"\n\"The selected company id is invalid.\"\n]\n}\n}",
                             "name": "Validation errors"
-                        }
-                    ]
-                },
-                {
-                    "name": "See One MedicineDetail",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicineDetails\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicineDetails\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the medicineDetail."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n\"data\": {\n\"id\": 6,\n\"medicine_type\": {\n\"id\": 1,\n\"type\": \"Lew Block\"\n},\n\"content\": \"test test\",\n\"medicine\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Bert Zieme\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"testtest\"\n}\n},\n\"user\": {\n\"id\": 11,\n\"full_name\": [\n\"Admin\",\n\"Admin\"\n]\n}\n}\n}",
-                            "name": "Success Process"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
-                            "name": "Account Not Admin"
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\n\"message\": \"not found\"\n}",
-                            "name": "This MedicineDetail not found"
-                        }
-                    ]
-                },
-                {
-                    "name": "Update MedicineDetail",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicineDetails\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicineDetails\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the medicineDetail."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"medicine_type_id\":\"ipsum\",\"content\":\"distinctio\",\"medicine_id\":\"aperiam\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n\"data\": {\n\"id\": 6,\n\"medicine_type\": {\n\"id\": 1,\n\"type\": \"Lew Block\"\n},\n\"content\": \"test test\",\n\"medicine\": {\n\"id\": 1,\n\"name\": \"test\",\n\"category\": {\n\"id\": 2,\n\"name\": \"Bert Zieme\"\n},\n\"company\": {\n\"id\": 2,\n\"name\": \"testtest\"\n}\n},\n\"user\": {\n\"id\": 11,\n\"full_name\": [\n\"Admin\",\n\"Admin\"\n]\n}\n}\n}",
-                            "name": "Success Process"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
-                            "name": "Account Not Admin"
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\n\"message\": \"not found\"\n}",
-                            "name": "This MedicineDetail not found"
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n\"message\": \"The medicine type id field is required. (and 2 more errors)\",\n\"errors\": {\n\"medicine_type_id\": [\n\"The medicine type id field is required.\"\n\"The selected medicine type id is invalid.\"\n],\n\"content\": [\n\"The content field is required.\"\n],\n\"medicine_id\": [\n\"The medicine id field is required.\"\n\"The selected medicine id is invalid.\"\n]\n}\n}",
-                            "name": "Validation errors"
-                        }
-                    ]
-                },
-                {
-                    "name": "Delete MedicineDetail",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/medicineDetails\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicineDetails\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the medicineDetail."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 204,
-                            "body": "",
-                            "name": "Success Process"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n\"message\": \"Unauthenticated.\"\n}",
-                            "name": "Account Not Admin"
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\n\"message\": \"not found\"\n}",
-                            "name": "This MedicineDetail not found"
                         }
                     ]
                 }
@@ -1312,23 +1010,23 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "12",
+                                    "value": "6",
                                     "description": "To return limite data in single page.\nDefaults value for variable '15'.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "qui",
+                                    "value": "quia",
                                     "description": "To return medicine from category name.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicinesOfCategory\/:name?perPage=12&name=qui",
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicinesOfCategory\/:name?perPage=6&name=quia",
                             "variable": [
                                 {
                                     "id": "name",
                                     "key": "name",
-                                    "value": "omnis",
+                                    "value": "modi",
                                     "description": ""
                                 }
                             ]
@@ -1374,23 +1072,23 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "10",
+                                    "value": "9",
                                     "description": "To return limite data in single page.\nDefaults value for variable '15'.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "sint",
+                                    "value": "nihil",
                                     "description": "To return medicine from category name.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicinesOfCategoryForModeratorController\/:name?perPage=10&name=sint",
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicinesOfCategoryForModeratorController\/:name?perPage=9&name=nihil",
                             "variable": [
                                 {
                                     "id": "name",
                                     "key": "name",
-                                    "value": "quam",
+                                    "value": "voluptates",
                                     "description": ""
                                 }
                             ]
@@ -1442,23 +1140,23 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "15",
+                                    "value": "11",
                                     "description": "To return limite data in single page.\nDefaults value for variable '15'.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "quaerat",
+                                    "value": "blanditiis",
                                     "description": "To return medicine from category name.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicinesOfCompanyForModerator\/:name?perPage=15&name=quaerat",
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicinesOfCompanyForModerator\/:name?perPage=11&name=blanditiis",
                             "variable": [
                                 {
                                     "id": "name",
                                     "key": "name",
-                                    "value": "fuga",
+                                    "value": "possimus",
                                     "description": ""
                                 }
                             ]
@@ -1564,7 +1262,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"type\":\"ut\"}"
+                            "raw": "{\"type\":\"nobis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1677,7 +1375,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"type\":\"dolore\"}"
+                            "raw": "{\"type\":\"repellendus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1835,7 +1533,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"flzwieykq\",\"last_name\":\"neaedskiz\",\"email\":\"mayer.tre@example.com\",\"password\":\"@_6erJGUH{CU&AR2n<w\",\"phone_number\":\"ynsoheaxq\"}"
+                            "raw": "{\"first_name\":\"xvp\",\"last_name\":\"tjdqanokokrr\",\"email\":\"norberto.mcdermott@example.org\",\"password\":\"UG*snqq(&F*Tah=\\\\Z\",\"phone_number\":\"omdturiri\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1875,7 +1573,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptas",
+                                    "value": "totam",
                                     "description": "The ID of the moderator."
                                 }
                             ]
@@ -1930,7 +1628,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "perferendis",
+                                    "value": "iure",
                                     "description": "The ID of the moderator."
                                 }
                             ]
@@ -1948,7 +1646,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"qsievumvdxvoxci\",\"last_name\":\"owlgxqrsjsesc\",\"email\":\"wyman.frederik@example.net\",\"password\":\"cBe8i'\\\/Mddos+Vx|\",\"phone_number\":\"ydpwicgjm\"}"
+                            "raw": "{\"first_name\":\"wxfszqao\",\"last_name\":\"uhkbqg\",\"email\":\"brice.bins@example.net\",\"password\":\"FH#8=H0V\\\/Cw9#TuBG\",\"phone_number\":\"mdkdxxmuh\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1994,7 +1692,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "tempora",
+                                    "value": "cumque",
                                     "description": "The ID of the moderator."
                                 }
                             ]
@@ -2140,12 +1838,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "nisi",
+                                    "value": "inventore",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/categories?file_name=nisi"
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/categories?file_name=inventore"
                         },
                         "method": "POST",
                         "header": [
@@ -2163,7 +1861,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "dolorem",
+                                    "value": "eum",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -2319,12 +2017,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "voluptatibus",
+                                    "value": "dicta",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/categories\/:category_id?file_name=voluptatibus",
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/categories\/:category_id?file_name=dicta",
                             "variable": [
                                 {
                                     "id": "category_id",
@@ -2350,7 +2048,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "qui",
+                                    "value": "quos",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -2512,7 +2210,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "sed",
+                                    "value": "eum",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -2668,12 +2366,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "sed",
+                                    "value": "rerum",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/companies\/:company_id?file_name=sed",
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/companies\/:company_id?file_name=rerum",
                             "variable": [
                                 {
                                     "id": "company_id",
@@ -2699,7 +2397,7 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "ullam",
+                                    "value": "odio",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -2856,13 +2554,13 @@
                                 {
                                     "id": "dataFrom",
                                     "key": "dataFrom",
-                                    "value": "dolore",
+                                    "value": "ea",
                                     "description": ""
                                 },
                                 {
                                     "id": "name",
                                     "key": "name",
-                                    "value": "est",
+                                    "value": "ipsum",
                                     "description": ""
                                 }
                             ]
@@ -3189,12 +2887,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "libero",
+                                    "value": "qui",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicines?file_name=libero"
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicines?file_name=qui"
                         },
                         "method": "POST",
                         "header": [
@@ -3212,19 +2910,19 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "quia",
+                                    "value": "totam",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "company_id",
-                                    "value": "neque",
+                                    "value": "qui",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "voluptatibus",
+                                    "value": "quo",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -3380,12 +3078,12 @@
                             "query": [
                                 {
                                     "key": "file_name",
-                                    "value": "adipisci",
+                                    "value": "quo",
                                     "description": "image To upload image.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicines\/:medicine_id?file_name=adipisci",
+                            "raw": "{{baseUrl}}\/api\/v1\/moderator\/medicines\/:medicine_id?file_name=quo",
                             "variable": [
                                 {
                                     "id": "medicine_id",
@@ -3411,19 +3109,19 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "dicta",
+                                    "value": "facilis",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "company_id",
-                                    "value": "natus",
+                                    "value": "voluptates",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "category_id",
-                                    "value": "sed",
+                                    "value": "exercitationem",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -3582,7 +3280,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"medicine_type_id\":\"enim\",\"content\":\"asperiores\",\"medicine_id\":\"aut\"}"
+                            "raw": "{\"medicine_type_id\":\"dolore\",\"content\":\"quis\",\"medicine_id\":\"est\"}"
                         },
                         "description": "",
                         "auth": {
@@ -3750,7 +3448,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"medicine_type_id\":\"odio\",\"content\":\"dolores\",\"medicine_id\":\"sint\"}"
+                            "raw": "{\"medicine_type_id\":\"dolorum\",\"content\":\"sequi\",\"medicine_id\":\"beatae\"}"
                         },
                         "description": "",
                         "auth": {
@@ -3900,7 +3598,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"type\":\"rerum\"}"
+                            "raw": "{\"type\":\"quia\"}"
                         },
                         "description": "",
                         "auth": {
@@ -4068,7 +3766,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"type\":\"cum\"}"
+                            "raw": "{\"type\":\"a\"}"
                         },
                         "description": "",
                         "auth": {
@@ -4171,7 +3869,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"bayer.arlie@example.net\",\"password\":\"0uc$L]C^4^\\\\nH\\\\y\\\/?\"}"
+                            "raw": "{\"email\":\"abbott.jayden@example.org\",\"password\":\"&#%mz9%JLUP\"}"
                         },
                         "description": "",
                         "auth": {
@@ -4227,7 +3925,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"kim45@example.com\",\"password\":\"^;B7ZcC.nQen`?\",\"first_name\":\"fee\",\"last_name\":\"ptpghs\",\"phone_number\":\"wnibpbgiy\",\"birth_date\":\"1994-08-27\",\"specialty\":\"other\",\"gender\":\"female\"}"
+                            "raw": "{\"email\":\"kgrant@example.net\",\"password\":\"pCvQf.nHmd_PB'su$*<z\",\"first_name\":\"fph\",\"last_name\":\"cqiulmgqg\",\"phone_number\":\"gvhvspluc\",\"birth_date\":\"2003-12-26\",\"specialty\":\"doctor\",\"gender\":\"female\"}"
                         },
                         "description": "",
                         "auth": {
@@ -4283,7 +3981,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"erica40@example.net\",\"password\":\"fv!008%xN\"}"
+                            "raw": "{\"email\":\"hermina.spencer@example.net\",\"password\":\"!:*!%y^_5x$^-'U_C?V\"}"
                         },
                         "description": "",
                         "auth": {
@@ -4332,23 +4030,23 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "17",
+                                    "value": "8",
                                     "description": "To return limite data in single page.\nDefaults value for variable '15'.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "dicta",
+                                    "value": "asperiores",
                                     "description": "To return medicine from category name.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicinesOfCompany\/:name?perPage=17&name=dicta",
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/medicinesOfCompany\/:name?perPage=8&name=asperiores",
                             "variable": [
                                 {
                                     "id": "name",
                                     "key": "name",
-                                    "value": "quas",
+                                    "value": "illum",
                                     "description": ""
                                 }
                             ]
