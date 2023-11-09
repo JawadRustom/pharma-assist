@@ -293,8 +293,8 @@ class MedicineController extends Controller
         }
         foreach ($request->details as $medicineDetail) {
             MedicineDetail::create([
-                'medicine_type_id' => $medicineDetail->medicine_type_id,
-                'content' => $medicineDetail->content,
+                'medicine_type_id' => $medicineDetail['medicine_type_id'],
+                'content' => $medicineDetail['content'],
                 'medicine_id' => $data->id,
                 'user_id' => $data->user_id,
             ]);
@@ -376,8 +376,8 @@ class MedicineController extends Controller
             MedicineDetail::where('medicine_id', $medicine->id)->delete();
             foreach ($request->details as $medicineDetail) {
                 MedicineDetail::create([
-                    'medicine_type_id' => $medicineDetail->medicine_type_id,
-                    'content' => $medicineDetail->content,
+                    'medicine_type_id' => $medicineDetail['medicine_type_id'],
+                    'content' => $medicineDetail['content'],
                     'medicine_id' => $medicine->id,
                     'user_id' => $medicine->user_id,
                 ]);

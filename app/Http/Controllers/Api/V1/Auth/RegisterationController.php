@@ -26,7 +26,6 @@ class RegisterationController extends Controller
     public function logout()
     {
         auth()->user()->currentAccessToken()->delete();
-
         return response()->noContent();
     }
 }
