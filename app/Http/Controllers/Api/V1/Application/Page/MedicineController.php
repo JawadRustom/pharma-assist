@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api\V1\Application\Page;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\Application\DataPage\MedicineResource;
 use App\Models\Medicine;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\Api\V1\AdminDashboard\Admin\MedicineResource\MedicineResource;
 
-class DataPageController extends Controller
+class MedicineController extends Controller
 {
-    public function seeDataForMedicine(Request $request, Medicine $medicine)
+    public function __invoke(Medicine $medicine)
     {
-        return response(['message' => 'Invalid data value'], 400);
+        return new MedicineResource($medicine);
     }
 }
